@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Login, Onboarding, Signup } from './screens';
+import { COLORS } from './constants';
+
+const Stack = createNativeStackNavigator()
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+       <StatusBar backgroundColor={COLORS.primary} barStyle="default"/>
+        <Stack.Navigator initialRouteName='onBoarding'>
+            <Stack.Screen name='onBoarding' component={Onboarding}
+            options={{
+              title: '',
+              headerShadowVisible: false,
+              headerStyle: {backgroundColor: COLORS.primary}
+            }}/>
+            <Stack.Screen name="login" component={Login}/>
+            <Stack.Screen name="signup" component={Signup}/>
+        </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
