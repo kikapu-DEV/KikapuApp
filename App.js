@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View, SafeAreaView, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Login, Onboarding, Signup } from "./screens";
+import { Login, Onboarding, Signup, Verify } from "./screens";
 import { COLORS, SIZES } from "./constants";
-import { SemiCircle } from "./components";
+import { SemiCircle, SemiCircle2 } from "./components";
 
 const Stack = createNativeStackNavigator();
 
@@ -43,6 +43,16 @@ export default function App() {
             headerLeft: () => <SemiCircle title="SIGN UP" />,
           }}
         />
+        <Stack.Screen
+        name="verify"
+        component={Verify}
+        options={{
+          headerTitle: '',
+          headerShadowVisible: false,
+          headerStyle: {backgroundColor: 'transparent'},
+          headerLeft: ()=> <SemiCircle2 screenName="signup"/>
+        }}
+      />
       </Stack.Navigator>
     </NavigationContainer>
   );

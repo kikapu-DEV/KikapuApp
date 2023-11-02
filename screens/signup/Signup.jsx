@@ -84,7 +84,7 @@ function Signup() {
             </Text>
           </Pressable>
         </View>
-        <Button1 title="SIGN ME UP" screenName="onBoarding" />
+        <Button1 title="SIGN ME UP" screenName="verify" />
       </ScrollView>
     </ScrollView>
   );
