@@ -1,7 +1,8 @@
 const COLORS = {
   primary: "#06193F",
   secondary: "#18D26E",
-  whiteText: '#fff'
+  whiteText: "#fff",
+  grey: "#D9D9D9",
 };
 
 const SIZES = {
@@ -12,7 +13,7 @@ const SIZES = {
   xLarge: 24,
   xxLarge: 32,
   dLarge: 60,
-  ddLarge: 80
+  ddLarge: 80,
 };
 
 export { COLORS, SIZES };

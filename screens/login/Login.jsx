@@ -29,7 +29,7 @@ function Login({ navigation }) {
             </Text>
           </Pressable>
         </View>
-        <Button1 title="SIGN ME IN" screenName="signup" />
+        <Button1 title="SIGN ME IN" screenName="studentHome" />
       </View>
     </View>
   );
