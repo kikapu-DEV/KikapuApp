@@ -9,7 +9,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import styles from "./studenthome.style";
 import { COLORS, icons } from "../../constants";
-import { TopRestraunts } from "../../components";
+import { AvailableNear, TopRestraunts } from "../../components";
 
 function StudentHome() {
   return (
@@ -32,7 +32,7 @@ function StudentHome() {
             <TextInput
               style={styles.searchInput}
               value=""
-              placeholder="What are you looking for?"
+              placeholder="Search Restaurant"
               onChange={() => {}}
             />
           </View>
@@ -40,8 +40,10 @@ function StudentHome() {
             <Ionicons name="ios-search-outline" size={24} color="black" />
           </TouchableOpacity>
         </View>
+
         {/* TOP RESTAURANTS */}
         <TopRestraunts/>
+        <AvailableNear/>
       </ScrollView>
       
     </View>
