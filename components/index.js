@@ -5,5 +5,7 @@ import ScreenHeader from "./screenHeader/ScreenHeader";
 import RightHeader from "./rightHeader/RightHeader";
 import TopRestraunts from "./topRestraunts/TopRestraunts";
 import RestCard from "./restCard/RestCard";
+import AvailableNear from "./availableNear/AvailableNear";
+import AvailableCard from "./availableCard/AvailableCard";
 
-export { SemiCircle, SemiCircle2, Button1, ScreenHeader, RightHeader, TopRestraunts, RestCard };
+export { SemiCircle, SemiCircle2, Button1, ScreenHeader, RightHeader, TopRestraunts, RestCard, AvailableNear, AvailableCard };

@@ -3,6 +3,8 @@ const COLORS = {
   secondary: "#18D26E",
   whiteText: "#fff",
   grey: "#D9D9D9",
+  grey2: '#1C1C1C',
+  yellow: "#FEBB10"
 };
 
 const SIZES = {

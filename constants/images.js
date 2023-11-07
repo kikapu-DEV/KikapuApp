@@ -4,7 +4,8 @@ import avatar1 from '../assets/images/avatar1.png';
 import food1 from '../assets/images/food1.png'; 
 import food2 from '../assets/images/food2.png'; 
 import food3 from '../assets/images/food3.png'; 
-import food4 from '../assets/images/food4.png'; 
+import available1 from '../assets/images/available1.png'
+import available2 from '../assets/images/available2.png'
 
 export default {
     foodBasket,
@@ -13,5 +14,6 @@ export default {
     food1,
     food2,
     food3,
-    food3
+    available1,
+    available2
 };
