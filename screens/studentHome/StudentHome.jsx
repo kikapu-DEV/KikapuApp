@@ -9,11 +9,12 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import styles from "./studenthome.style";
 import { COLORS, icons } from "../../constants";
-import { AvailableNear, TopRestraunts } from "../../components";
+import { AvailableNear, Header, TopRestraunts } from "../../components";
 
 function StudentHome() {
   return (
     <View style={styles.container}>
+      <Header/>
       <View style={styles.welcome}>
         <Text style={styles.welcomeText}>
           Find your favorite restaurant and menu near you
@@ -25,7 +26,7 @@ function StudentHome() {
           style={styles.notificationIcon}
         />
       </View>
-      <ScrollView style={styles.homeDisplay}>
+      <ScrollView style={styles.homeDisplay} contentContainerStyle={{paddingBottom:30}}>
         {/* search button */}
         <View style={styles.searchContainer}>
           <View style={styles.searchWrapper}>
