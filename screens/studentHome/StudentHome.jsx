@@ -10,8 +10,10 @@ import { Ionicons } from "@expo/vector-icons";
 import styles from "./studenthome.style";
 import { COLORS, icons } from "../../constants";
 import { AvailableNear, Header, TopRestraunts } from "../../components";
+import { useState } from "react";
 
 function StudentHome() {
+  const [search, setSearch] = useState('')
   return (
     <View style={styles.container}>
       <Header/>
@@ -32,9 +34,9 @@ function StudentHome() {
           <View style={styles.searchWrapper}>
             <TextInput
               style={styles.searchInput}
-              value=""
+              value={search}
               placeholder="Search Restaurant"
-              onChange={() => {}}
+              onChange={(e) => setSearch(e.target.value)}
             />
           </View>
           <TouchableOpacity style={styles.searchBtn} onPress={() => {}}>
