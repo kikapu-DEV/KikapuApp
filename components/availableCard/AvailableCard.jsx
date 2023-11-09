@@ -3,11 +3,11 @@ import styles from "./availableCard.style";
 import { COLORS, images } from "../../constants";
 import { Ionicons } from '@expo/vector-icons';
 
-function AvailableCard() {
+function AvailableCard({handleCardPress}) {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => handleCardPress(item)} style={styles.logoContainer}>
+        <TouchableOpacity onPress={() => handleCardPress()} style={styles.logoContainer}>
           <Image source={images.available2} resizeMode="contain" style={styles.availableImage}/>
         </TouchableOpacity>
       </View>
