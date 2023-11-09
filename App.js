@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, SafeAreaView, StatusBar } from "react-native";
+import { StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
@@ -6,20 +6,15 @@ import {
   Main,
   Onboarding,
   Signup,
-  StudentHome,
   Verify,
 } from "./screens";
-import { COLORS, SIZES, images } from "./constants";
+import { COLORS} from "./constants";
 import {
-  RightHeader,
-  ScreenHeader,
   SemiCircle,
   SemiCircle2,
 } from "./components";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Stack = createNativeStackNavigator();
-const tab = createBottomTabNavigator();
 
 export default function App() {
   return (

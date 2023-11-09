@@ -1,6 +1,6 @@
 import { Pressable, Text, TextInput, View } from "react-native";
 import styles from "./login.styles";
-import { Button1 } from "../../components";
+import { Button1 } from "../../../components";
 
 function Login({ navigation }) {
   return (

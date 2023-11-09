@@ -1,12 +1,12 @@
-import Onboarding from "./onboarding/Onboarding";
-import Login from "./login/Login";
-import Signup from "./signup/Signup";
-import Verify from "./verify/Verify";
-import Main from "./mainScreen/Main";
-import StudentHome from "./studentHome/StudentHome";
-import Wallet from "./wallet/Wallet";
-import Order from "./StudentOrders/Order";
-import Profile from "./profile/Profile";
+import Onboarding from "./authentication/onboarding/Onboarding";
+import Login from "./authentication/login/Login";
+import Signup from "./authentication/signup/Signup";
+import Verify from "./authentication/verify/Verify";
+import Main from "./StudentScreens/mainScreen/Main";
+import StudentHome from "./StudentScreens/studentHome/StudentHome";
+import Wallet from "./StudentScreens/wallet/Wallet";
+import Order from "./StudentScreens/StudentOrders/Order";
+import Profile from "./StudentScreens/profile/Profile";
 
 
 export { 

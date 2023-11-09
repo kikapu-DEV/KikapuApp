@@ -8,8 +8,8 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import styles from "./studenthome.style";
-import { COLORS, icons } from "../../constants";
-import { AvailableNear, Header, TopRestraunts } from "../../components";
+import { COLORS, icons } from "../../../constants";
+import { AvailableNear, Header, TopRestraunts } from "../../../components";
 import { useState } from "react";
 
 function StudentHome() {

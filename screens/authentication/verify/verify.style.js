@@ -1,30 +1,37 @@
 import { StyleSheet } from "react-native";
+import { COLORS, SIZES } from "../../../constants";
 
-import { COLORS, SIZES } from "../../constants";
 const styles = StyleSheet.create({
   container: {
     height: "100%",
     backgroundColor: COLORS.whiteText,
+    padding: 20,
   },
-  loginFormContainer: {
-    marginTop: 20,
-    marginBottom: 20,
-    padding: 30,
-  },
-  welcomeText: {
+  verifyText: {
     textAlign: "center",
-    marginBottom: 30,
+    fontSize: SIZES.large,
   },
-  textInput: {
+  verifyText2: {
+    textAlign: "center",
+    marginTop: 5,
+  },
+  verifyRow: {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "row",
+    marginTop: 30,
+    marginBottom: 30,
+    gap: 20,
+  },
+  verifyBoxes: {
     borderWidth: 2,
     borderColor: COLORS.primary,
-    borderRadius: 10,
-    marginBottom: 30,
-    padding: 10,
+    borderRadius: 4,
+    padding: 6,
   },
   signUpText: {
     width: "100",
-    marginBottom: 70,
+    marginBottom: 30,
   },
   pressableText: {
     width: "100%",

@@ -1,7 +1,7 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 
 import styles from './onboarding.style'
-import { COLORS, images } from '../../constants'
+import { COLORS, images } from '../../../constants'
 import { useNavigation } from '@react-navigation/native'
 
 function Onboarding() {

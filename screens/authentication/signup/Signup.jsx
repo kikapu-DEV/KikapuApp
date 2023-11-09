@@ -10,8 +10,8 @@ import { useNavigation } from "@react-navigation/native";
 import styles from "./signup.style";
 import { Dropdown } from "react-native-element-dropdown";
 import { useState } from "react";
-import { images } from "../../constants";
-import { Button1 } from "../../components";
+import { images } from "../../../constants";
+import { Button1 } from "../../../components";
 
 const data = [
   { label: "customer", value: 1 },

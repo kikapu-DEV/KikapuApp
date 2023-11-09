@@ -4,7 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Wallet from "../wallet/Wallet";
 import Order from "../StudentOrders/Order";
 import Profile from "../profile/Profile";
-import { COLORS } from "../../constants";
+import { COLORS } from "../../../constants";
 
 const Tab = createBottomTabNavigator();
 

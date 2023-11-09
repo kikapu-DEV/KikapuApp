@@ -1,7 +1,7 @@
 import { Pressable, Text, TextInput, View } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import styles from "./verify.style"
-import { Button1 } from "../../components"
+import { Button1 } from "../../../components"
 
 function Verify() {
     const navigation = useNavigation();

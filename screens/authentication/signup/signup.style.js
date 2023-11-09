@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { SIZES, COLORS } from "../../constants";
+import { SIZES, COLORS } from "../../../constants";
 const styles = StyleSheet.create({
     container: {
         height: '100%',
