@@ -7,7 +7,7 @@ import StudentHome from "./StudentScreens/studentHome/StudentHome";
 import Wallet from "./StudentScreens/wallet/Wallet";
 import Order from "./StudentScreens/StudentOrders/Order";
 import Profile from "./StudentScreens/profile/Profile";
-
+import StudentMenu from "./StudentScreens/Smenu/StudentMenu";
 
 export { 
     Onboarding, 
@@ -19,4 +19,5 @@ export {
     Wallet,
     Order,
     Profile,
+    StudentMenu
 };

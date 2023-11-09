@@ -8,6 +8,7 @@ import RestCard from "./restCard/RestCard";
 import AvailableNear from "./availableNear/AvailableNear";
 import AvailableCard from "./availableCard/AvailableCard";
 import Header from "./Header/Header";
+import MenuCard from "./menuCard/MenuCard";
 
 export { 
     SemiCircle, 
@@ -20,4 +21,5 @@ export {
     AvailableNear, 
     AvailableCard,
     Header,
+    MenuCard,
  };
