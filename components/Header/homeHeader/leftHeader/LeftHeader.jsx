@@ -1,9 +1,9 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import styles from "./rightHeader.style";
-import { COLORS } from "../../constants";
+import { COLORS } from "../../../../constants";
 
-function RightHeader({ handlePress, userName }) {
+function LeftHeader({ handlePress, userName }) {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.btnContainer} onPress={handlePress}>
@@ -17,4 +17,4 @@ function RightHeader({ handlePress, userName }) {
   );
 }
 
-export default RightHeader;
+export default LeftHeader;

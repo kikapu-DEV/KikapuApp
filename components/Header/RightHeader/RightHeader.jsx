@@ -1,7 +1,7 @@
 import { Image, TouchableOpacity, View } from "react-native";
-import styles from "./screenheader.style";
+import styles from "./rightheader.style";
 
-function ScreenHeader({ iconUrl, dimensions, handlePress }) {
+function RightHeader({ iconUrl, dimensions, handlePress }) {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.btnContainer} onPress={handlePress}>
@@ -15,4 +15,4 @@ function ScreenHeader({ iconUrl, dimensions, handlePress }) {
   );
 }
 
-export default ScreenHeader;
+export default RightHeader;

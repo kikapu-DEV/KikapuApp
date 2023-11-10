@@ -1,5 +1,5 @@
 import { View } from "react-native"
-import ScreenHeader from "../../screenHeader/ScreenHeader"
+import ScreenHeader from "../RightHeader/RightHeader"
 import { images } from "../../../constants"
 import styles from "./walletHeader.style"
 import LWalletHeader from "./leftHeader/LWalletHeader"

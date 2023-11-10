@@ -1,8 +1,8 @@
 import { View } from "react-native";
 import styles from "./header.style";
-import ScreenHeader from "../screenHeader/ScreenHeader";
-import RightHeader from "../rightHeader/RightHeader";
-import { images } from "../../constants";
+import ScreenHeader from "../RightHeader/RightHeader";
+import RightHeader from "./leftHeader/LeftHeader";
+import { images } from "../../../constants";
 
 function Header() {
   return (
