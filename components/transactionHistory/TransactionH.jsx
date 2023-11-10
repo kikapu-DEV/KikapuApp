@@ -19,7 +19,7 @@ function TransactionH() {
 
       {/* transaction list */}
       <FlatList
-        data={[1, 2, 3]}
+        data={[1, 2, 3, 4, 5]}
         keyExtractor={(item, index) => index.toString()}
         renderItem={() => (
           <View style={styles.ListContainer}>
