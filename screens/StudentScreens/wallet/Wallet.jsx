@@ -5,9 +5,9 @@ import { FontAwesome } from '@expo/vector-icons';
 import { COLORS, SIZES } from "../../../constants";
 
 const iconList = [
-  {iconName: 'exchange', title:'Transfer'},
-  {iconName: 'credit-card', title:'Payment'},
-  {iconName: 'plus', title:'Top-up'}
+  {iconName: 'exchange', title:'Transfer', screenName: 'studentPayment'},
+  {iconName: 'credit-card', title:'Payment', screenName: 'studentPayment'},
+  {iconName: 'plus', title:'Top-up', screenName: 'studentPayment'}
 ]
 function Wallet() {
   return (
@@ -33,7 +33,7 @@ function Wallet() {
       horizontal = {true}
       contentContainerStyle={{columnGap: SIZES.xLarge}}
       renderItem={({item})=>(
-        <Button2 icon={<FontAwesome name={item.iconName} size={18} color={COLORS.secondary}/>} title={item.title}/>
+        <Button2 icon={<FontAwesome name={item.iconName} size={18} color={COLORS.secondary}/>} title={item.title} screenName={item.screenName}/>
       )}
       />
         

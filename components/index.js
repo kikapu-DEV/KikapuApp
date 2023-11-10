@@ -12,6 +12,7 @@ import MenuCard from "./menuCard/MenuCard";
 import WalletHeader from "./Header/walletHeader/WalletHeader";
 import Button2 from "./button/Button2";
 import TransactionH from "./transactionHistory/TransactionH";
+import SwipeBtn from "./button/SwipeBtn";
 
 export { 
     SemiCircle, 
@@ -27,5 +28,6 @@ export {
     MenuCard,
     WalletHeader,
     Button2,
-    TransactionH
+    TransactionH,
+    SwipeBtn
  };

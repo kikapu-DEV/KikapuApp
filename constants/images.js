@@ -6,6 +6,8 @@ import food2 from '../assets/images/food2.png';
 import food3 from '../assets/images/food3.png'; 
 import available1 from '../assets/images/available1.png'
 import available2 from '../assets/images/available2.png'
+import kikapuLogo from '../assets/images/kikapuLogo.png'
+import smallAvatar from '../assets/images/smallAvatar.png'
 
 export default {
     foodBasket,
@@ -15,5 +17,7 @@ export default {
     food2,
     food3,
     available1,
-    available2
+    available2,
+    kikapuLogo,
+    smallAvatar
 };
