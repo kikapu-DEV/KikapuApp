@@ -8,6 +8,7 @@ import available1 from '../assets/images/available1.png'
 import available2 from '../assets/images/available2.png'
 import kikapuLogo from '../assets/images/kikapuLogo.png'
 import smallAvatar from '../assets/images/smallAvatar.png'
+import success from '../assets/images/success.png'
 
 export default {
     foodBasket,
@@ -19,5 +20,6 @@ export default {
     available1,
     available2,
     kikapuLogo,
-    smallAvatar
+    smallAvatar,
+    success
 };

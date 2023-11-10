@@ -13,6 +13,7 @@ import WalletHeader from "./Header/walletHeader/WalletHeader";
 import Button2 from "./button/Button2";
 import TransactionH from "./transactionHistory/TransactionH";
 import SwipeBtn from "./button/SwipeBtn";
+import CloseBtn from "./button/CloseBtn";
 
 export { 
     SemiCircle, 
@@ -29,5 +30,6 @@ export {
     WalletHeader,
     Button2,
     TransactionH,
-    SwipeBtn
+    SwipeBtn,
+    CloseBtn,
  };

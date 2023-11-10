@@ -10,7 +10,7 @@ import { useNavigation } from "@react-navigation/native";
 import styles from "./signup.style";
 import { Dropdown } from "react-native-element-dropdown";
 import { useState } from "react";
-import { images } from "../../../constants";
+import { COLORS, images } from "../../../constants";
 import { Button1 } from "../../../components";
 
 const data = [
@@ -84,7 +84,7 @@ function Signup() {
             </Text>
           </Pressable>
         </View>
-        <Button1 title="SIGN ME UP" screenName="verify" />
+        <Button1 title="SIGN ME UP" screenName="verify" color={COLORS.primary}/>
       </ScrollView>
     </ScrollView>
   );

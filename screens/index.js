@@ -9,6 +9,7 @@ import Order from "./StudentScreens/StudentOrders/Order";
 import Profile from "./StudentScreens/profile/Profile";
 import StudentMenu from "./StudentScreens/Smenu/StudentMenu";
 import StudentPayment from "./StudentScreens/payment/StudentPayment";
+import Success from "./StudentScreens/success/Success";
 
 export { 
     Onboarding, 
@@ -22,4 +23,5 @@ export {
     Profile,
     StudentMenu,
     StudentPayment,
+    Success,
 };

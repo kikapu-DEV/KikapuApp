@@ -4,8 +4,11 @@ import { COLORS, images } from "../../../constants";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import SwipeButton from 'rn-swipe-button';
 import { SwipeBtn } from "../../../components";
+import { useNavigation } from "@react-navigation/native";
 
 function StudentPayment() {
+    const navigation = useNavigation();
+
     const handlePayment = () =>{
         Alert.alert("Your kikapu account has insufficient balance.", "Would you like kikapu to loan you ksh. 250?",[
             {
@@ -14,7 +17,7 @@ function StudentPayment() {
             },
             {
                 text: "YES",
-                onPress: ()=>{}
+                onPress: ()=>{navigation.navigate('success')}
             }
         ])
     }

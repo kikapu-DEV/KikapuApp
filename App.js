@@ -8,6 +8,7 @@ import {
   Signup,
   StudentMenu,
   StudentPayment,
+  Success,
   Verify,
 } from "./screens";
 import { COLORS} from "./constants";
@@ -87,6 +88,13 @@ export default function App() {
            headerTitleStyle:{
             fontWeight: '400',
            }
+          }}
+        />
+        <Stack.Screen
+          name="success"
+          component={Success}
+          options={{
+           headerShown: false
           }}
         />
       </Stack.Navigator>

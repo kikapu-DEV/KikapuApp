@@ -1,6 +1,7 @@
 import { Pressable, Text, TextInput, View } from "react-native";
 import styles from "./login.styles";
 import { Button1 } from "../../../components";
+import { COLORS } from "../../../constants";
 
 function Login({ navigation }) {
   return (
@@ -29,7 +30,7 @@ function Login({ navigation }) {
             </Text>
           </Pressable>
         </View>
-        <Button1 title="SIGN ME IN" screenName="mainApp" />
+        <Button1 title="SIGN ME IN" screenName="mainApp" color={COLORS.primary}/>
       </View>
     </View>
   );
