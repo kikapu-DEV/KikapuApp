@@ -1,14 +1,14 @@
 import { View } from "react-native";
 import styles from "./header.style";
-import ScreenHeader from "../RightHeader/RightHeader";
-import RightHeader from "./leftHeader/LeftHeader";
+import RightHeader from "../RightHeader/RightHeader";
+import LeftHeader from "./leftHeader/LeftHeader";
 import { images } from "../../../constants";
 
 function Header() {
   return (
     <View style={styles.container}>
-      <RightHeader userName="Paula" />
-      <ScreenHeader iconUrl={images.avatar1} dimensions="100%" />
+      <LeftHeader userName="Paula" />
+      <RightHeader iconUrl={images.avatar1} dimensions="100%" />
     </View>
   );
 }
