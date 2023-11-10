@@ -1,4 +1,10 @@
-import { FlatList, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import {
+  FlatList,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import styles from "./transactionH.style";
 
 function TransactionH() {
@@ -12,26 +18,24 @@ function TransactionH() {
       </View>
 
       {/* transaction list */}
-      <ScrollView contentContainerStyle={{ paddingTop: 20, paddingBottom: 10 }}>
-        <FlatList
-        data={[1,2,3]}
-        renderItem={()=>(
-            <View style={styles.ListContainer}>
-          <View style={styles.ListSubContainer}>
-            <View style={styles.restLogo}></View>
+      <FlatList
+        data={[1, 2, 3]}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={() => (
+          <View style={styles.ListContainer}>
+            <View style={styles.ListSubContainer}>
+              <View style={styles.restLogo}></View>
+              <View>
+                <Text style={styles.restName}>Kilimanjaro</Text>
+                <Text style={styles.Time}>Today, 17:45 PM</Text>
+              </View>
+            </View>
             <View>
-              <Text style={styles.restName}>Kilimanjaro</Text>
-              <Text style={styles.Time}>Today, 17:45 PM</Text>
+              <Text style={styles.amount}>Ksh. 1200</Text>
             </View>
           </View>
-          <View>
-            <Text style={styles.amount}>Ksh. 1200</Text>
-          </View>
-        </View>
         )}
-        />
-        
-      </ScrollView>
+      />
     </View>
   );
 }

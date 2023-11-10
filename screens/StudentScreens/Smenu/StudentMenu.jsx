@@ -1,14 +1,13 @@
-import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 import styles from "./sMenu.style";
 import { COLORS, images } from "../../../constants";
-import { Ionicons } from "@expo/vector-icons"
+import { Ionicons } from "@expo/vector-icons";
 import { MenuCard } from "../../../components";
-
 
 function StudentMenu() {
   return (
     <View style={styles.container}>
-      <ScrollView
+      <View
         style={styles.menuListContainer}
         contentContainerStyle={{ paddingBottom: 30 }}
       >
@@ -18,7 +17,7 @@ function StudentMenu() {
 
         {/* title container */}
         <View style={styles.titleMainContainer}>
-            {/* business title and ratings */}
+          {/* business title and ratings */}
           <View style={styles.TitleContainer}>
             <Text style={styles.title}>Mama Burger</Text>
 
@@ -37,20 +36,18 @@ function StudentMenu() {
           {/* heart icon */}
           <View>
             <TouchableOpacity>
-            <Ionicons name="heart-outline" size={24} color="black" />
+              <Ionicons name="heart-outline" size={24} color="black" />
             </TouchableOpacity>
           </View>
-          </View>
+        </View>
 
-          {/* menu list */}
-          <FlatList
-          data={[1,2,3,4,5,6]}
-          renderItem={()=>(
-            <MenuCard/>
-          )}
-          />
-          
-      </ScrollView>
+        {/* menu list */}
+        <FlatList
+          data={[1, 2, 3, 4, 5, 6]}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={() => <MenuCard />}
+        />
+      </View>
     </View>
   );
 }
