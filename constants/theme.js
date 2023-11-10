@@ -5,7 +5,8 @@ const COLORS = {
   grey: "#D9D9D9",
   grey2: '#1C1C1C',
   yellow: "#FEBB10",
-  lightGreen: 'rgba(24, 210, 110, 0.21)'
+  lightGreen: 'rgba(24, 210, 110, 0.21)',
+  red: '#FD4755'
 };
 
 const SIZES = {

@@ -23,7 +23,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <StatusBar backgroundColor={COLORS.primary} barStyle="default" />
-      <Stack.Navigator initialRouteName="onBoarding">
+      <Stack.Navigator initialRouteName="mainApp">
         <Stack.Screen
           name="onBoarding"
           component={Onboarding}
