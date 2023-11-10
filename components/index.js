@@ -9,6 +9,9 @@ import AvailableNear from "./availableNear/AvailableNear";
 import AvailableCard from "./availableCard/AvailableCard";
 import Header from "./Header/Header";
 import MenuCard from "./menuCard/MenuCard";
+import WalletHeader from "./Header/walletHeader/WalletHeader";
+import Button2 from "./button/Button2";
+import TransactionH from "./transactionHistory/TransactionH";
 
 export { 
     SemiCircle, 
@@ -22,4 +25,7 @@ export {
     AvailableCard,
     Header,
     MenuCard,
+    WalletHeader,
+    Button2,
+    TransactionH
  };
