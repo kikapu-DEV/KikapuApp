@@ -86,7 +86,7 @@ function Profile() {
               <View style={styles.icon}>
                 <Octicons name="key" size={24} color="black" />
               </View>
-              <Text>Profile</Text>
+              <Text>Login settings</Text>
             </View>
             <MaterialIcons name="navigate-next" size={24} color="black" />
           </View>

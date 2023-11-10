@@ -2,6 +2,7 @@ import { Pressable, Text, TextInput, View } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import styles from "./verify.style"
 import { Button1 } from "../../../components"
+import { COLORS } from "../../../constants";
 
 function Verify() {
     const navigation = useNavigation();
@@ -16,7 +17,7 @@ function Verify() {
         <TextInput style={styles.verifyBoxes}/>
         <TextInput style={styles.verifyBoxes}/>
        </View>
-       <Button1 title="Verify" screenName="login"/>
+       <Button1 title="Verify" screenName="login" color={COLORS.primary}/>
        <View style={styles.signUpText}>
           <Pressable
             onPress={() => navigation.navigate("verify")}
