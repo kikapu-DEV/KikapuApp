@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  availableImage:{
+  availableImage: {
     width: 250,
   },
   availableContent: {
@@ -22,26 +22,26 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     // borderWidth: 3,
   },
-  availableTitle:{
+  availableTitle: {
     fontWeight: "bold",
     fontSize: 14,
-    marginBottom: 10
+    marginBottom: 10,
   },
-  availableDetail:{
+  availableDetail: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    gap: 15
+    gap: 15,
   },
-  availableContentSmall:{
+  availableContentSmall: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
   },
-  ratingText:{
-    fontWeight: "bold", 
-    marginRight: 20
-  }
+  ratingText: {
+    fontWeight: "bold",
+    marginRight: 20,
+  },
 });
 
 export default styles;
