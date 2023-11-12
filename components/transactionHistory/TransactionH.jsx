@@ -35,6 +35,7 @@ function TransactionH() {
             </View>
           </View>
         )}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );

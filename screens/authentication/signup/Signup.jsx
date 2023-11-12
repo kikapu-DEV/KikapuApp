@@ -22,8 +22,8 @@ function Signup() {
   const navigation = useNavigation();
   const [value, setValue] = useState(null);
   return (
-    <ScrollView style={styles.container}>
-      <ScrollView style={styles.formContainer}>
+    <View style={styles.container} >
+      <ScrollView style={styles.formContainer} showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom: 30}}>
         <Text style={styles.registerContainer}>Register Here</Text>
         {/* row names */}
         <View style={styles.nameInputRow}>
@@ -86,7 +86,7 @@ function Signup() {
         </View>
         <Button1 title="SIGN ME UP" screenName="verify" color={COLORS.primary}/>
       </ScrollView>
-    </ScrollView>
+    </View>
   );
 }
 

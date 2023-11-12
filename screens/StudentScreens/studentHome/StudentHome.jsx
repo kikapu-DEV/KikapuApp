@@ -28,7 +28,7 @@ function StudentHome() {
           style={styles.notificationIcon}
         />
       </View>
-      <ScrollView style={styles.homeDisplay} contentContainerStyle={{paddingBottom:30}}>
+      <ScrollView style={styles.homeDisplay} contentContainerStyle={{paddingBottom:30}} showsVerticalScrollIndicator={false}>
         {/* search button */}
         <View style={styles.searchContainer}>
           <View style={styles.searchWrapper}>
