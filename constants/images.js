@@ -10,6 +10,7 @@ import kikapuLogo from '../assets/images/kikapuLogo.png'
 import smallAvatar from '../assets/images/smallAvatar.png'
 import success from '../assets/images/success.png'
 import avatar2 from '../assets/images/avatar2.png'
+import restFood from '../assets/images/restFood.png'
 
 export default {
     foodBasket,
@@ -24,4 +25,5 @@ export default {
     smallAvatar,
     success,
     avatar2,
+    restFood
 };
