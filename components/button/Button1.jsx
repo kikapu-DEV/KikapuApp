@@ -2,7 +2,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import styles from "./button1.style";
-function Button1({ title, screenName,color }) {
+function Button1({ title, screenName, color }) {
   const navigation = useNavigation();
   return (
     <TouchableOpacity onPress={() => navigation.navigate(screenName)}>

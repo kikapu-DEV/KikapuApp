@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import { COLORS, SIZES } from "../../constants";
 
 const styles = StyleSheet.create({
-  btn1:(color)=>( {
+  btn1: (color) => ({
     width: 300,
     paddingVertical: 15,
     paddingHorizontal: 10,
