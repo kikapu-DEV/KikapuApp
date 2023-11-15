@@ -67,7 +67,7 @@ function StudentProduct() {
         <View style={styles.moreSubContainer}>
           <View>
             <Text style={styles.title}>Cheese burger</Text>
-            <Text style={styles.price}>ksh. 1,500</Text>
+            <Text style={styles.price}>ksh. 1,000</Text>
           </View>
           {/* counter btn */}
           <Counter/>
