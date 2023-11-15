@@ -10,7 +10,7 @@ function MenuCard() {
         <Text style={styles.menuTitle}>Cheese burger</Text>
         <Text style={styles.menuSubTitle}>Buy one get 1 free</Text>
         <Text style={styles.foodContent}>Beef, egg, tomatoes onions</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=> navigation.navigate('studentProduct')}>
           <View style={styles.menuBtn}>
             <Text style={styles.menuBtnText}>ksh. 1000</Text>
           </View>

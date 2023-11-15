@@ -6,6 +6,7 @@ import {
   Main,
   Onboarding,
   Signup,
+  StudentCheckout,
   StudentMenu,
   StudentPayment,
   StudentProduct,
@@ -24,7 +25,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <StatusBar backgroundColor={COLORS.primary} barStyle="default" />
-      <Stack.Navigator initialRouteName="studentProduct">
+      <Stack.Navigator initialRouteName="onBoarding">
         <Stack.Screen
           name="onBoarding"
           component={Onboarding}
@@ -101,6 +102,13 @@ export default function App() {
         <Stack.Screen
           name="studentProduct"
           component={StudentProduct}
+          options={{
+           headerShown: false
+          }}
+        />
+        <Stack.Screen
+          name="checkout"
+          component={StudentCheckout}
           options={{
            headerShown: false
           }}

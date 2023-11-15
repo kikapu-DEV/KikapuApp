@@ -12,6 +12,8 @@ import success from '../assets/images/success.png'
 import avatar2 from '../assets/images/avatar2.png'
 import restFood from '../assets/images/restFood.png'
 import burger from '../assets/images/burger.png'
+import burger2 from '../assets/images/burger2.png'
+import cup from '../assets/images/cup.png'
 
 export default {
     foodBasket,
@@ -28,4 +30,6 @@ export default {
     avatar2,
     restFood,
     burger,
+    burger2,
+    cup
 };

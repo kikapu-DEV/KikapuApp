@@ -11,6 +11,7 @@ import StudentMenu from "./StudentScreens/Smenu/StudentMenu";
 import StudentPayment from "./StudentScreens/payment/StudentPayment";
 import Success from "./StudentScreens/success/Success";
 import StudentProduct from "./StudentScreens/ProductScreen/StudentProduct";
+import StudentCheckout from "./StudentScreens/checkout/StudentCheckout";
 
 export { 
     Onboarding, 
@@ -26,4 +27,5 @@ export {
     StudentPayment,
     Success,
     StudentProduct,
+    StudentCheckout
 };
