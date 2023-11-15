@@ -12,6 +12,10 @@ const styles = StyleSheet.create({
     marginLeft: "auto",
     marginRight: "auto",
     backgroundColor: color,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 5
   }),
   btn1Text: {
     color: COLORS.whiteText,

@@ -10,6 +10,7 @@ import Profile from "./StudentScreens/profile/Profile";
 import StudentMenu from "./StudentScreens/Smenu/StudentMenu";
 import StudentPayment from "./StudentScreens/payment/StudentPayment";
 import Success from "./StudentScreens/success/Success";
+import StudentProduct from "./StudentScreens/ProductScreen/StudentProduct";
 
 export { 
     Onboarding, 
@@ -24,4 +25,5 @@ export {
     StudentMenu,
     StudentPayment,
     Success,
+    StudentProduct,
 };

@@ -8,6 +8,7 @@ import {
   Signup,
   StudentMenu,
   StudentPayment,
+  StudentProduct,
   Success,
   Verify,
 } from "./screens";
@@ -23,7 +24,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <StatusBar backgroundColor={COLORS.primary} barStyle="default" />
-      <Stack.Navigator initialRouteName="onBoarding">
+      <Stack.Navigator initialRouteName="studentProduct">
         <Stack.Screen
           name="onBoarding"
           component={Onboarding}
@@ -93,6 +94,13 @@ export default function App() {
         <Stack.Screen
           name="success"
           component={Success}
+          options={{
+           headerShown: false
+          }}
+        />
+        <Stack.Screen
+          name="studentProduct"
+          component={StudentProduct}
           options={{
            headerShown: false
           }}

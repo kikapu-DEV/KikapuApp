@@ -15,6 +15,7 @@ import TransactionH from "./transactionHistory/TransactionH";
 import SwipeBtn from "./button/SwipeBtn";
 import CloseBtn from "./button/CloseBtn";
 import OrderCard from "./Cards/OrderCard/OrderCard";
+import Counter from "./counter/Counter";
 
 export { 
     SemiCircle, 
@@ -34,4 +35,5 @@ export {
     SwipeBtn,
     CloseBtn,
     OrderCard,
+    Counter
  };
