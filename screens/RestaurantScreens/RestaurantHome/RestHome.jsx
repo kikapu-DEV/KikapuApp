@@ -1,7 +1,7 @@
 import { ScrollView, Text, View } from "react-native";
 import {
   Categories,
-  RecentlyListed,
+  BestSelling,
   RestHeader,
   Search,
 } from "../../../components";
@@ -14,7 +14,7 @@ function RestHome() {
 
       <ScrollView contentContainerStyle={{paddingBottom: 300}} showsVerticalScrollIndicator={false}>
         <Categories />
-        <RecentlyListed />
+        <BestSelling />
       </ScrollView>
     </View>
   );

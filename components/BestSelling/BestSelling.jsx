@@ -1,9 +1,9 @@
 import { FlatList, Image, Text, TouchableOpacity, View } from "react-native"
-import styles from "./recentlyListed.style"
+import styles from "./bestSelling.style"
 import { COLORS, SIZES, images } from "../../constants"
 import { Entypo } from '@expo/vector-icons';
 
-function RecentlyListed() {
+function BestSelling() {
     const data = [
         {img: images.hoho, title: 'Bell pepper Red', qty: '1', price: '4500'},
         {img: images.lambMeat, title: 'Lamb Meat', qty: '1', price: '4500'}
@@ -47,4 +47,4 @@ function RecentlyListed() {
   )
 }
 
-export default RecentlyListed
+export default BestSelling

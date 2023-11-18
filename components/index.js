@@ -20,7 +20,7 @@ import CartCard from "./Cards/CartCard/CartCard";
 import RestHeader from "./Header/restHeader/RestHeader";
 import Search from "./search/Search";
 import Categories from "./categories/Categories";
-import RecentlyListed from "./RecentlyListed/RecentlyListed";
+import BestSelling from "./BestSelling/BestSelling";
 
 export { 
     SemiCircle, 
@@ -45,5 +45,5 @@ export {
     RestHeader,
     Search,
     Categories,
-    RecentlyListed
+    BestSelling
  };
