@@ -25,12 +25,15 @@ function Categories() {
         data={data}
         keyExtractor={(item, index)=> index.toString()}
         renderItem={({item})=> 
+        <View style={styles.itemMainContainer}>
           <TouchableOpacity>
               <View style={styles.itemContainer}>
                   <Image source={item.image}/>
-                  <Text>{item.title}</Text>
               </View>
             </TouchableOpacity>
+            <Text>{item.title}</Text>
+        </View>
+          
         }
         contentContainerStyle={{columnGap: SIZES.xxLarge, justifyContent: "center", alignItems: "center"}}
         />   

@@ -24,9 +24,17 @@ const styles = StyleSheet.create({
   listContainer:{
     alignItems: 'center'
   },
+  itemMainContainer:{
+    alignItems: 'center'
+  },
   itemContainer:{
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: COLORS.grey,
+    padding: 5,
+    height:50,
+    width:50,
+    borderRadius: 50
   }
 })
 
