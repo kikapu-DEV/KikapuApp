@@ -5,6 +5,7 @@ import {
   Login,
   Main,
   Onboarding,
+  RestMain,
   Signup,
   StudentCheckout,
   StudentMenu,
@@ -25,7 +26,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <StatusBar backgroundColor={COLORS.primary} barStyle="default" />
-      <Stack.Navigator initialRouteName="onBoarding">
+      <Stack.Navigator initialRouteName="restMainApp">
         <Stack.Screen
           name="onBoarding"
           component={Onboarding}
@@ -109,6 +110,15 @@ export default function App() {
         <Stack.Screen
           name="checkout"
           component={StudentCheckout}
+          options={{
+           headerShown: false
+          }}
+        />
+
+        {/* restaurant main app */}
+        <Stack.Screen
+          name="restMainApp"
+          component={RestMain}
           options={{
            headerShown: false
           }}

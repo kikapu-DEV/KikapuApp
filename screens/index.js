@@ -1,7 +1,10 @@
+// authentication screens
 import Onboarding from "./authentication/onboarding/Onboarding";
 import Login from "./authentication/login/Login";
 import Signup from "./authentication/signup/Signup";
 import Verify from "./authentication/verify/Verify";
+
+// student screens
 import Main from "./StudentScreens/mainScreen/Main";
 import StudentHome from "./StudentScreens/studentHome/StudentHome";
 import Wallet from "./StudentScreens/wallet/Wallet";
@@ -12,6 +15,10 @@ import StudentPayment from "./StudentScreens/payment/StudentPayment";
 import Success from "./StudentScreens/success/Success";
 import StudentProduct from "./StudentScreens/ProductScreen/StudentProduct";
 import StudentCheckout from "./StudentScreens/checkout/StudentCheckout";
+
+// restaurant screens
+import RestMain from "./RestaurantScreens/restMain/RestMain";
+import RestHome from "./RestaurantScreens/RestaurantHome/RestHome";
 
 export { 
     Onboarding, 
@@ -27,5 +34,7 @@ export {
     StudentPayment,
     Success,
     StudentProduct,
-    StudentCheckout
+    StudentCheckout,
+    RestMain,
+    RestHome
 };

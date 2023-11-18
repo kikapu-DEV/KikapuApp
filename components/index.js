@@ -17,6 +17,8 @@ import CloseBtn from "./button/CloseBtn";
 import OrderCard from "./Cards/OrderCard/OrderCard";
 import Counter from "./counter/Counter";
 import CartCard from "./Cards/CartCard/CartCard";
+import RestHeader from "./Header/restHeader/RestHeader";
+import Search from "./search/Search";
 
 export { 
     SemiCircle, 
@@ -38,4 +40,6 @@ export {
     OrderCard,
     Counter,
     CartCard,
+    RestHeader,
+    Search,
  };
