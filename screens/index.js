@@ -19,6 +19,7 @@ import StudentCheckout from "./StudentScreens/checkout/StudentCheckout";
 // restaurant screens
 import RestMain from "./RestaurantScreens/restMain/RestMain";
 import RestHome from "./RestaurantScreens/RestaurantHome/RestHome";
+import CategoryItems from "./categoryItems/CategoryItems";
 
 export { 
     Onboarding, 
@@ -36,5 +37,6 @@ export {
     StudentProduct,
     StudentCheckout,
     RestMain,
-    RestHome
+    RestHome,
+    CategoryItems
 };

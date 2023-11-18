@@ -2,6 +2,7 @@ import { StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
+  CategoryItems,
   Login,
   Main,
   Onboarding,
@@ -119,6 +120,13 @@ export default function App() {
         <Stack.Screen
           name="restMainApp"
           component={RestMain}
+          options={{
+           headerShown: false
+          }}
+        />
+         <Stack.Screen
+          name="categoryItems"
+          component={CategoryItems}
           options={{
            headerShown: false
           }}

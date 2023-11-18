@@ -1,11 +1,13 @@
 import { FlatList, Image, Text, TouchableOpacity, View } from "react-native"
 import styles from "./categories.style"
 import { SIZES, images } from "../../constants"
+import { useNavigation } from "@react-navigation/native"
 
 function Categories() {
+  const navigation = useNavigation();
   const data = [
-    {image: images.apple, title: 'Fruits'},
-    {image: images.vegetable, title: 'Vegetables'},
+    {image: images.apple, title: 'Fruits', },
+    {image: images.vegetable, title: 'Vegetables', screenName: 'categoryItems'},
     {image: images.cheese, title: 'Diary'},
     {image: images.meat, title: 'Meat'},
   ]
@@ -26,7 +28,7 @@ function Categories() {
         keyExtractor={(item, index)=> index.toString()}
         renderItem={({item})=> 
         <View style={styles.itemMainContainer}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate(item.screenName)}>
               <View style={styles.itemContainer}>
                   <Image source={item.image}/>
               </View>

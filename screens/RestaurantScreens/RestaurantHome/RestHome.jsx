@@ -5,10 +5,11 @@ import {
   RestHeader,
   Search,
 } from "../../../components";
+import { COLORS } from "../../../constants";
 
 function RestHome() {
   return (
-    <View>
+    <View style={{height: '100%', backgroundColor: COLORS.whiteText}}>
       <RestHeader />
       <Search />
 

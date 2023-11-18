@@ -2,6 +2,7 @@ import { FlatList, Image, Text, TouchableOpacity, View } from "react-native"
 import styles from "./bestSelling.style"
 import { COLORS, SIZES, images } from "../../constants"
 import { Entypo } from '@expo/vector-icons';
+import RestItemCard from "../Cards/RestItemCard/RestItemCard";
 
 function BestSelling() {
     const data = [
@@ -25,19 +26,7 @@ function BestSelling() {
         keyExtractor={(item, index)=> index.toString()}
         contentContainerStyle={{columnGap: SIZES.xxLarge}}
         renderItem={({item})=>
-        <View style={styles.itemContainer}>
-            <View style={{alignItems: 'center'}}>
-                 <Image source={item.img}/>
-            </View>
-           
-            <Text style={styles.title}>{item.title}</Text>
-            <View style={styles.qty}>
-                <Text style={styles.txt1}>{item.qty}kg, <Text>Ksh. {item.price}</Text></Text>
-                <TouchableOpacity>
-                <Entypo name="circle-with-plus" size={30} color={COLORS.secondary} />
-                </TouchableOpacity>
-            </View>
-        </View>
+        <RestItemCard img={item.img} title={item.title} qty={item.qty} price={item.price}/>
     
     }
         />

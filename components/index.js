@@ -21,6 +21,8 @@ import RestHeader from "./Header/restHeader/RestHeader";
 import Search from "./search/Search";
 import Categories from "./categories/Categories";
 import BestSelling from "./BestSelling/BestSelling";
+import CLHeader from "./Header/categoryListHeader/CLHeader";
+import RestItemCard from "./Cards/RestItemCard/RestItemCard";
 
 export { 
     SemiCircle, 
@@ -45,5 +47,7 @@ export {
     RestHeader,
     Search,
     Categories,
-    BestSelling
+    BestSelling,
+    CLHeader,
+    RestItemCard,
  };
