@@ -1,11 +1,12 @@
 import { Text, View } from "react-native"
-import { RestHeader, Search } from "../../../components"
+import { Categories, RestHeader, Search } from "../../../components"
 
 function RestHome() {
   return (
     <View>
       <RestHeader/>
       <Search/>
+      <Categories/>
       <Text>Restaurant home</Text>
     </View>
   )
