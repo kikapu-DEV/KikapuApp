@@ -1,15 +1,23 @@
-import { Text, View } from "react-native"
-import { Categories, RestHeader, Search } from "../../../components"
+import { ScrollView, Text, View } from "react-native";
+import {
+  Categories,
+  RecentlyListed,
+  RestHeader,
+  Search,
+} from "../../../components";
 
 function RestHome() {
   return (
     <View>
-      <RestHeader/>
-      <Search/>
-      <Categories/>
-      <Text>Restaurant home</Text>
+      <RestHeader />
+      <Search />
+
+      <ScrollView contentContainerStyle={{paddingBottom: 300}} showsVerticalScrollIndicator={false}>
+        <Categories />
+        <RecentlyListed />
+      </ScrollView>
     </View>
-  )
+  );
 }
 
-export default RestHome
+export default RestHome;

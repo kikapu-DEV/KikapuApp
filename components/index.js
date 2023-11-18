@@ -20,6 +20,7 @@ import CartCard from "./Cards/CartCard/CartCard";
 import RestHeader from "./Header/restHeader/RestHeader";
 import Search from "./search/Search";
 import Categories from "./categories/Categories";
+import RecentlyListed from "./RecentlyListed/RecentlyListed";
 
 export { 
     SemiCircle, 
@@ -43,5 +44,6 @@ export {
     CartCard,
     RestHeader,
     Search,
-    Categories
+    Categories,
+    RecentlyListed
  };

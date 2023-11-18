@@ -4,6 +4,7 @@ const COLORS = {
   whiteText: "#fff",
   grey: "#D9D9D9",
   grey2: '#8A837D',
+  grey3: '#F3F5F7',
   yellow: "#FEBB10",
   lightGreen: 'rgba(24, 210, 110, 0.21)',
   red: '#FD4755'
