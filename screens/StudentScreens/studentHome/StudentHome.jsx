@@ -10,14 +10,30 @@ import { Ionicons } from "@expo/vector-icons";
 import styles from "./studenthome.style";
 import { COLORS, icons } from "../../../constants";
 import { AvailableNear, Header, TopRestraunts } from "../../../components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { getUser } from "../../../helpers/secureStore";
 
-function StudentHome({ route }) {
+function StudentHome() {
+	const navigation = useNavigation();
 	const [search, setSearch] = useState("");
+	const [user, setUser] = useState(null);
+
+	const checkUser = async () => {
+		const loggedInUser = await getUser();
+		if (!loggedInUser) {
+			navigation.navigate("login");
+		}
+		setUser(loggedInUser);
+	};
+
+	useEffect(() => {
+		checkUser();
+	}, []);
 
 	return (
 		<View style={styles.container}>
-			<Header />
+			<Header user={user} />
 			<View style={styles.welcome}>
 				<Text style={styles.welcomeText}>
 					Find your favorite restaurant and menu near you

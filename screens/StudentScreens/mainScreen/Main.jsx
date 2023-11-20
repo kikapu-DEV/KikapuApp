@@ -5,9 +5,6 @@ import Wallet from "../wallet/Wallet";
 import Order from "../StudentOrders/Order";
 import Profile from "../profile/Profile";
 import { COLORS } from "../../../constants";
-import { useNavigation } from "@react-navigation/native";
-import { useEffect } from "react";
-import { getUser } from "../../../helpers/secureStore";
 
 const Tab = createBottomTabNavigator();
 
@@ -38,19 +35,6 @@ const screenOptions = ({ route }) => ({
 });
 
 function Main() {
-	const navigation = useNavigation();
-
-	const checkUser = async () => {
-		const user = await getUser();
-		if (!user) {
-			navigation.navigate("Login");
-		}
-	};
-
-	useEffect(() => {
-		checkUser();
-	}, []);
-
 	return (
 		<Tab.Navigator initialRouteName='Home' screenOptions={screenOptions}>
 			<Tab.Screen

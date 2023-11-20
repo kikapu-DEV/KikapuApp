@@ -14,10 +14,10 @@ import { COLORS, images } from "../../../constants";
 import { Button1 } from "../../../components";
 
 const data = [
-	{ label: "customer", value: "customer" },
-	{ label: "student", value: "student" },
-	{ label: "Restaurant", value: "Restaurant" },
-	{ label: "farmer", value: "farmer" },
+	{ label: "Customer", value: "customer" },
+	{ label: "Student", value: "student" },
+	{ label: "Restaurant", value: "restaurant" },
+	{ label: "Farmer", value: "farmer" },
 ];
 function Signup() {
 	const navigation = useNavigation();

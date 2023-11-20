@@ -11,7 +11,6 @@ function Verify({ route }) {
 	const refs = Array.from({ length: 6 }, () => useRef());
 	const navigation = useNavigation();
 	const [verifyFormData, setVerifyFormData] = useState({});
-	const [formattedVerifyData, setFormattedVerifyData] = useState({});
 
 	const focusInput = (index) => {
 		if (index < refs.length - 1) {
@@ -26,37 +25,16 @@ function Verify({ route }) {
 		}
 	};
 
-	const formatVerifyData = (nonFormattedData) => {
-		const values = Object.values(nonFormattedData);
-		let otpString;
-
-		if (values.length === 6) {
-			otpString = values.join("");
-
-			setFormattedVerifyData({
-				// ...formattedVerifyData,
-				otpString,
-				email,
-			});
-		}
-	};
-
 	useEffect(() => {
-		formatVerifyData(verifyFormData);
-	}, [verifyFormData]);
-
-	useEffect(() => {
-		if (__DEV__) {
-			setVerifyFormData({
-				digit1: otp[0],
-				digit2: otp[1],
-				digit3: otp[2],
-				digit4: otp[3],
-				digit5: otp[4],
-				digit6: otp[5],
-			});
-		}
-	}, [otp]);
+		setVerifyFormData({
+			digit1: otp[0],
+			digit2: otp[1],
+			digit3: otp[2],
+			digit4: otp[3],
+			digit5: otp[4],
+			digit6: otp[5],
+		});
+	}, []);
 
 	return (
 		<View style={styles.container}>
@@ -77,8 +55,6 @@ function Verify({ route }) {
 								[`digit${index + 1}`]: text,
 							});
 
-							formatVerifyData(verifyFormData);
-
 							if (text.length > 0) {
 								focusInput(index);
 							}
@@ -94,7 +70,10 @@ function Verify({ route }) {
 				title='Verify'
 				screenName='login'
 				color={COLORS.primary}
-				formData={formattedVerifyData}
+				formData={{
+					email,
+					otpString: `${verifyFormData.digit1}${verifyFormData.digit2}${verifyFormData.digit3}${verifyFormData.digit4}${verifyFormData.digit5}${verifyFormData.digit6}`,
+				}}
 			/>
 			<View style={styles.signUpText}>
 				<Pressable

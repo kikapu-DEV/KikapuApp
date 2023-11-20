@@ -47,6 +47,7 @@ export const login = async ({ email, password }) => {
 		});
 		return response;
 	} catch (error) {
+		console.log("login response error", error);
 		return error.response.data.message;
 	}
 };

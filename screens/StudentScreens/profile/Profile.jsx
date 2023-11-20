@@ -15,27 +15,37 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
 import { logout, getUser } from "../../../helpers/secureStore";
+import { useEffect, useState } from "react";
 
 function Profile() {
 	const navigation = useNavigation();
+	let [fetchedUser, setFetchedUser] = useState(null);
+
+	const checkUser = async () => {
+		const user = await getUser();
+		if (!user) {
+			navigation.navigate("login");
+		}
+		setFetchedUser(user);
+	};
+
+	useEffect(() => {
+		checkUser();
+	}, [fetchedUser]);
 
 	const handleLogout = () => {
-		Alert.alert(
-			"Are you sure you want to logout?",
-			"You wont be able to access the app without internet connection",
-			[
-				{
-					text: "YES I WANT TO LOGOUT!",
-					onPress: () => {
-						logout();
-						navigation.navigate("onBoarding");
-					},
+		Alert.alert("Are you sure you want to logout?", "", [
+			{
+				text: "YES",
+				onPress: () => {
+					logout();
+					setFetchedUser(null);
 				},
-				{
-					text: "NO I DONT WANT TO LOGOUT",
-				},
-			]
-		);
+			},
+			{
+				text: "NO",
+			},
+		]);
 	};
 	const handleDelete = () => {
 		Alert.alert(
@@ -69,7 +79,9 @@ function Profile() {
 			</View>
 
 			<View style={styles.profileName}>
-				<Text style={styles.pNameTxt}>Paula</Text>
+				<Text style={styles.pNameTxt}>
+					{fetchedUser ? fetchedUser.username : "Paula"}
+				</Text>
 				<TouchableOpacity onPress={() => {}}>
 					<View>
 						<AntDesign name='edit' size={24} color='black' />

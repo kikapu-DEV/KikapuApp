@@ -20,13 +20,21 @@ function Button1({ title, screenName, color, iconName, formData = null }) {
 				});
 
 				if (response.status === 200) {
+					const userData = response.data.user;
 					Alert.alert("Success", response.data.message, [
 						{
 							text: "OK",
 							onPress: async () => {
 								setLoading(false);
-								await saveUser("user", JSON.stringify(response.data.user));
-								navigation.navigate("mainApp");
+								await saveUser("user", JSON.stringify(userData));
+
+								if (
+									userData.profile.role === "student" ||
+									userData.profile.role === "customer"
+								)
+									navigation.navigate("mainApp");
+								if (userData.profile.role === "restaurant")
+									navigation.navigate("restMainApp");
 							},
 						},
 					]);
