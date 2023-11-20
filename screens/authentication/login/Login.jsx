@@ -22,6 +22,7 @@ function Login({ navigation }) {
 				<Text style={{ marginBottom: 20 }}>Password</Text>
 				<TextInput
 					value={loginFormData.password}
+					secureTextEntry={true}
 					onChangeText={(text) =>
 						setLoginForm({ ...loginFormData, password: text })
 					}
