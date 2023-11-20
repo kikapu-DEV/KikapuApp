@@ -2,12 +2,16 @@ import { StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
+  CategoryItems,
   Login,
   Main,
   Onboarding,
+  RestMain,
   Signup,
+  StudentCheckout,
   StudentMenu,
   StudentPayment,
+  StudentProduct,
   Success,
   Verify,
 } from "./screens";
@@ -23,7 +27,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <StatusBar backgroundColor={COLORS.primary} barStyle="default" />
-      <Stack.Navigator initialRouteName="onBoarding">
+      <Stack.Navigator initialRouteName="restMainApp">
         <Stack.Screen
           name="onBoarding"
           component={Onboarding}
@@ -93,6 +97,36 @@ export default function App() {
         <Stack.Screen
           name="success"
           component={Success}
+          options={{
+           headerShown: false
+          }}
+        />
+        <Stack.Screen
+          name="studentProduct"
+          component={StudentProduct}
+          options={{
+           headerShown: false
+          }}
+        />
+        <Stack.Screen
+          name="checkout"
+          component={StudentCheckout}
+          options={{
+           headerShown: false
+          }}
+        />
+
+        {/* restaurant main app */}
+        <Stack.Screen
+          name="restMainApp"
+          component={RestMain}
+          options={{
+           headerShown: false
+          }}
+        />
+         <Stack.Screen
+          name="categoryItems"
+          component={CategoryItems}
           options={{
            headerShown: false
           }}

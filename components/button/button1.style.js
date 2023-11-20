@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import { COLORS, SIZES } from "../../constants";
 
 const styles = StyleSheet.create({
-  btn1:(color)=>( {
+  btn1: (color) => ({
     width: 300,
     paddingVertical: 15,
     paddingHorizontal: 10,
@@ -12,6 +12,10 @@ const styles = StyleSheet.create({
     marginLeft: "auto",
     marginRight: "auto",
     backgroundColor: color,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 5
   }),
   btn1Text: {
     color: COLORS.whiteText,

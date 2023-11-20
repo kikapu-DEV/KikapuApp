@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Text, TouchableOpacity, View, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
 import { login, register, verifyEmail } from "../../services/Auth";
 import styles from "./button1.style";
 import { getUser, saveUser } from "../../helpers/secureStore";
 
-function Button1({ title, screenName, color, formData = null }) {
+function Button1({ title, screenName, color, iconName, formData = null }) {
 	const navigation = useNavigation();
 	const [loading, setLoading] = useState(false);
 
@@ -112,6 +113,7 @@ function Button1({ title, screenName, color, formData = null }) {
 			{/* <Text style={{ color: "#000" }}>{validation}</Text> */}
 			<TouchableOpacity onPress={handleSubmission}>
 				<View style={styles.btn1(color)}>
+					<Ionicons name={iconName} size={24} color='white' />
 					<Text style={styles.btn1Text}>{loading ? "loading..." : title}</Text>
 				</View>
 			</TouchableOpacity>

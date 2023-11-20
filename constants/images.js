@@ -11,6 +11,15 @@ import smallAvatar from '../assets/images/smallAvatar.png'
 import success from '../assets/images/success.png'
 import avatar2 from '../assets/images/avatar2.png'
 import restFood from '../assets/images/restFood.png'
+import burger from '../assets/images/burger.png'
+import burger2 from '../assets/images/burger2.png'
+import cup from '../assets/images/cup.png'
+import apple from '../assets/images/apple.png'
+import vegetable from '../assets/images/vegetable.png'
+import cheese from '../assets/images/cheese.png'
+import meat from '../assets/images/meat.png'
+import hoho from '../assets/images/hoho.png'
+import lambMeat from '../assets/images/lambMeat.png'
 
 export default {
     foodBasket,
@@ -25,5 +34,14 @@ export default {
     smallAvatar,
     success,
     avatar2,
-    restFood
+    restFood,
+    burger,
+    burger2,
+    cup,
+    apple,
+    vegetable,
+    cheese,
+    meat,
+    hoho,
+    lambMeat
 };

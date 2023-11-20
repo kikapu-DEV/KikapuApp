@@ -15,6 +15,14 @@ import TransactionH from "./transactionHistory/TransactionH";
 import SwipeBtn from "./button/SwipeBtn";
 import CloseBtn from "./button/CloseBtn";
 import OrderCard from "./Cards/OrderCard/OrderCard";
+import Counter from "./counter/Counter";
+import CartCard from "./Cards/CartCard/CartCard";
+import RestHeader from "./Header/restHeader/RestHeader";
+import Search from "./search/Search";
+import Categories from "./categories/Categories";
+import BestSelling from "./BestSelling/BestSelling";
+import CLHeader from "./Header/categoryListHeader/CLHeader";
+import RestItemCard from "./Cards/RestItemCard/RestItemCard";
 
 export { 
     SemiCircle, 
@@ -34,4 +42,12 @@ export {
     SwipeBtn,
     CloseBtn,
     OrderCard,
+    Counter,
+    CartCard,
+    RestHeader,
+    Search,
+    Categories,
+    BestSelling,
+    CLHeader,
+    RestItemCard,
  };
