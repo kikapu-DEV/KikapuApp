@@ -14,9 +14,10 @@ import { COLORS, images } from "../../../constants";
 import { Button1 } from "../../../components";
 
 const data = [
-	{ label: "customer", value: 1 },
-	{ label: "Restaurant", value: 2 },
-	{ label: "farmer", value: 3 },
+	{ label: "customer", value: "customer" },
+	{ label: "student", value: "student" },
+	{ label: "Restaurant", value: "Restaurant" },
+	{ label: "farmer", value: "farmer" },
 ];
 function Signup() {
 	const navigation = useNavigation();
@@ -85,6 +86,7 @@ function Signup() {
 						<Text>+254</Text>
 					</View>
 					<TextInput
+						maxLength={9}
 						value={signupFormData.phone}
 						onChangeText={(text) =>
 							setSignupFormData({ ...signupFormData, phone: text })

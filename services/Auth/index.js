@@ -6,54 +6,84 @@ export const register = async ({
 	lastName,
 	email,
 	role,
-	phoneNumber,
+	phone,
 	password,
 }) => {
 	const url = apiBase + apiEndpoints.register;
-	return await axios.post(url, {
-		firstName,
-		lastName,
-		email,
-		role,
-		phone,
-		password,
-	});
+	try {
+		const response = await axios.post(url, {
+			firstName,
+			lastName,
+			email,
+			role,
+			phone,
+			password,
+		});
+		return response;
+	} catch (error) {
+		return error.response.data.message;
+	}
 };
 
 export const verifyEmail = async ({ email, otp }) => {
 	const url = apiBase + apiEndpoints.verifyEmail;
-	return await axios.post(url, {
-		email,
-		otp,
-	});
+	try {
+		const response = await axios.post(url, {
+			email,
+			otp,
+		});
+		return response;
+	} catch (error) {
+		return error.response.data.message;
+	}
 };
 
 export const login = async ({ email, password }) => {
 	const url = apiBase + apiEndpoints.login;
-	return await axios.post(url, {
-		email,
-		password,
-	});
+	try {
+		const response = await axios.post(url, {
+			email,
+			password,
+		});
+		return response;
+	} catch (error) {
+		return error.response.data.message;
+	}
 };
 
 export const forgotPassword = async ({ email }) => {
 	const url = apiBase + apiEndpoints.forgotPassword;
-	return await axios.post(url, {
-		email,
-	});
+	try {
+		const response = await axios.post(url, {
+			email,
+		});
+		return response;
+	} catch (error) {
+		return error.response.data.message;
+	}
 };
 
 export const verifyResetToken = async ({ email }) => {
 	const url = apiBase + apiEndpoints.verifyResetToken;
-	return await axios.post(url, {
-		email,
-	});
+	try {
+		const response = await axios.post(url, {
+			email,
+		});
+		return response;
+	} catch (error) {
+		return error.response.data.message;
+	}
 };
 
 export const setNewPassword = async ({ email, password }) => {
 	const url = apiBase + apiEndpoints.setNewPassword;
-	return await axios.post(url, {
-		email,
-		password,
-	});
+	try {
+		const response = await axios.post(url, {
+			email,
+			password,
+		});
+		return response;
+	} catch (error) {
+		return error.response.data.message;
+	}
 };

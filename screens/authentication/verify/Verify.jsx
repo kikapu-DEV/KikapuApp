@@ -1,14 +1,63 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Pressable, Text, TextInput, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./verify.style";
 import { Button1 } from "../../../components";
 import { COLORS } from "../../../constants";
 
-function Verify() {
+function Verify({ route }) {
+	const { email, otp } = route.params;
+
+	const refs = Array.from({ length: 6 }, () => useRef());
 	const navigation = useNavigation();
-	const ref = useRef();
 	const [verifyFormData, setVerifyFormData] = useState({});
+	const [formattedVerifyData, setFormattedVerifyData] = useState({});
+
+	const focusInput = (index) => {
+		if (index < refs.length - 1) {
+			refs[index + 1].current.focus();
+		}
+	};
+
+	const handleKeyPress = (index, key) => {
+		if (key === "Backspace" && index > 0) {
+			// Move focus to the previous input when Backspace is pressed
+			refs[index - 1].current.focus();
+		}
+	};
+
+	const formatVerifyData = (nonFormattedData) => {
+		const values = Object.values(nonFormattedData);
+		let otpString;
+
+		if (values.length === 6) {
+			otpString = values.join("");
+
+			setFormattedVerifyData({
+				// ...formattedVerifyData,
+				otpString,
+				email,
+			});
+		}
+	};
+
+	useEffect(() => {
+		formatVerifyData(verifyFormData);
+	}, [verifyFormData]);
+
+	useEffect(() => {
+		if (__DEV__) {
+			setVerifyFormData({
+				digit1: otp[0],
+				digit2: otp[1],
+				digit3: otp[2],
+				digit4: otp[3],
+				digit5: otp[4],
+				digit6: otp[5],
+			});
+		}
+	}, [otp]);
+
 	return (
 		<View style={styles.container}>
 			<Text style={styles.verifyText}>Verify your account</Text>
@@ -16,65 +65,42 @@ function Verify() {
 				Enter the 6-digit code sent to your email address
 			</Text>
 			<View style={styles.verifyRow}>
-				<TextInput
-					maxLength={1}
-					value={verifyFormData.one}
-					onChange={(e) => {
-						setVerifyFormData({ ...verifyFormData, one: text });
-					}}
-					style={styles.verifyBoxes}
-				/>
-				<TextInput
-					maxLength={1}
-					value={verifyFormData.two}
-					onChange={(e) => {
-						const text = e.nativeEvent.text;
-						setVerifyFormData({ ...verifyFormData, two: text });
-					}}
-					returnKeyType='next'
-					style={styles.verifyBoxes}
-				/>
-				<TextInput
-					maxLength={1}
-					value={verifyFormData.three}
-					onChange={(e) => {
-						const text = e.nativeEvent.text;
-						setVerifyFormData({ ...verifyFormData, three: text });
-					}}
-					style={styles.verifyBoxes}
-				/>
-				<TextInput
-					maxLength={1}
-					value={verifyFormData.four}
-					onChange={(e) => {
-						const text = e.nativeEvent.text;
-						setVerifyFormData({ ...verifyFormData, four: text });
-					}}
-					style={styles.verifyBoxes}
-				/>
-				<TextInput
-					maxLength={1}
-					value={verifyFormData.five}
-					onChange={(e) => {
-						const text = e.nativeEvent.text;
-						setVerifyFormData({ ...verifyFormData, five: text });
-					}}
-					style={styles.verifyBoxes}
-				/>
-				<TextInput
-					maxLength={1}
-					value={verifyFormData.six}
-					onChange={(e) => {
-						const text = e.nativeEvent.text;
-						setVerifyFormData({ ...verifyFormData, six: text });
-					}}
-					style={styles.verifyBoxes}
-				/>
+				{Array.from({ length: 6 }, (_, index) => (
+					<TextInput
+						key={index}
+						ref={refs[index]}
+						maxLength={1}
+						value={verifyFormData[`digit${index + 1}`]}
+						onChangeText={(text) => {
+							setVerifyFormData({
+								...verifyFormData,
+								[`digit${index + 1}`]: text,
+							});
+
+							formatVerifyData(verifyFormData);
+
+							if (text.length > 0) {
+								focusInput(index);
+							}
+						}}
+						onKeyPress={({ nativeEvent: { key } }) =>
+							handleKeyPress(index, key)
+						}
+						style={styles.verifyBoxes}
+					/>
+				))}
 			</View>
-			<Button1 title='Verify' screenName='login' color={COLORS.primary} />
+			<Button1
+				title='Verify'
+				screenName='login'
+				color={COLORS.primary}
+				formData={formattedVerifyData}
+			/>
 			<View style={styles.signUpText}>
 				<Pressable
-					onPress={() => navigation.navigate("verify")}
+					onPress={() => {
+						navigation.navigate("verify");
+					}}
 					style={styles.pressableText}
 				>
 					<Text>Didn’t receive OTP?</Text>
