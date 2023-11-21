@@ -6,6 +6,7 @@ import {
   Login,
   Main,
   Onboarding,
+  RestItemDetail,
   RestMain,
   Signup,
   StudentCheckout,
@@ -127,6 +128,13 @@ export default function App() {
          <Stack.Screen
           name="categoryItems"
           component={CategoryItems}
+          options={{
+           headerShown: false
+          }}
+        />
+        <Stack.Screen
+          name="restItemDetail"
+          component={RestItemDetail}
           options={{
            headerShown: false
           }}

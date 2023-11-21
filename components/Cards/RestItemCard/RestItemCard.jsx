@@ -3,12 +3,17 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import styles from "./RIC.style";
 import { Entypo } from "@expo/vector-icons";
 import { COLORS } from "../../../constants";
+import {useNavigation} from '@react-navigation/native'
 
-function RestItemCard({img, title, qty, price}) {
+function RestItemCard({img, title, qty, price, screenName}) {
+  const navigation = useNavigation();
   return (
     <View style={styles.itemContainer}>
       <View style={{ alignItems: "center" }}>
-        <Image source={img} />
+        <TouchableOpacity onPress={()=> navigation.navigate(screenName)}>
+          <Image source={img} />
+        </TouchableOpacity>
+        
       </View>
 
       <Text style={styles.title}>{title}</Text>
