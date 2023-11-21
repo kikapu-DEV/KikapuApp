@@ -6,12 +6,12 @@ import { images } from "../../../constants";
 
 function Header({ user }) {
 	const fetchedUser = user;
-
+	console.log(fetchedUser)
 	return (
 		<View style={styles.container}>
 			{fetchedUser ? (
 				<>
-					<LeftHeader userName={fetchedUser.username} />
+					<LeftHeader userName={`${user.profile.firstName} ${user.profile.lastName}`} />
 					<RightHeader
 						iconUrl={fetchedUser.avatar ? fetchedUser.avatar : images.avatar1}
 						dimensions='100%'

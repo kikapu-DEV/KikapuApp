@@ -35,6 +35,8 @@ function Button1({ title, screenName, color, iconName, formData = null }) {
 									navigation.navigate("mainApp");
 								if (userData.profile.role === "restaurant")
 									navigation.navigate("restMainApp");
+								if (userData.profile.role === "farmer")
+									navigation.navigate("farmerMainApp");
 							},
 						},
 					]);

@@ -49,7 +49,7 @@ function Profile() {
 	};
 	const handleDelete = () => {
 		Alert.alert(
-			"Are you sure yoou want to delete the account?",
+			"Are you sure you want to delete the account?",
 			"You wont be able to recover it",
 			[
 				{
@@ -80,7 +80,7 @@ function Profile() {
 
 			<View style={styles.profileName}>
 				<Text style={styles.pNameTxt}>
-					{fetchedUser ? fetchedUser.username : "Paula"}
+					{fetchedUser ? `${fetchedUser.profile.firstName} ${fetchedUser.profile.lastName}` : "Paula"}
 				</Text>
 				<TouchableOpacity onPress={() => {}}>
 					<View>
