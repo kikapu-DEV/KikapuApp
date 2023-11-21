@@ -2,18 +2,19 @@ import { StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
-	CategoryItems,
-	Login,
-	Main,
-	Onboarding,
-	RestMain,
-	Signup,
-	StudentCheckout,
-	StudentMenu,
-	StudentPayment,
-	StudentProduct,
-	Success,
-	Verify,
+  CategoryItems,
+  Login,
+  Main,
+  Onboarding,
+  RestItemDetail,
+  RestMain,
+  Signup,
+  StudentCheckout,
+  StudentMenu,
+  StudentPayment,
+  StudentProduct,
+  Success,
+  Verify,
 } from "./screens";
 import { COLORS } from "./constants";
 import { SemiCircle, SemiCircle2 } from "./components";
@@ -113,22 +114,29 @@ export default function App() {
 					}}
 				/>
 
-				{/* restaurant main app */}
-				<Stack.Screen
-					name='restMainApp'
-					component={RestMain}
-					options={{
-						headerShown: false,
-					}}
-				/>
-				<Stack.Screen
-					name='categoryItems'
-					component={CategoryItems}
-					options={{
-						headerShown: false,
-					}}
-				/>
-			</Stack.Navigator>
-		</NavigationContainer>
-	);
+        {/* restaurant main app */}
+        <Stack.Screen
+          name="restMainApp"
+          component={RestMain}
+          options={{
+           headerShown: false
+          }}
+        />
+         <Stack.Screen
+          name="categoryItems"
+          component={CategoryItems}
+          options={{
+           headerShown: false
+          }}
+        />
+        <Stack.Screen
+          name="restItemDetail"
+          component={RestItemDetail}
+          options={{
+           headerShown: false
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }

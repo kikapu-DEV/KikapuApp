@@ -20,6 +20,13 @@ import cheese from '../assets/images/cheese.png'
 import meat from '../assets/images/meat.png'
 import hoho from '../assets/images/hoho.png'
 import lambMeat from '../assets/images/lambMeat.png'
+import arabGinger from '../assets/images/arabGinger.png'
+import lettuce from '../assets/images/lettuce.png'
+import butterNut from '../assets/images/butterNut.png'
+import carrots from '../assets/images/carrots.png'
+import broccoli from '../assets/images/broccoli.png'
+import tomatoes from '../assets/images/tomatoes.png'
+import Spinach from '../assets/images/Spinach.png'
 
 export default {
     foodBasket,
@@ -43,5 +50,12 @@ export default {
     cheese,
     meat,
     hoho,
-    lambMeat
+    lambMeat,
+    arabGinger,
+    lettuce,
+    butterNut,
+    carrots,
+    broccoli,
+    tomatoes,
+    Spinach,
 };
