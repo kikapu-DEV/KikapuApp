@@ -27,6 +27,11 @@ import carrots from '../assets/images/carrots.png'
 import broccoli from '../assets/images/broccoli.png'
 import tomatoes from '../assets/images/tomatoes.png'
 import Spinach from '../assets/images/Spinach.png'
+import arabGinger2 from '../assets/images/arabGinger2.png'
+import d1 from '../assets/images/d1.png'
+import d2 from '../assets/images/d2.png'
+import d3 from '../assets/images/d3.png'
+import d4 from '../assets/images/d4.png'
 
 export default {
     foodBasket,
@@ -58,4 +63,9 @@ export default {
     broccoli,
     tomatoes,
     Spinach,
+    arabGinger2,
+    d1,
+    d2,
+    d3,
+    d4
 };

@@ -3,10 +3,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
   CategoryItems,
+  FarmerMainApp,
   Login,
   Main,
   Onboarding,
-  RestItemDetail,
+  RID,
   RestMain,
   Signup,
   StudentCheckout,
@@ -131,7 +132,16 @@ export default function App() {
         />
         <Stack.Screen
           name="restItemDetail"
-          component={RestItemDetail}
+          component={RID}
+          options={{
+           headerShown: false
+          }}
+        />
+
+		{/* Farmer main app */}
+		<Stack.Screen
+          name="farmerMainApp"
+          component={FarmerMainApp}
           options={{
            headerShown: false
           }}

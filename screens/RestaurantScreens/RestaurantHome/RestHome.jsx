@@ -34,7 +34,7 @@ function RestHome() {
 				showsVerticalScrollIndicator={false}
 			>
 				<Categories />
-				<BestSelling />
+				<BestSelling title='Best selling'/>
 			</ScrollView>
 		</View>
 	);

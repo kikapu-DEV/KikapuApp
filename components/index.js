@@ -23,6 +23,9 @@ import Categories from "./categories/Categories";
 import BestSelling from "./BestSelling/BestSelling";
 import CLHeader from "./Header/categoryListHeader/CLHeader";
 import RestItemCard from "./Cards/RestItemCard/RestItemCard";
+import RIDHeader from "./Header/restItemDetailHeader/RIDHeader";
+import Counter2 from "./counter/Counter2";
+import RestIngredient from "./Cards/restIngredient/RestIngredient";
 
 export { 
     SemiCircle, 
@@ -50,4 +53,7 @@ export {
     BestSelling,
     CLHeader,
     RestItemCard,
+    RIDHeader,
+    Counter2,
+    RestIngredient,
  };

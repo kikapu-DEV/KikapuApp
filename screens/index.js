@@ -20,7 +20,12 @@ import StudentCheckout from "./StudentScreens/checkout/StudentCheckout";
 import RestMain from "./RestaurantScreens/restMain/RestMain";
 import RestHome from "./RestaurantScreens/RestaurantHome/RestHome";
 import CategoryItems from "./RestaurantScreens/categoryItems/CategoryItems";
-import RestItemDetail from "./RestaurantScreens/restItemDetail/RestItemDetail";
+import RID from "./RestaurantScreens/restItemDetail/RID";
+
+
+// Farmer screens
+import FarmerMainApp from "./FarmerScreens/FarmerMainApp/FarmerMainApp";
+import FarmerHome from "./FarmerScreens/FarmerHome/FarmerHome";
 
 export { 
     Onboarding, 
@@ -40,5 +45,7 @@ export {
     RestMain,
     RestHome,
     CategoryItems,
-    RestItemDetail
+    RID,
+    FarmerMainApp,
+    FarmerHome
 };
