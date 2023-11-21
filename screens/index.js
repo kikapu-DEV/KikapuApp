@@ -19,8 +19,8 @@ import StudentCheckout from "./StudentScreens/checkout/StudentCheckout";
 // restaurant screens
 import RestMain from "./RestaurantScreens/restMain/RestMain";
 import RestHome from "./RestaurantScreens/RestaurantHome/RestHome";
-import CategoryItems from "./categoryItems/CategoryItems";
-import RestItemDetail from "./RestaurantScreens/restItemDetail/restItemDetail";
+import CategoryItems from "./RestaurantScreens/categoryItems/CategoryItems";
+import RestItemDetail from "./RestaurantScreens/restItemDetail/RestItemDetail";
 
 export { 
     Onboarding, 
