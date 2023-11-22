@@ -2,6 +2,7 @@ import { StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
+	AddCard,
   CategoryItems,
   FarmerMainApp,
   Login,
@@ -128,6 +129,13 @@ export default function App() {
 				<Stack.Screen
 					name='topUp'
 					component={TopUp}
+					options={{
+						headerShown: false,
+					}}
+				/>
+				<Stack.Screen
+					name='addCard'
+					component={AddCard}
 					options={{
 						headerShown: false,
 					}}

@@ -42,7 +42,7 @@ function TopUp() {
 
         {/* credit card */}
         <Text style={styles.txt2}>Credit card</Text>
-        <TouchableOpacity onPress={()=>{}}>
+        <TouchableOpacity onPress={()=> navigation.navigate('addCard')}>
           <View style={styles.mpesa}>
             <Image source={images.creditCard} />
             <MaterialIcons name="navigate-next" size={24} color="black" />
