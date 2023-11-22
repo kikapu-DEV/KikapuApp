@@ -15,6 +15,8 @@ import {
   StudentPayment,
   StudentProduct,
   Success,
+  TopUp,
+  Transfer,
   Verify,
 } from "./screens";
 import { COLORS } from "./constants";
@@ -68,6 +70,8 @@ export default function App() {
 						headerLeft: () => <SemiCircle2 screenName='signup' />,
 					}}
 				/>
+
+				{/* student main app */}
 				<Stack.Screen
 					name='mainApp'
 					component={Main}
@@ -108,8 +112,22 @@ export default function App() {
 					}}
 				/>
 				<Stack.Screen
+					name='transfer'
+					component={Transfer}
+					options={{
+						headerShown: false,
+					}}
+				/>
+				<Stack.Screen
 					name='checkout'
 					component={StudentCheckout}
+					options={{
+						headerShown: false,
+					}}
+				/>
+				<Stack.Screen
+					name='topUp'
+					component={TopUp}
 					options={{
 						headerShown: false,
 					}}

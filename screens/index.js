@@ -15,6 +15,8 @@ import StudentPayment from "./StudentScreens/payment/StudentPayment";
 import Success from "./StudentScreens/success/Success";
 import StudentProduct from "./StudentScreens/ProductScreen/StudentProduct";
 import StudentCheckout from "./StudentScreens/checkout/StudentCheckout";
+import TopUp from "./StudentScreens/Topup/TopUp";
+import Transfer from "./StudentScreens/Transfer/Transfer";
 
 // restaurant screens
 import RestMain from "./RestaurantScreens/restMain/RestMain";
@@ -47,5 +49,7 @@ export {
     CategoryItems,
     RID,
     FarmerMainApp,
-    FarmerHome
+    FarmerHome,
+    TopUp,
+    Transfer
 };

@@ -1,13 +1,13 @@
-import { FlatList, ScrollView, Text, View } from "react-native"
+import { FlatList, Text, View } from "react-native"
 import { Button2, TransactionH, WalletHeader } from "../../../components"
 import styles from "./wallet.style"
 import { FontAwesome } from '@expo/vector-icons';
 import { COLORS, SIZES } from "../../../constants";
 
 const iconList = [
-  {iconName: 'exchange', title:'Transfer', screenName: 'studentPayment'},
+  {iconName: 'exchange', title:'Transfer', screenName: 'transfer'},
   {iconName: 'credit-card', title:'Payment', screenName: 'studentPayment'},
-  {iconName: 'plus', title:'Top-up', screenName: 'studentPayment'}
+  {iconName: 'plus', title:'Top-up', screenName: 'topUp'}
 ]
 function Wallet() {
   return (

@@ -32,6 +32,8 @@ import d1 from '../assets/images/d1.png'
 import d2 from '../assets/images/d2.png'
 import d3 from '../assets/images/d3.png'
 import d4 from '../assets/images/d4.png'
+import mpesa from '../assets/images/mpesa.png'
+import creditCard from '../assets/images/creditCard.png'
 
 export default {
     foodBasket,
@@ -67,5 +69,7 @@ export default {
     d1,
     d2,
     d3,
-    d4
+    d4,
+    mpesa,
+    creditCard,
 };
