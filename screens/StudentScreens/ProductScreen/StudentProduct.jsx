@@ -1,9 +1,16 @@
-import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import {
+  FlatList,
+  Image,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import styles from "./sProduct.style";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, images } from "../../../constants";
-import { Button1, Button2, Counter } from "../../../components";
+import { Button3, Counter } from "../../../components";
 import { Dropdown } from "react-native-element-dropdown";
 import { useState } from "react";
 
@@ -25,7 +32,7 @@ function StudentProduct() {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate("menu")}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <Ionicons name="arrow-back-circle-outline" size={30} color="black" />
         </TouchableOpacity>
         <Text style={styles.txt1}>Details</Text>
@@ -70,33 +77,41 @@ function StudentProduct() {
             <Text style={styles.price}>ksh. 1,000</Text>
           </View>
           {/* counter btn */}
-          <Counter/>
+          <Counter />
         </View>
       </View>
 
       {/* extra ingredient */}
-      <View> 
-      <Dropdown
-            style={styles.dropdown}
-            placeholder="Add extra Ingredient"
-            data={data2}
-            value={value}
-            labelField="label"
-            valueField="value"
-            onChange={(item) => setValue(item.value)}
-          />
+      <View>
+        <Dropdown
+          style={styles.dropdown}
+          placeholder="Add extra Ingredient"
+          data={data2}
+          value={value}
+          labelField="label"
+          valueField="value"
+          onChange={(item) => setValue(item.value)}
+        />
       </View>
 
       {/* description */}
       <ScrollView showsVerticalScrollIndicator={false}>
-            <Text style={styles.desc}>Description</Text>
-            <Text>
-            Our classic cheeseburger is made with a fresh, never-frozen beef patty that is cooked to perfection and topped with melted American cheese, lettuce, tomato, pickles, and onions. It is served on a toasted bun and is sure to satisfy your hunger.
-            </Text>
+        <Text style={styles.desc}>Description</Text>
+        <Text>
+          Our classic cheeseburger is made with a fresh, never-frozen beef patty
+          that is cooked to perfection and topped with melted American cheese,
+          lettuce, tomato, pickles, and onions. It is served on a toasted bun
+          and is sure to satisfy your hunger.
+        </Text>
       </ScrollView>
 
       {/* add cart button */}
-      <Button1 title='Add to cart' color={COLORS.secondary} screenName='checkout' iconName='ios-cart-outline'/>
+      <Button3
+        title="Add to cart"
+        color={COLORS.secondary}
+        screenName="checkout"
+        iconName="ios-cart-outline"
+      />
     </View>
   );
 }

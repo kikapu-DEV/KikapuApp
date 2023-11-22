@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import styles from "./StudentCheckout.style";
-import { Button1, CartCard } from "../../../components";
+import { Button3, CartCard } from "../../../components";
 import { COLORS, images } from "../../../constants";
 import { useNavigation } from "@react-navigation/native";
 
@@ -14,7 +14,7 @@ function StudentCheckout() {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate("studentProduct")}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <Ionicons name="arrow-back-circle-outline" size={30} color="black" />
         </TouchableOpacity>
         <Text style={styles.txt1}>Cart</Text>
@@ -47,7 +47,7 @@ function StudentCheckout() {
       </View>
       
       {/* button */}
-      <Button1 title='Checkout' color={COLORS.secondary} screenName="studentPayment"/>
+      <Button3 title='Checkout' color={COLORS.secondary} screenName="studentPayment"/>
     </View>
   );
 }
