@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
         borderColor: COLORS.primary,
         padding: 10,
         marginTop: 10,
+        borderRadius: 20
     },
     txt2:{
         marginBottom: 20,
@@ -34,7 +35,8 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.lightGreen,
         marginBottom: 20,
         padding: 10,
-        alignItems: "center"
+        alignItems: "center",
+        borderRadius: 10
     }
 })
 
