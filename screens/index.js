@@ -18,6 +18,7 @@ import StudentCheckout from "./StudentScreens/checkout/StudentCheckout";
 import TopUp from "./StudentScreens/Topup/TopUp";
 import Transfer from "./StudentScreens/Transfer/Transfer";
 import AddCard from "./StudentScreens/AddCard/AddCard";
+import CreditCardDetail from "./CreditCardDetail/CreditCardDetail";
 
 // restaurant screens
 import RestMain from "./RestaurantScreens/restMain/RestMain";
@@ -53,5 +54,6 @@ export {
     FarmerHome,
     TopUp,
     Transfer,
-    AddCard
+    AddCard,
+    CreditCardDetail,
 };

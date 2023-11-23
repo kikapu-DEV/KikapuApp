@@ -24,7 +24,7 @@ function AddCard() {
 
         {/* body */}
         <View style={styles.body}>
-            <View>
+            <View style={{alignItems: 'center', justifyContent: 'center'}}>
                 <Image source={images.addCard}/>
             </View>
             
@@ -47,7 +47,7 @@ function AddCard() {
             </View>
 
             {/* button */}
-            <Button3 title='Continue' color={COLORS.secondary}/>
+            <Button3 title='Continue' color={COLORS.secondary} screenName='creditCardDetail'/>
         </View>
     </View>
   )

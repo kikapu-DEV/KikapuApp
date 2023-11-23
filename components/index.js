@@ -27,6 +27,7 @@ import RIDHeader from "./Header/restItemDetailHeader/RIDHeader";
 import Counter2 from "./counter/Counter2";
 import RestIngredient from "./Cards/restIngredient/RestIngredient";
 import Button3 from "./button/Button3";
+import CreditCard from "./Cards/CreditCard/CreditCard";
 
 export { 
     SemiCircle, 
@@ -57,5 +58,7 @@ export {
     RIDHeader,
     Counter2,
     RestIngredient,
-    Button3
+    Button3,
+    CreditCard,
+    
  };

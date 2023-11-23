@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
 	AddCard,
   CategoryItems,
+  CreditCardDetail,
   FarmerMainApp,
   Login,
   Main,
@@ -136,6 +137,13 @@ export default function App() {
 				<Stack.Screen
 					name='addCard'
 					component={AddCard}
+					options={{
+						headerShown: false,
+					}}
+				/>
+				<Stack.Screen
+					name='creditCardDetail'
+					component={CreditCardDetail}
 					options={{
 						headerShown: false,
 					}}

@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         marginBottom: 30
     },
     left:{
-        width: 170
+        width: 150
     }
 })
 
