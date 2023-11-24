@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.primary,
     borderRadius: 4,
     padding: 6,
+    textAlign: 'center'
   },
   signUpText: {
     width: "100",
