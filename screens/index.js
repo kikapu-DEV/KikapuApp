@@ -18,13 +18,14 @@ import StudentCheckout from "./StudentScreens/checkout/StudentCheckout";
 import TopUp from "./StudentScreens/Topup/TopUp";
 import Transfer from "./StudentScreens/Transfer/Transfer";
 import AddCard from "./StudentScreens/AddCard/AddCard";
-import CreditCardDetail from "./CreditCardDetail/CreditCardDetail";
+import CreditCardDetail from "./StudentScreens/CreditCardDetail/CreditCardDetail";
 
 // restaurant screens
 import RestMain from "./RestaurantScreens/restMain/RestMain";
 import RestHome from "./RestaurantScreens/RestaurantHome/RestHome";
 import CategoryItems from "./RestaurantScreens/categoryItems/CategoryItems";
 import RID from "./RestaurantScreens/restItemDetail/RID";
+import RestCart from "./RestaurantScreens/restCart/RestCart";
 
 
 // Farmer screens
@@ -56,4 +57,5 @@ export {
     Transfer,
     AddCard,
     CreditCardDetail,
+    RestCart
 };

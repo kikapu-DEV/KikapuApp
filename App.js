@@ -10,6 +10,7 @@ import {
   Main,
   Onboarding,
   RID,
+  RestCart,
   RestMain,
   Signup,
   StudentCheckout,
@@ -167,6 +168,13 @@ export default function App() {
         <Stack.Screen
           name="restItemDetail"
           component={RID}
+          options={{
+           headerShown: false
+          }}
+        />
+		<Stack.Screen
+          name="restCart"
+          component={RestCart}
           options={{
            headerShown: false
           }}

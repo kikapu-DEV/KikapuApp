@@ -36,6 +36,10 @@ import mpesa from '../assets/images/mpesa.png'
 import creditCard from '../assets/images/creditCard.png'
 import addCard from '../assets/images/addCard.png'
 import masterCard from '../assets/images/masterCard.png'
+import c1 from '../assets/images/restCart/c1.png'
+import c2 from '../assets/images/restCart/c2.png'
+import c3 from '../assets/images/restCart/c3.png'
+import c4 from '../assets/images/restCart/c4.png'
 
 export default {
     foodBasket,
@@ -75,5 +79,9 @@ export default {
     mpesa,
     creditCard,
     addCard,
-    masterCard
+    masterCard,
+    c1,
+    c2,
+    c3,
+    c4
 };
