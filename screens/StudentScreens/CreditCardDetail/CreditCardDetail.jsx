@@ -1,8 +1,8 @@
 import { Alert, FlatList, Pressable, Text, TouchableOpacity, View } from "react-native";
-import { COLORS } from "../../constants";
+import { COLORS } from "../../../constants";
 import { Ionicons } from "@expo/vector-icons";
 import styles from "./CreditCardDetail.style";
-import { CreditCard } from "../../components";
+import { CreditCard } from "../../../components";
 import {useNavigation} from '@react-navigation/native'
 
 function CreditCardDetail() {

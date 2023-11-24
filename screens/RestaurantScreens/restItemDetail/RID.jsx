@@ -1,6 +1,7 @@
 import { ScrollView, Text, View } from "react-native";
 import {
   Button1,
+  Button3,
   Counter2,
   RIDHeader,
   RestIngredient,
@@ -28,10 +29,10 @@ function RID() {
       <RestIngredient />
       {/* add to cart button */}
       <View style={{ marginBottom: 200 }}>
-        <Button1
+        <Button3
           title="Add to cart"
           color={COLORS.secondary}
-          screenName="checkout"
+          screenName="restCart"
           iconName="ios-cart-outline"
         />
       </View>
