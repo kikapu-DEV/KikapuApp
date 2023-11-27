@@ -83,9 +83,9 @@ function AddProduct() {
 
       {/* button */}
       <Button3
-        title="Checkout"
+        title="Add Product"
         color={COLORS.secondary}
-        screenName="studentPayment"
+        screenName="addSuccess"
       />
     </View>
   );

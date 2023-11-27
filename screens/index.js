@@ -32,6 +32,7 @@ import RestCart from "./RestaurantScreens/restCart/RestCart";
 import FarmerMainApp from "./FarmerScreens/FarmerMainApp/FarmerMainApp";
 import FarmerHome from "./FarmerScreens/FarmerHome/FarmerHome";
 import AddProduct from "./FarmerScreens/addProduct/AddProduct";
+import AddSuccess from "./FarmerScreens/addSuccess/AddSuccess";
 
 export { 
     Onboarding, 
@@ -60,4 +61,5 @@ export {
     CreditCardDetail,
     RestCart,
     AddProduct,
+    AddSuccess,
 };
