@@ -5,6 +5,7 @@ import Wallet from "../../StudentScreens/wallet/Wallet";
 import Profile from "../../StudentScreens/profile/Profile";
 import Order from "../../StudentScreens/StudentOrders/Order";
 import FarmerHome from "../FarmerHome/FarmerHome";
+import AddProduct from "../addProduct/AddProduct";
 
 const Tab = createBottomTabNavigator();
 
@@ -13,6 +14,7 @@ const home = "Home";
 const wallet = "Wallet";
 const orders = "Orders";
 const profile = "Profile";
+const add = 'Add';
 
 const screenOptions = ({ route }) => ({
   tabBarIcon: ({ focused, color, size }) => {
@@ -22,6 +24,8 @@ const screenOptions = ({ route }) => ({
       iconName = focused ? "home" : "home-outline";
     } else if (routeName === wallet) {
       iconName = focused ? "wallet" : "wallet-outline";
+    }else if (routeName === add) {
+      iconName = focused ? "add-circle" : "add-circle-outline";
     } else if (routeName === orders) {
       iconName = focused ? "cart" : "cart-outline";
     } else if (routeName === profile) {
@@ -45,6 +49,11 @@ function FarmerMainApp() {
        <Tab.Screen
         name={wallet}
         component={Wallet}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name={add}
+        component={AddProduct}
         options={{ headerShown: false }}
       />
       <Tab.Screen

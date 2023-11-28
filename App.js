@@ -3,6 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
 	AddCard,
+  AddProduct,
+  AddSuccess,
   CategoryItems,
   CreditCardDetail,
   FarmerMainApp,
@@ -184,6 +186,20 @@ export default function App() {
 		<Stack.Screen
           name="farmerMainApp"
           component={FarmerMainApp}
+          options={{
+           headerShown: false
+          }}
+        />
+		<Stack.Screen
+          name="addProduct"
+          component={AddProduct}
+          options={{
+           headerShown: false
+          }}
+        />
+		<Stack.Screen
+          name="addSuccess"
+          component={AddSuccess}
           options={{
            headerShown: false
           }}
