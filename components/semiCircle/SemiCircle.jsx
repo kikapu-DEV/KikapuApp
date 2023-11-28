@@ -8,7 +8,7 @@ function SemiCircle({title}) {
     const navigation = useNavigation()
   return (
     <View style={styles.container}>
-        <TouchableOpacity style={styles.btnContainer} onPress={()=> navigation.navigate('onBoarding')}>
+        <TouchableOpacity style={styles.btnContainer} onPress={()=> navigation.goBack()}>
             <Image source={icons.backBtn1} resizeMode="contain" style={styles.backBtn}/>
         </TouchableOpacity>
         <Text style={styles.circleText}>{title}</Text>

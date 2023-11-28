@@ -1,14 +1,21 @@
 import { useState } from "react";
-import { Pressable, Text, TextInput, View } from "react-native";
+import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import styles from "./login.styles";
 import { Button1 } from "../../../components";
 import { COLORS } from "../../../constants";
 
 function Login({ navigation }) {
 	const [loginFormData, setLoginForm] = useState({});
+
+	// for validation
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [error, setError] = useState('');
+
+
 	return (
 		<View style={styles.container}>
-			<View style={styles.loginFormContainer}>
+			<ScrollView style={styles.loginFormContainer}showsVerticalScrollIndicator={false}>
 				<Text style={styles.welcomeText}>Welcome Back!</Text>
 				<Text style={{ marginBottom: 20 }}>Email Address</Text>
 				<TextInput
@@ -51,7 +58,7 @@ function Login({ navigation }) {
 					color={COLORS.primary}
 					formData={loginFormData}
 				/>
-			</View>
+			</ScrollView>
 		</View>
 	);
 }
