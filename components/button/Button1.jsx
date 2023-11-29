@@ -6,7 +6,7 @@ import { login, register, verifyEmail } from "../../services/Auth";
 import styles from "./button1.style";
 import { getUser, saveUser } from "../../helpers/secureStore";
 
-function Button1({ title, screenName, color, iconName, formData = null }) {
+function Button1({ title, screenName, color, iconName, formData = null, onSubmit}) {
 	const navigation = useNavigation();
 	const [loading, setLoading] = useState(false);
 
@@ -14,6 +14,10 @@ function Button1({ title, screenName, color, iconName, formData = null }) {
 		try {
 			if (screenName === "mainApp") {
 				setLoading(true);
+				if (onSubmit){
+					await onSubmit();
+				}
+				setLoading(false)
 				const response = await login({
 					email: formData.email,
 					password: formData.password,

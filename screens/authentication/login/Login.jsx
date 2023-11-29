@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import styles from "./login.styles";
 import { Button1 } from "../../../components";
@@ -8,10 +8,25 @@ function Login({ navigation }) {
 	const [loginFormData, setLoginForm] = useState({});
 
 	// for validation
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
+	const [isFormValid, setIsFormValid] = useState(false);
 
+	const validateform =()=>{
+		let errors  = {};
+		if (!loginFormData.email){
+			errors.email = 'email is required'
+		}else if(!loginFormData.password){
+			errors.password = 'password is required'
+		}
+		setError(errors);
+		setIsFormValid(Object.keys(errors).length === 0);
+	}
+	const handleSubmit = async () =>{
+		validateform();
+
+		if(isFormValid) console.log('Form submitted successfully');
+		else console.log('Form has errors. Correct them');
+	}
 
 	return (
 		<View style={styles.container}>
@@ -25,6 +40,7 @@ function Login({ navigation }) {
 					}
 					style={styles.textInput}
 				/>
+				<Text style={{color: COLORS.red, textAlign: 'center'}}>{error.email}</Text>
 
 				<Text style={{ marginBottom: 20 }}>Password</Text>
 				<TextInput
@@ -35,6 +51,8 @@ function Login({ navigation }) {
 					}
 					style={styles.textInput}
 				/>
+						<Text style={{color: COLORS.red, textAlign: 'center'}}>{error.password}</Text>
+	
 				<View style={styles.signUpText}>
 					<Pressable
 						onPress={() => navigation.navigate("signup")}
@@ -52,11 +70,14 @@ function Login({ navigation }) {
 						</Text>
 					</Pressable>
 				</View>
+				
+				
 				<Button1
 					title='SIGN ME IN'
 					screenName='mainApp'
 					color={COLORS.primary}
 					formData={loginFormData}
+					onSubmit={handleSubmit}
 				/>
 			</ScrollView>
 		</View>
