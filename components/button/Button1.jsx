@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Text, TouchableOpacity, View, Alert, DevSettings } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { login, register, verifyEmail } from "../../services/Auth";
@@ -8,7 +8,15 @@ import { save } from "../../helpers/secureStore";
 import Spinner from "../Spinner/spinner";
 import useAuth from "../../helpers/hooks/useAuth";
 
-function Button1({ title, screenName, color, iconName, formData = null }) {
+function Button1({
+	title,
+	screenName,
+	color,
+	iconName,
+	formData = null,
+	onSubmit,
+	showToast,
+}) {
 	const navigation = useNavigation();
 	const [loading, setLoading] = useState(false);
 	const { setUserInfo } = useAuth();
@@ -17,6 +25,10 @@ function Button1({ title, screenName, color, iconName, formData = null }) {
 		try {
 			if (screenName === "mainApp") {
 				setLoading(true);
+				if (onSubmit) {
+					await onSubmit();
+				}
+
 				const response = await login({
 					email: formData.email,
 					password: formData.password,
@@ -24,39 +36,26 @@ function Button1({ title, screenName, color, iconName, formData = null }) {
 
 				if (response.status === 200) {
 					const userData = response.data.user;
-					Alert.alert("Success", response.data.message, [
-						{
-							text: "OK",
-							onPress: async () => {
-								try {
-									const role = userData.profile.role;
-									await save("user", JSON.stringify(userData));
-									setUserInfo(userData);
-
-									if (role === "student" || role === "customer") {
-										navigation.navigate("mainApp", { replace: true });
-									} else if (role === "restaurant") {
-										navigation.navigate("restMainApp", { replace: true });
-									} else if (role === "farmer") {
-										navigation.navigate("farmerMainApp", { replace: true });
-									}
-
-									setLoading(false);
-								} catch (err) {
-									console.log(err.message);
-								}
-							},
-						},
-					]);
+					try {
+						const role = userData.profile.role;
+						await save("user", JSON.stringify(userData));
+						setUserInfo(userData);
+						setLoading(false);
+						showToast("success", response.data.message, () => {
+							if (role === "student" || role === "customer") {
+								navigation.navigate("mainApp", { replace: true });
+							} else if (role === "restaurant") {
+								navigation.navigate("restMainApp", { replace: true });
+							} else if (role === "farmer") {
+								navigation.navigate("farmerMainApp", { replace: true });
+							}
+						});
+					} catch (err) {
+						console.log(err.message);
+					}
 				} else {
-					Alert.alert("Error", response, [
-						{
-							text: "OK",
-							onPress: () => {
-								setLoading(false);
-							},
-						},
-					]);
+					showToast("error", response);
+					setLoading(false);
 				}
 			} else if (screenName === "signup") {
 			} else if (screenName === "verify") {
@@ -64,71 +63,49 @@ function Button1({ title, screenName, color, iconName, formData = null }) {
 				const response = await register(formData);
 
 				if (response.status === 201) {
-					Alert.alert("Success", response.data.message, [
-						{
-							text: "OK",
-							onPress: () => {
-								setLoading(false);
-								navigation.navigate("verify", {
-									email: response.data.email,
-									otp: response.data.otp,
-								});
-							},
-						},
-					]);
+					showToast("success", response.data.message, () => {
+						setLoading(false);
+
+						navigation.navigate("verify", {
+							email: response.data.email,
+							otp: response.data.otp,
+						});
+					});
 				} else {
-					Alert.alert("Error", response, [
-						{
-							text: "OK",
-							onPress: () => {
-								setLoading(false);
-							},
-						},
-					]);
+					showToast("error", response, () => {
+						setLoading(false);
+					});
 				}
 			} else if (screenName === "login") {
 				setLoading(true);
+
 				const response = await verifyEmail({
 					email: formData.email,
 					otp: formData.otpString,
 				});
 
 				if (response.status === 200) {
-					Alert.alert("Success", response.data.message, [
-						{
-							text: "OK",
-							onPress: () => {
-								setLoading(false);
-								navigation.navigate("login", {
-									email: response.data.email,
-								});
-							},
-						},
-					]);
+					showToast("success", response.data.message, () => {
+						setLoading(false);
+						navigation.navigate("login", {
+							email: response.data.email,
+						});
+					});
 				} else {
-					Alert.alert("Error", response, [
-						{
-							text: "OK",
-							onPress: () => {
-								setLoading(false);
-							},
-						},
-					]);
+					showToast("error", response, () => {
+						setLoading(false);
+					});
 				}
 			}
 		} catch (err) {
-			Alert.alert("Error", err.message, [
-				{
-					text: "OK",
-					onPress: () => setLoading(false),
-				},
-			]);
+			showToast("error", err.message, () => {
+				setLoading(false);
+			});
 		}
 	};
 
 	return (
 		<View>
-			{/* <Text style={{ color: "#000" }}>{validation}</Text> */}
 			<TouchableOpacity onPress={handleSubmission}>
 				<View style={styles.btn1(color)}>
 					<Ionicons name={iconName} size={24} color='white' />

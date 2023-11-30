@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import styles from "./verify.style";
 import { Button1 } from "../../../components";
 import { COLORS } from "../../../constants";
+import Toast from "react-native-toast-message";
 
 function Verify({ route }) {
 	const { email, otp } = route.params;
@@ -36,8 +37,21 @@ function Verify({ route }) {
 		});
 	}, []);
 
+	const showToast = (type, msg2) => {
+		Toast.show({
+			type: type,
+			text1: type === "success" ? "Success" : "Error",
+			text2: msg2,
+			visibilityTime: 3000,
+			autoHide: true,
+		});
+	};
 	return (
 		<View style={styles.container}>
+			<View>
+				<Text>hello there</Text>
+			</View>
+			<Toast />
 			<Text style={styles.verifyText}>Verify your account</Text>
 			<Text style={styles.verifyText2}>
 				Enter the 6-digit code sent to your email address
@@ -74,6 +88,7 @@ function Verify({ route }) {
 					email,
 					otpString: `${verifyFormData.digit1}${verifyFormData.digit2}${verifyFormData.digit3}${verifyFormData.digit4}${verifyFormData.digit5}${verifyFormData.digit6}`,
 				}}
+				showToast={showToast}
 			/>
 			<View style={styles.signUpText}>
 				<Pressable
