@@ -26,6 +26,7 @@ import {
 } from "./screens";
 import { COLORS } from "./constants";
 import { SemiCircle, SemiCircle2 } from "./components";
+// import Toast from 'react-native-toast-message';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,7 +34,9 @@ export default function App() {
 	return (
 		<NavigationContainer>
 			<StatusBar backgroundColor={COLORS.primary} barStyle='default' />
+			{/* <Toast/> */}
 			<Stack.Navigator initialRouteName='onboarding'>
+				
 				<Stack.Screen
 					name='onBoarding'
 					component={Onboarding}

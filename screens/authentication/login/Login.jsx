@@ -3,6 +3,8 @@ import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import styles from "./login.styles";
 import { Button1 } from "../../../components";
 import { COLORS } from "../../../constants";
+import Toast from "react-native-toast-message";
+
 
 function Login({ navigation }) {
 	const [loginFormData, setLoginForm] = useState({});
@@ -11,7 +13,7 @@ function Login({ navigation }) {
 	const [error, setError] = useState('');
 	const [isFormValid, setIsFormValid] = useState(false);
 
-	const validateform =()=>{
+	const validateForm =()=>{
 		let errors  = {};
 		if (!loginFormData.email){
 			errors.email = 'email is required'
@@ -22,11 +24,20 @@ function Login({ navigation }) {
 		setIsFormValid(Object.keys(errors).length === 0);
 	}
 	const handleSubmit = async () =>{
-		validateform();
+		validateForm();
 
 		if(isFormValid) console.log('Form submitted successfully');
 		else console.log('Form has errors. Correct them');
 	}
+	const showToast = (type, msg2) => {
+		Toast.show({
+		  type: type,
+		  text1: type === 'success'? 'Success': 'Error',
+		  text2: msg2,
+		  visibilityTime: 3000,
+		  autoHide: true,
+		});
+	  };
 
 	return (
 		<View style={styles.container}>
@@ -78,7 +89,9 @@ function Login({ navigation }) {
 					color={COLORS.primary}
 					formData={loginFormData}
 					onSubmit={handleSubmit}
+					showToast={showToast}
 				/>
+				<Toast/>
 			</ScrollView>
 		</View>
 	);
