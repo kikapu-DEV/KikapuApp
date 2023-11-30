@@ -1,14 +1,17 @@
 import { useState } from "react";
-import { Text, TouchableOpacity, View, Alert } from "react-native";
+import { Text, TouchableOpacity, View, Alert, DevSettings } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { login, register, verifyEmail } from "../../services/Auth";
 import styles from "./button1.style";
-import { getUser, saveUser } from "../../helpers/secureStore";
+import { save } from "../../helpers/secureStore";
+import Spinner from "../Spinner/spinner";
+import useAuth from "../../helpers/hooks/useAuth";
 
 function Button1({ title, screenName, color, iconName, formData = null }) {
 	const navigation = useNavigation();
 	const [loading, setLoading] = useState(false);
+	const { setUserInfo } = useAuth();
 
 	const handleSubmission = async () => {
 		try {
@@ -25,18 +28,23 @@ function Button1({ title, screenName, color, iconName, formData = null }) {
 						{
 							text: "OK",
 							onPress: async () => {
-								setLoading(false);
-								await saveUser("user", JSON.stringify(userData));
+								try {
+									const role = userData.profile.role;
+									await save("user", JSON.stringify(userData));
+									setUserInfo(userData);
 
-								if (
-									userData.profile.role === "student" ||
-									userData.profile.role === "customer"
-								)
-									navigation.navigate("mainApp");
-								if (userData.profile.role === "restaurant")
-									navigation.navigate("restMainApp");
-								if (userData.profile.role === "farmer")
-									navigation.navigate("farmerMainApp");
+									if (role === "student" || role === "customer") {
+										navigation.navigate("mainApp", { replace: true });
+									} else if (role === "restaurant") {
+										navigation.navigate("restMainApp", { replace: true });
+									} else if (role === "farmer") {
+										navigation.navigate("farmerMainApp", { replace: true });
+									}
+
+									setLoading(false);
+								} catch (err) {
+									console.log(err.message);
+								}
 							},
 						},
 					]);
@@ -124,7 +132,7 @@ function Button1({ title, screenName, color, iconName, formData = null }) {
 			<TouchableOpacity onPress={handleSubmission}>
 				<View style={styles.btn1(color)}>
 					<Ionicons name={iconName} size={24} color='white' />
-					<Text style={styles.btn1Text}>{loading ? "loading..." : title}</Text>
+					<Text style={styles.btn1Text}>{loading ? <Spinner /> : title}</Text>
 				</View>
 			</TouchableOpacity>
 		</View>

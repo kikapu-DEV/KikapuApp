@@ -1,43 +1,43 @@
 import { ScrollView, Text, View } from "react-native";
 import {
-  Categories,
-  BestSelling,
-  RestHeader,
-  Search,
+	Categories,
+	BestSelling,
+	RestHeader,
+	Search,
 } from "../../../components";
 import { COLORS } from "../../../constants";
-import { getUser } from "../../../helpers/secureStore";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
+import useAuth from "../../../helpers/hooks/useAuth";
 
 function FarmerHome() {
-  const [user, setUser] = useState(null);
+	const navigation = useNavigation();
+	const { userInfo } = useAuth();
 
-  const checkUser = async () => {
-    const loggedInUser = await getUser();
-    if (!loggedInUser) {
-      navigation.navigate("login");
-    }
-    setUser(loggedInUser);
-  };
+	const checkUser = async () => {
+		if (!userInfo) {
+			navigation.navigate("login");
+		}
+	};
 
-  useEffect(() => {
-    checkUser();
-  }, []);
+	useEffect(() => {
+		checkUser();
+	}, [userInfo]);
 
-  return (
-    <View style={{ height: "100%", backgroundColor: COLORS.whiteText }}>
-      <RestHeader user={user} />
-      <Search />
+	return (
+		<View style={{ height: "100%", backgroundColor: COLORS.whiteText }}>
+			<RestHeader user={userInfo} />
+			<Search />
 
-      <ScrollView
-        contentContainerStyle={{ paddingBottom: 300 }}
-        showsVerticalScrollIndicator={false}
-      >
-        <Categories />
-        <BestSelling title="Recently Listed" />
-      </ScrollView>
-    </View>
-  );
+			<ScrollView
+				contentContainerStyle={{ paddingBottom: 300 }}
+				showsVerticalScrollIndicator={false}
+			>
+				<Categories />
+				<BestSelling title='Recently Listed' />
+			</ScrollView>
+		</View>
+	);
 }
 
 export default FarmerHome;

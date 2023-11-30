@@ -6,27 +6,27 @@ import {
 	Search,
 } from "../../../components";
 import { COLORS } from "../../../constants";
-import { getUser } from "../../../helpers/secureStore";
-import { useState, useEffect } from "react";
+import useAuth from "../../../helpers/hooks/useAuth";
+import { useEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 function RestHome() {
-	const [user, setUser] = useState(null);
+	const navigation = useNavigation();
+	const { userInfo } = useAuth();
 
 	const checkUser = async () => {
-		const loggedInUser = await getUser();
-		if (!loggedInUser) {
+		if (!userInfo) {
 			navigation.navigate("login");
 		}
-		setUser(loggedInUser);
 	};
 
 	useEffect(() => {
 		checkUser();
-	}, []);
+	}, [userInfo]);
 
 	return (
 		<View style={{ height: "100%", backgroundColor: COLORS.whiteText }}>
-			<RestHeader user={user} />
+			<RestHeader user={userInfo} />
 			<Search />
 
 			<ScrollView
@@ -34,7 +34,7 @@ function RestHome() {
 				showsVerticalScrollIndicator={false}
 			>
 				<Categories />
-				<BestSelling title='Best selling'/>
+				<BestSelling title='Best selling' />
 			</ScrollView>
 		</View>
 	);
