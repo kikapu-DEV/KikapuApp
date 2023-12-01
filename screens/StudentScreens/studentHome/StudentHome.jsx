@@ -12,28 +12,27 @@ import { COLORS, icons } from "../../../constants";
 import { AvailableNear, Header, TopRestraunts } from "../../../components";
 import { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { getUser } from "../../../helpers/secureStore";
+// import { getUser } from "../../../helpers/secureStore";
+import useAuth from "../../../helpers/hooks/useAuth";
 
 function StudentHome() {
 	const navigation = useNavigation();
+	const { userInfo } = useAuth();
 	const [search, setSearch] = useState("");
-	const [user, setUser] = useState(null);
 
 	const checkUser = async () => {
-		const loggedInUser = await getUser();
-		if (!loggedInUser) {
+		if (!userInfo) {
 			navigation.navigate("login");
 		}
-		setUser(loggedInUser);
 	};
 
 	useEffect(() => {
 		checkUser();
-	}, []);
+	}, [userInfo]);
 
 	return (
 		<View style={styles.container}>
-			<Header user={user} />
+			<Header user={userInfo} />
 			<View style={styles.welcome}>
 				<Text style={styles.welcomeText}>
 					Find your favorite restaurant and menu near you

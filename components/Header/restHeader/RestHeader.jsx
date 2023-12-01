@@ -11,11 +11,13 @@ function RestHeader({ user }) {
 				<Image source={images.avatar1} />
 				<View>
 					<Text style={styles.txt1}>Good Morning</Text>
-					<Text style={styles.txt2}>
-						{user
-							? `${user.profile.firstName} ${user.profile.lastName}`
-							: "Amelia Kirui"}
-					</Text>
+					{
+						<Text style={styles.txt2}>
+							{user
+								? `${user.profile.firstName} ${user.profile.lastName}`
+								: "Guest"}
+						</Text>
+					}
 				</View>
 			</View>
 

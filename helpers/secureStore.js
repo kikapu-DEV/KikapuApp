@@ -1,8 +1,8 @@
 import * as SecureStore from "expo-secure-store";
 
-export async function saveUser(key, value) {
+export async function save(key, value) {
 	try {
-		await SecureStore.setItemAsync(key, value);
+		return await SecureStore.setItemAsync(key, value);
 	} catch (error) {
 		console.log("Error storing the auth token", error);
 	}

@@ -14,24 +14,26 @@ import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
-import { logout, getUser } from "../../../helpers/secureStore";
+import { logout } from "../../../helpers/secureStore";
+import useAuth from "../../../helpers/hooks/useAuth";
 import { useEffect, useState } from "react";
 
 function Profile() {
 	const navigation = useNavigation();
-	let [fetchedUser, setFetchedUser] = useState(null);
+	const { userInfo, setUserInfo } = useAuth();
+	const [user, setUser] = useState(null);
 
-	const checkUser = async () => {
-		const user = await getUser();
-		if (!user) {
-			navigation.navigate("login");
+	const checkUser = () => {
+		if (!userInfo) {
+			navigation.navigate("onBoarding");
+		} else {
+			setUser(userInfo);
 		}
-		setFetchedUser(user);
 	};
 
 	useEffect(() => {
 		checkUser();
-	}, [fetchedUser]);
+	}, [userInfo]);
 
 	const handleLogout = () => {
 		Alert.alert("Are you sure you want to logout?", "", [
@@ -39,7 +41,7 @@ function Profile() {
 				text: "YES",
 				onPress: () => {
 					logout();
-					setFetchedUser(null);
+					setUserInfo(null);
 				},
 			},
 			{
@@ -47,6 +49,7 @@ function Profile() {
 			},
 		]);
 	};
+
 	const handleDelete = () => {
 		Alert.alert(
 			"Are you sure you want to delete the account?",
@@ -64,12 +67,17 @@ function Profile() {
 			]
 		);
 	};
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.profileContainer}>
 				<View style={styles.profileIcon}>
 					<TouchableOpacity onPress={() => {}}>
-						<Image source={images.avatar2} width={400} height={400} />
+						<Image
+							source={user && user.avatar ? user.avatar : images.avatar2}
+							width={400}
+							height={400}
+						/>
 
 						<View style={styles.changeBtn}>
 							<Text style={styles.changeTxt}>Change</Text>
@@ -80,7 +88,9 @@ function Profile() {
 
 			<View style={styles.profileName}>
 				<Text style={styles.pNameTxt}>
-					{fetchedUser ? `${fetchedUser.profile.firstName} ${fetchedUser.profile.lastName}` : "Paula"}
+					{user
+						? `${user.profile.firstName} ${user.profile.lastName}`
+						: "Guest"}
 				</Text>
 				<TouchableOpacity onPress={() => {}}>
 					<View>
