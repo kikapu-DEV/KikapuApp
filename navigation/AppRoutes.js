@@ -23,6 +23,7 @@ import {
 	TopUp,
 	Transfer,
 	Verify,
+	RestAddProduct,
 } from "../screens";
 import { COLORS } from "../constants";
 import { SemiCircle, SemiCircle2 } from "../components";
@@ -194,6 +195,13 @@ export default function AppRoutes() {
 				<Stack.Screen
 					name='restCart'
 					component={RestCart}
+					options={{
+						headerShown: false,
+					}}
+				/>
+				<Stack.Screen
+					name='restAddProduct'
+					component={RestAddProduct}
 					options={{
 						headerShown: false,
 					}}

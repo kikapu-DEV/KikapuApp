@@ -26,6 +26,7 @@ import RestHome from "./RestaurantScreens/RestaurantHome/RestHome";
 import CategoryItems from "./RestaurantScreens/categoryItems/CategoryItems";
 import RID from "./RestaurantScreens/restItemDetail/RID";
 import RestCart from "./RestaurantScreens/restCart/RestCart";
+import RestAddProduct from './RestaurantScreens/RestAddProduct/RestAddProduct';
 
 
 // Farmer screens
@@ -62,4 +63,5 @@ export {
     RestCart,
     AddProduct,
     AddSuccess,
+    RestAddProduct
 };
