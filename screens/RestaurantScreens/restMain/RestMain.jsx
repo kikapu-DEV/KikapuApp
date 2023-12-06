@@ -6,6 +6,7 @@ import Wallet from "../../StudentScreens/wallet/Wallet";
 import Profile from "../../StudentScreens/profile/Profile";
 import Order from "../../StudentScreens/StudentOrders/Order";
 import RestAddProduct from "../RestAddProduct/RestAddProduct";
+import TopNavigation from "../TopNavigator/TopNavigation";
 
 const Tab = createBottomTabNavigator();
 
@@ -58,7 +59,7 @@ function RestMain() {
       />
       <Tab.Screen
         name={orders}
-        component={Order}
+        component={TopNavigation}
         options={{ headerShown: false }}
       />
       <Tab.Screen
