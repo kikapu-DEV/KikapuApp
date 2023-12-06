@@ -37,20 +37,18 @@ function Verify({ route }) {
 		});
 	}, []);
 
-	const showToast = (type, msg2) => {
+	const showToast = (type, msg2, onHide) => {
 		Toast.show({
 			type: type,
 			text1: type === "success" ? "Success" : "Error",
 			text2: msg2,
 			visibilityTime: 3000,
 			autoHide: true,
+			onHide: onHide,
 		});
 	};
 	return (
 		<View style={styles.container}>
-			<View>
-				<Text>hello there</Text>
-			</View>
 			<Toast />
 			<Text style={styles.verifyText}>Verify your account</Text>
 			<Text style={styles.verifyText2}>

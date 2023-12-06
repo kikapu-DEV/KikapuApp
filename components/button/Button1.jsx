@@ -41,6 +41,7 @@ function Button1({
 						await save("user", JSON.stringify(userData));
 						setUserInfo(userData);
 						setLoading(false);
+						console.log("user data", userData);
 						showToast("success", response.data.message, () => {
 							if (role === "student" || role === "customer") {
 								navigation.navigate("mainApp", { replace: true });
@@ -60,12 +61,16 @@ function Button1({
 			} else if (screenName === "signup") {
 			} else if (screenName === "verify") {
 				setLoading(true);
+
+				if (onSubmit) {
+					await onSubmit();
+				}
+
 				const response = await register(formData);
 
 				if (response.status === 201) {
 					showToast("success", response.data.message, () => {
 						setLoading(false);
-
 						navigation.navigate("verify", {
 							email: response.data.email,
 							otp: response.data.otp,
@@ -78,6 +83,10 @@ function Button1({
 				}
 			} else if (screenName === "login") {
 				setLoading(true);
+
+				if (onSubmit) {
+					await onSubmit();
+				}
 
 				const response = await verifyEmail({
 					email: formData.email,
