@@ -26,7 +26,6 @@ import {
 	RestAddProduct,
 } from "../screens";
 import { COLORS } from "../constants";
-import { SemiCircle, SemiCircle2 } from "../components";
 import { Spinner } from "../components";
 import useAuth from "../helpers/hooks/useAuth";
 
@@ -65,32 +64,21 @@ export default function AppRoutes() {
 					name='login'
 					component={Login}
 					options={{
-						headerTitle: "",
-						headerShadowVisible: false,
-						headerStyle: {
-							backgroundColor: "transparent",
-						},
-						headerLeft: () => <SemiCircle title='LOG IN' />,
+						headerShown: false,
 					}}
 				/>
 				<Stack.Screen
 					name='signup'
 					component={Signup}
 					options={{
-						headerTitle: "",
-						headerShadowVisible: false,
-						headerStyle: { backgroundColor: "transparent" },
-						headerLeft: () => <SemiCircle title='SIGN UP' />,
+						headerShown: false,
 					}}
 				/>
 				<Stack.Screen
 					name='verify'
 					component={Verify}
 					options={{
-						headerTitle: "",
-						headerShadowVisible: false,
-						headerStyle: { backgroundColor: "transparent" },
-						headerLeft: () => <SemiCircle2 screenName='signup' />,
+						headerShown: false,
 					}}
 				/>
 

@@ -9,11 +9,11 @@ const styles = StyleSheet.create({
         margin: 0,
         padding: 0,
         borderRadius: 100,
-        left: -80,
+        left: -60,
         top: -30,
         display: "flex",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
     },
     circleText: {
         color: COLORS.whiteText,

@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     textAlign: "center",
     marginBottom: 30,
+    fontWeight: '500'
   },
   textInput: {
     borderWidth: 2,
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
   },
   signUpText: {
     width: "100",
-    marginBottom: 70,
+    marginBottom: 50,
   },
   pressableText: {
     width: "100%",

@@ -11,7 +11,7 @@ import styles from "./signup.style";
 import { Dropdown } from "react-native-element-dropdown";
 import { useState } from "react";
 import { COLORS, images } from "../../../constants";
-import { Button1 } from "../../../components";
+import { Button1, SemiCircle } from "../../../components";
 import Toast from "react-native-toast-message";
 
 const data = [
@@ -35,6 +35,7 @@ function Signup() {
 	};
 	return (
 		<View style={styles.container}>
+			 <SemiCircle title='SIGN UP' />
 			<Toast />
 			<ScrollView
 				style={styles.formContainer}

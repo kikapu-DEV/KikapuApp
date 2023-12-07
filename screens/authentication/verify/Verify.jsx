@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Pressable, Text, TextInput, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./verify.style";
-import { Button1 } from "../../../components";
+import { Button1, SemiCircle2 } from "../../../components";
 import { COLORS } from "../../../constants";
 import Toast from "react-native-toast-message";
 
@@ -49,6 +49,7 @@ function Verify({ route }) {
 	};
 	return (
 		<View style={styles.container}>
+			<SemiCircle2 />
 			<Toast />
 			<Text style={styles.verifyText}>Verify your account</Text>
 			<Text style={styles.verifyText2}>
