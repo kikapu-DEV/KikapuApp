@@ -16,6 +16,7 @@ function Button1({
 	formData = null,
 	onSubmit,
 	showToast,
+	isFormValid,
 }) {
 	const navigation = useNavigation();
 	const [loading, setLoading] = useState(false);
@@ -25,6 +26,21 @@ function Button1({
 		try {
 			if (screenName === "mainApp") {
 				setLoading(true);
+				if(isFormValid){
+					try{
+						setLoading(true);
+						const updatedFormValidity = validateForm();
+						if (updatedFormValidity) {
+							await onSubmit();
+							setLoading(false); // Reset loading after submission
+						  } else {
+							setLoading(false); // Reset loading if form becomes invalid after submission
+						  }
+					}
+					catch(err){
+						setLoading(false);
+					}
+				}
 				if (onSubmit) {
 					await onSubmit();
 				}
