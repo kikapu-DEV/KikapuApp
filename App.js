@@ -7,12 +7,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
 export default function App() {
 	return (
-		// <QueryClientProvider client={queryClient}>
-		<AuthProvider>
-			<Provider store={store}>
-				<AppRoutes />
-			</Provider>
-		</AuthProvider>
-		// </QueryClientProvider>
+		<QueryClientProvider client={queryClient}>
+			<AuthProvider>
+				<Provider store={store}>
+					<AppRoutes />
+				</Provider>
+			</AuthProvider>
+		</QueryClientProvider>
 	);
 }
