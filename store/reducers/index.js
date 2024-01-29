@@ -1,9 +1,9 @@
-import {combineReducers} from 'redux';
+import userReducer from "./userSlice";
+import cartReducer from "./cartSlice";
 
-const rootReducer = combineReducers({
-    reducers:{
-        // TODO: add the other slices here
-    }
-})
+const rootReducer = {
+	currentUser: userReducer,
+	cart: cartReducer,
+};
 
-export default rootReducer
+export default rootReducer;

@@ -18,6 +18,16 @@ export async function getUser() {
 	}
 }
 
+export async function getToken() {
+	try {
+		const user = await getUser();
+		return user ? user.accessToken : null;
+	} catch (error) {
+		console.log(error);
+		return null;
+	}
+}
+
 export async function logout() {
 	try {
 		return await SecureStore.deleteItemAsync("user");
