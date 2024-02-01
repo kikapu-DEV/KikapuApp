@@ -27,6 +27,8 @@ function Categories() {
 	if (isLoading) return <Spinner />;
 	if (error) return <Text>{error.message}</Text>;
 
+	// console.log("categories", data.data);
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.header}>
@@ -42,6 +44,7 @@ function Categories() {
 					horizontal
 					data={data.data}
 					keyExtractor={(item, index) => index.toString()}
+					ListEmptyComponent={() => <Text>No Categories yet</Text>}
 					renderItem={({ item }) => (
 						<View style={styles.itemMainContainer}>
 							<TouchableOpacity

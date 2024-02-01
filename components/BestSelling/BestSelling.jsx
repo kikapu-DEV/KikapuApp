@@ -48,6 +48,7 @@ function BestSelling({ title }) {
 					data={data.data}
 					horizontal
 					keyExtractor={(item, index) => index.toString()}
+					ListEmptyComponent={() => <Text>No products yet</Text>}
 					contentContainerStyle={{ columnGap: SIZES.xxLarge }}
 					renderItem={({ item }) => (
 						<RestItemCard
