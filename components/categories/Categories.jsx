@@ -25,6 +25,7 @@ function Categories() {
 	// 	{ image: images.meat, title: "Meat" },
 	// ];
 	if (isLoading) return <Spinner />;
+	if (error) return <Text>{error.message}</Text>;
 
 	return (
 		<View style={styles.container}>

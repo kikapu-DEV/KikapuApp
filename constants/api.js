@@ -1,5 +1,5 @@
-// const apiBaseUrl = "https://kikapu-api.onrender.com"
-const apiBaseUrl = "http://10.0.2.2:3000";
+const apiBaseUrl = "https://kikapu-api.onrender.com";
+// const apiBaseUrl = "http://10.0.2.2:3000";
 const apiBasePath = "/api/v1";
 const apiBase = apiBaseUrl + apiBasePath;
 const apiEndpoints = {
@@ -10,7 +10,7 @@ const apiEndpoints = {
 	forgotPassword: "/forgot-password",
 	verifyResetToken: "/verify-reset-token",
 	setNewPassword: "/set-new-password",
-	// farmers products
+	// farmers product
 	getProductCategories: "/get-product-categories",
 	getProductByCategory: "/get-product-by-category/{categoryId}",
 	getProducts: "/get-products",
@@ -20,6 +20,9 @@ const apiEndpoints = {
 	withdraw: "/withdraw",
 	transferToAnotherWallet: "/transfer-to-wallet",
 	getWallet: "/get-user-wallet",
+	// orders
+	getSellerOrders: "/get-seller-orders",
+	getBuyerOrders: "/get-buyer-orders",
 };
 
 export { apiBase, apiEndpoints };

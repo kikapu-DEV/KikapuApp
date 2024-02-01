@@ -26,11 +26,15 @@ function TransactionH({ transactions }) {
 				renderItem={(item) => (
 					<View style={styles.ListContainer}>
 						<View style={styles.ListSubContainer}>
-							<View style={styles.restLogo}></View>
+							<View style={styles.restLogo}>
+								<Text style={styles.restLogoText}>
+									{item.item.transactionType === "deposit" ? "D" : "W"}
+								</Text>
+							</View>
 							<View>
 								<Text style={styles.restName}>
 									{item.item.transactionId.length > 20
-										? item.item.transactionId.slice(0, 20) + "..."
+										? `${item.item.transactionId.slice(0, 25)} ...`
 										: item.item.transactionId}
 								</Text>
 								<Text style={styles.Time}>

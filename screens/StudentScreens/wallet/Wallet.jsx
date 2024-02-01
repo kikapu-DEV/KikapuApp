@@ -19,6 +19,7 @@ function Wallet() {
 	});
 
 	if (isLoading) return <Spinner />;
+	if (error) return <Text>{error.message}</Text>;
 
 	const wallet = data.wallet;
 	// console.log("wallet", wallet);

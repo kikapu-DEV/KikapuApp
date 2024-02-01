@@ -11,18 +11,24 @@ import { useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 
 function RestHome() {
-	const navigation = useNavigation();
 	const { userInfo } = useAuth();
-
-	const checkUser = async () => {
-		if (!userInfo) {
-			navigation.navigate("login");
-		}
-	};
+	const navigation = useNavigation();
 
 	useEffect(() => {
+		const checkUser = async () => {
+			if (!userInfo) {
+				navigation.navigate("login");
+			}
+		};
+
 		checkUser();
-	}, [userInfo]);
+
+		// return a destroy function
+
+		return () => {
+			console.log("destroy");
+		};
+	}, [userInfo, navigation]);
 
 	return (
 		<View style={{ height: "100%", backgroundColor: COLORS.whiteText }}>

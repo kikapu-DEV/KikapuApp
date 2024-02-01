@@ -72,7 +72,7 @@ function CategoryItems({ route, navigation }) {
 		},
 	];
 	if (isLoading) return <Spinner />;
-	console.log("data", data.data);
+	if (error) return <Text>{error.message}</Text>;
 	return (
 		<View style={styles.container}>
 			<CLHeader name={data.data.category.name} />
@@ -90,7 +90,6 @@ function CategoryItems({ route, navigation }) {
 						columnGap: SIZES.xxLarge,
 						paddingBottom: 30,
 					}}
-					showsVerticalScrollIndicator={false}
 					renderItem={({ item }) => (
 						<View style={styles.itemsContainer}>
 							<RestItemCard
@@ -102,6 +101,7 @@ function CategoryItems({ route, navigation }) {
 							/>
 						</View>
 					)}
+					showsVerticalScrollIndicator={false}
 				/>
 			</View>
 		</View>

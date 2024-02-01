@@ -26,6 +26,7 @@ function RID({ route, navigation }) {
 	});
 
 	if (isLoading) return <Spinner />;
+	if (error) return <Text>{error.message}</Text>;
 	// console.log("item data", data.data);
 	const product = data.data.product;
 	const category = data.data.category;
