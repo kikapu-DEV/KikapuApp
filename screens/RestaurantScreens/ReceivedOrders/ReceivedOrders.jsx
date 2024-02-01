@@ -1,22 +1,34 @@
-import { FlatList, Text, View } from 'react-native'
-import styles from './Received.styles'
-import { OrderCard } from '../../../components'
+import { FlatList, Text, View } from "react-native";
+import styles from "./Received.styles";
+import { OrderCard } from "../../../components";
+import { useQuery } from "@tanstack/react-query";
+import { getOrdersReceived } from "../../../services/Orders";
+import Spinner from "../../../components/Spinner/spinner";
 
 function ReceivedOrders() {
-  return (
-    <View style={styles.container}>
-            <Text style={styles.title}>Received orders</Text>
+	const staticData = [];
+	const { data, isLoading, error, refetch } = useQuery({
+		queryKey: ["ordersReceived"],
+		queryFn: getOrdersReceived,
+	});
 
-            <View style={styles.orderListContainer}>
-                  <FlatList
-                  data={[1,2,3,4,5]}
-                  keyExtractor={(item, index) => index.toString()}
-                  renderItem={({item})=> <OrderCard/>}
-                  showsVerticalScrollIndicator={false}
-                  />
-            </View>
-    </View>
-  )
+	if (isLoading) return <Spinner />;
+	if (error) return <Text>{error.message}</Text>;
+	return (
+		<View style={styles.container}>
+			<Text style={styles.title}>Received orders</Text>
+
+			<View style={styles.orderListContainer}>
+				<FlatList
+					data={data.orders}
+					keyExtractor={(item, index) => index.toString()}
+					ListEmptyComponent={() => <Text>No orders received yet</Text>}
+					renderItem={({ item }) => <OrderCard item={item} />}
+					showsVerticalScrollIndicator={false}
+				/>
+			</View>
+		</View>
+	);
 }
 
-export default ReceivedOrders
+export default ReceivedOrders;

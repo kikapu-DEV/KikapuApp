@@ -32,6 +32,7 @@ function BestSelling({ title }) {
 
 	// console.log("best selling data", query.data);
 	if (isLoading) return <Spinner />;
+	if (error) return <Text>{error.message}</Text>;
 	return (
 		<View style={styles.container}>
 			<View style={styles.header}>
