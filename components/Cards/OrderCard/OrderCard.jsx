@@ -1,10 +1,13 @@
-import { Image, Text, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import styles from "./orderCard.style";
 import { images } from "../../../constants";
+import {useNavigation} from '@react-navigation/native'
 
 function OrderCard({ item }) {
 	if (item === undefined) return null;
+	const navigation = useNavigation()
 	return (
+		<TouchableOpacity onPress={()=> navigation.navigate("orderDetail")}>
 		<View style={styles.container}>
 			<View>
 				<Image source={images.restFood} resizeMode='contain' />
@@ -20,6 +23,7 @@ function OrderCard({ item }) {
 				</View>
 			</View>
 		</View>
+		</TouchableOpacity>
 	);
 }
 

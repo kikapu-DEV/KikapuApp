@@ -23,6 +23,10 @@ const apiEndpoints = {
 	// orders
 	getSellerOrders: "/get-seller-orders",
 	getBuyerOrders: "/get-buyer-orders",
+	// Students
+	getRestaurants: "/get-restaurants",
+	getMenus: "/get-menus",
+	getMenuById: "/get-menu/{menuId}",
 };
 
 export { apiBase, apiEndpoints };

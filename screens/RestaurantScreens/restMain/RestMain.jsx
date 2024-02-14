@@ -5,7 +5,7 @@ import RestHome from "../RestaurantHome/RestHome";
 import Wallet from "../../StudentScreens/wallet/Wallet";
 import Profile from "../../StudentScreens/profile/Profile";
 import Order from "../../StudentScreens/StudentOrders/Order";
-import RestAddProduct from "../RestAddProduct/RestAddProduct";
+import RestAddMenu from "../RestAddMenu/RestAddMenu";
 import TopNavigation from "../TopNavigator/TopNavigation";
 
 const Tab = createBottomTabNavigator();
@@ -54,7 +54,7 @@ function RestMain() {
       />
       <Tab.Screen
         name={add}
-        component={RestAddProduct}
+        component={RestAddMenu}
         options={{ headerShown: false }}
       />
       <Tab.Screen
