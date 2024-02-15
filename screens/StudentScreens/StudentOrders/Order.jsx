@@ -20,7 +20,7 @@ function Order() {
 
 			<View style={styles.orderListContainer}>
 				<FlatList
-					data={staticData}
+					data={data}
 					keyExtractor={(item, index) => index.toString()}
 					ListEmptyComponent={() => <Text>No orders made yet</Text>}
 					renderItem={({ item }) => <OrderCard item={item} />}

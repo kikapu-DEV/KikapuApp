@@ -42,6 +42,7 @@ function Profile() {
 				onPress: () => {
 					logout();
 					setUserInfo(null);
+					setUser(null);
 				},
 			},
 			{
