@@ -11,6 +11,7 @@ import {
 	Login,
 	Main,
 	Onboarding,
+	OrderDetail,
 	RID,
 	RestCart,
 	RestMain,
@@ -23,7 +24,7 @@ import {
 	TopUp,
 	Transfer,
 	Verify,
-	RestAddProduct,
+	// RestAddProduct,
 } from "../screens";
 import { COLORS } from "../constants";
 import { Spinner } from "../components";
@@ -151,6 +152,13 @@ export default function AppRoutes() {
 					}}
 				/>
 				<Stack.Screen
+					name='orderDetail'
+					component={OrderDetail}
+					options={{
+						headerShown: false,
+					}}
+				/>
+				<Stack.Screen
 					name='creditCardDetail'
 					component={CreditCardDetail}
 					options={{
@@ -187,13 +195,13 @@ export default function AppRoutes() {
 						headerShown: false,
 					}}
 				/>
-				<Stack.Screen
+				{/* <Stack.Screen
 					name='restAddProduct'
 					component={RestAddProduct}
 					options={{
 						headerShown: false,
 					}}
-				/>
+				/> */}
 
 				{/* Farmer main app */}
 				<Stack.Screen

@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import styles from "./RestAddProduct.style";
+import styles from "./RestAddMenu.style";
 import { useNavigation } from "@react-navigation/native";
 import { Button3, Counter } from "../../../components";
 import { Dropdown } from "react-native-element-dropdown";
@@ -20,13 +20,13 @@ const data = [
   { label: "Dairy", value: "Dairy" },
   { label: "Meat", value: "Meat" },
 ];
-function RestAddProduct() {
+function RestAddMenu() {
   const navigation = useNavigation();
   const [value, setValue] = useState(null);
   return (
     <View style={styles.container}>
       {/* header */}
-      <Text style={styles.txt1}>Add new product</Text>
+      <Text style={styles.txt1}>Add new Menu</Text>
 
       {/* body */}
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -91,4 +91,4 @@ function RestAddProduct() {
   );
 }
 
-export default RestAddProduct;
+export default RestAddMenu;
