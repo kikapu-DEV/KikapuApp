@@ -19,6 +19,7 @@ import TopUp from "./StudentScreens/Topup/TopUp";
 import Transfer from "./StudentScreens/Transfer/Transfer";
 import AddCard from "./StudentScreens/AddCard/AddCard";
 import CreditCardDetail from "./StudentScreens/CreditCardDetail/CreditCardDetail";
+import OrderDetail from "./StudentScreens/OrderDetail/orderDetail";
 
 // restaurant screens
 import RestMain from "./RestaurantScreens/restMain/RestMain";
@@ -26,7 +27,7 @@ import RestHome from "./RestaurantScreens/RestaurantHome/RestHome";
 import CategoryItems from "./RestaurantScreens/categoryItems/CategoryItems";
 import RID from "./RestaurantScreens/restItemDetail/RID";
 import RestCart from "./RestaurantScreens/restCart/RestCart";
-import RestAddProduct from './RestaurantScreens/RestAddProduct/RestAddProduct';
+import RestAddMenu from './RestaurantScreens/RestAddMenu/RestAddMenu';
 
 
 // Farmer screens
@@ -63,5 +64,6 @@ export {
     RestCart,
     AddProduct,
     AddSuccess,
-    RestAddProduct
+    RestAddMenu,
+    OrderDetail,
 };
