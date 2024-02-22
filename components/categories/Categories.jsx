@@ -12,8 +12,6 @@ function Categories() {
 		queryKey: ["productCategories"],
 		queryFn: getProductCategories,
 	});
-
-	// console.log("categories", query.data);
 	// const data = [
 	// 	{ image: images.apple, title: "Fruits" },
 	// 	{
