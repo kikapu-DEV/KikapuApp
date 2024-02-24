@@ -8,30 +8,20 @@ import {
 	removeItemFromCart,
 } from "../../store/reducers/cartSlice";
 
-function Button3({ title, screenName, color, iconName, product }) {
-	const navigation = useNavigation();
-	const dispatch = useDispatch();
-
-	const addToCart = async (item) => {
-		// console.log("item", item);
-		dispatch(
-			addItemToCart({
-				id: item.id,
-				name: item.name,
-				price: item.price,
-				quantity: 1,
-				image: item.image,
-			})
-		);
-	};
-
+function Button3({
+	title,
+	screenName,
+	color,
+	iconName,
+	product,
+	pressHandler,
+}) {
 	return (
 		<View>
 			<TouchableOpacity
 				onPress={async () => {
 					console.log("screen name", screenName);
-					await addToCart(product);
-					// navigation.navigate(screenName);
+					pressHandler();
 				}}
 			>
 				<View style={styles.btn1(color)}>

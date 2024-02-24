@@ -18,6 +18,7 @@ const apiEndpoints = {
 	getProductByCategory: "/get-product-by-category/{categoryId}",
 	getProducts: "/get-products",
 	getProduct: "/get-product/{productId}",
+	createProduct: "/products",
 
 	// wallet
 	deposit: "/deposit",
@@ -33,6 +34,11 @@ const apiEndpoints = {
 	getRestaurants: "/get-restaurants",
 	getMenus: "/get-menus",
 	getMenuById: "/get-menu/{menuId}",
+	getMenuCategories: "/get-menu-categories",
+
+	// Restaurants
+	createMenu: "/create-menu",
+	addMeal: "/add-meal/{menuId}",
 };
 
 export { apiBase, apiEndpoints };

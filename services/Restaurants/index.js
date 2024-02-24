@@ -2,6 +2,7 @@ import { apiBase, apiEndpoints } from "../../constants";
 import { getToken } from "../../helpers/secureStore";
 import axios from "axios";
 
+// Products
 export const getProductCategories = async () => {
 	try {
 		const url = apiBase + apiEndpoints.getProductCategories;
@@ -61,6 +62,39 @@ export const getProduct = async (params) => {
 			apiBase + apiEndpoints.getProduct.replace("{productId}", productId);
 		const accessToken = await getToken();
 		const response = await axios.get(url, {
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${accessToken}`,
+			},
+		});
+		return response.data;
+	} catch (error) {
+		return error.response.data.message;
+	}
+};
+
+// Menus
+export const getMenuCategories = async (params) => {
+	try {
+		const url = apiBase + apiEndpoints.getMenuCategories;
+		const accessToken = await getToken();
+		const response = await axios.get(url, {
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${accessToken}`,
+			},
+		});
+		return response.data;
+	} catch (error) {
+		return error.response.data.message;
+	}
+};
+
+export const createMenu = async (data) => {
+	try {
+		const url = apiBase + apiEndpoints.createMenu;
+		const accessToken = await getToken();
+		const response = await axios.post(url, data, {
 			headers: {
 				"Content-Type": "application/json",
 				Authorization: `Bearer ${accessToken}`,
