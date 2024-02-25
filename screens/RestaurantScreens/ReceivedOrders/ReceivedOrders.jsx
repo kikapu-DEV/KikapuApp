@@ -2,22 +2,25 @@ import { FlatList, Text, View } from "react-native";
 import styles from "./Received.styles";
 import { OrderCard } from "../../../components";
 import { useQuery } from "@tanstack/react-query";
+import { useIsFocused } from "@react-navigation/native";
 import { getOrdersReceived } from "../../../services/Orders";
 import Spinner from "../../../components/Spinner/spinner";
 
 function ReceivedOrders() {
 	const staticData = [];
+	const isFocused = useIsFocused();
 	const { data, isLoading, error, refetch } = useQuery({
 		queryKey: ["ordersReceived"],
 		queryFn: getOrdersReceived,
+		enabled: isFocused,
 	});
 
 	if (isLoading) return <Spinner />;
 	if (error) return <Text>{error.message}</Text>;
+
 	return (
 		<View style={styles.container}>
 			<Text style={styles.title}>Received orders</Text>
-
 			<View style={styles.orderListContainer}>
 				<FlatList
 					data={data.orders}

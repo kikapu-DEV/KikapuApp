@@ -54,10 +54,10 @@ function RestMain() {
 				options={{ headerShown: false }}
 			/>
 			{/* <Tab.Screen
-        name={add}
-        component={RestAddMeal}
-        options={{ headerShown: false }}
-      /> */}
+				name={add}
+				component={RestAddMeal}
+				options={{ headerShown: false }}
+			/> */}
 			<Tab.Screen
 				name={add}
 				component={AddRestProduct}
@@ -66,7 +66,7 @@ function RestMain() {
 			<Tab.Screen
 				name={orders}
 				component={TopNavigation}
-				options={{ headerShown: false }}
+				options={{ headerShown: true }}
 			/>
 			<Tab.Screen
 				name={profile}

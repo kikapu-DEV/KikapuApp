@@ -22,12 +22,6 @@ function RestHome() {
 		};
 
 		checkUser();
-
-		// return a destroy function
-
-		return () => {
-			console.log("destroy");
-		};
 	}, [userInfo, navigation]);
 
 	return (

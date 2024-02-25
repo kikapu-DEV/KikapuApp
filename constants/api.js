@@ -29,6 +29,7 @@ const apiEndpoints = {
 	// orders
 	getSellerOrders: "/get-seller-orders",
 	getBuyerOrders: "/get-buyer-orders",
+	makeOrder: "/create-order",
 
 	// Students
 	getRestaurants: "/get-restaurants",

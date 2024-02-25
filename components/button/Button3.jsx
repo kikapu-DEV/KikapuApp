@@ -1,21 +1,8 @@
 import { Text, TouchableOpacity, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import styles from "./button3.style";
-import { useSelector, useDispatch } from "react-redux";
-import {
-	addItemToCart,
-	removeItemFromCart,
-} from "../../store/reducers/cartSlice";
 
-function Button3({
-	title,
-	screenName,
-	color,
-	iconName,
-	product,
-	pressHandler,
-}) {
+function Button3({ title, screenName, color, iconName, pressHandler }) {
 	return (
 		<View>
 			<TouchableOpacity

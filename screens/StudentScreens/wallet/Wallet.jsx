@@ -5,6 +5,8 @@ import { FontAwesome } from "@expo/vector-icons";
 import { COLORS, SIZES } from "../../../constants";
 import { useQuery } from "@tanstack/react-query";
 import { getWallet } from "../../../services/Wallet";
+import { useDispatch } from "react-redux";
+import { setWallet } from "../../../store/reducers/walletSlice";
 import Spinner from "../../../components/Spinner/spinner";
 
 const iconList = [
@@ -13,6 +15,7 @@ const iconList = [
 	{ iconName: "plus", title: "Top-up", screenName: "topUp" },
 ];
 function Wallet() {
+	const dispatch = useDispatch();
 	const { data, isLoading, error, refetch } = useQuery({
 		queryKey: ["userWallet"],
 		queryFn: getWallet,
@@ -22,6 +25,12 @@ function Wallet() {
 	if (error) return <Text>{error.message}</Text>;
 
 	const wallet = data.wallet;
+	dispatch(
+		setWallet({
+			balance: wallet.balance,
+			transactions: wallet.transactions,
+		})
+	);
 	// console.log("wallet", wallet);
 	return (
 		<View style={styles.container}>

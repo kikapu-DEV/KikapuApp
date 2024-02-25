@@ -14,10 +14,16 @@ import { COLORS } from "../../../constants";
 import Counter2Style from "../../../components/counter/Counter2.style";
 import { getProduct } from "../../../services/Restaurants";
 import Spinner from "../../../components/Spinner/spinner";
+import {
+	addItemToCart,
+	removeItemFromCart,
+} from "../../../store/reducers/cartSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 function RID({ route, navigation }) {
 	const [count, setCount] = useState(1);
 	const { itemId } = route.params;
+	const dispatch = useDispatch();
 	// console.log("item id", itemId);
 
 	const { data, isLoading, error, refetch } = useQuery({
@@ -37,6 +43,28 @@ function RID({ route, navigation }) {
 
 	const handleSub = () => {
 		setCount((prevState) => (prevState > 1 ? prevState - 1 : prevState));
+	};
+
+	const handleAddToCart = () => {
+		const payload = {
+			id: product._id,
+			name: product.name,
+			price: product.price,
+			quantity: count,
+			total: product.price * count,
+			image: product.image,
+		};
+
+		// console.log("pressed from RID");
+		// console.log("payload: ", payload);
+
+		// dispatch to redux store
+		dispatch(addItemToCart(payload));
+
+		// navigate to cart
+		navigation.navigate("restCart", {
+			payload,
+		});
 	};
 
 	return (
@@ -82,13 +110,8 @@ function RID({ route, navigation }) {
 					color={COLORS.secondary}
 					screenName='restCart'
 					iconName='ios-cart-outline'
-					product={{
-						id: product._id,
-						name: product.name,
-						price: product.price,
-						quantity: count,
-						total: product.price * count,
-						image: product.image,
+					pressHandler={() => {
+						handleAddToCart();
 					}}
 				/>
 			</View>
