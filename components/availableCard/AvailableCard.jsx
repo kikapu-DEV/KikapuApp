@@ -3,7 +3,7 @@ import styles from "./availableCard.style";
 import { COLORS, images } from "../../constants";
 import { Ionicons } from "@expo/vector-icons";
 
-function AvailableCard({ handleCardPress }) {
+function AvailableCard({ handleCardPress, item }) {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.container}>

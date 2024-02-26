@@ -4,13 +4,25 @@ import styles from "./availableNear.style";
 import { SIZES } from "../../constants";
 import AvailableCard from "../availableCard/AvailableCard";
 import { useNavigation } from "@react-navigation/native";
+import { useQuery } from "@tanstack/react-query";
+import { getRestaurants } from "../../services/Students";
+
+
 
 function AvailableNear() {
   const navigation = useNavigation();
 
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["getRestaurants"],
+    queryFn: getRestaurants,
+  });
+
   const handleCardPress = () => {
     navigation.navigate("menu");
   };
+  if (isLoading) return <Spinner />;
+  if (error) return <Text>{error.message}</Text>;
+  if (!data) return null;
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -23,8 +35,11 @@ function AvailableNear() {
       {/* available near you list */}
       <View style={styles.cardsContainer}>
         <FlatList
-          data={[1, 2, 3, 4]}
-          renderItem={() => <AvailableCard handleCardPress={handleCardPress} />}
+          data={data.data}
+          ListEmptyComponent={() => <Text>No Restaurants yet</Text>}
+          renderItem={({ item }) => (
+            <AvailableCard item={item} handleCardPress={handleCardPress} />
+          )}
           contentContainerStyle={{ columnGap: SIZES.xLarge }}
           horizontal
         />
