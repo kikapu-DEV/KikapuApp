@@ -1,4 +1,5 @@
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import { useIsFocused } from "@react-navigation/native";
 import styles from "./bestSelling.style";
 import { SIZES, images } from "../../constants";
 import RestItemCard from "../Cards/RestItemCard/RestItemCard";
@@ -7,30 +8,12 @@ import { getProducts } from "../../services/Restaurants";
 import Spinner from "../Spinner/spinner";
 
 function BestSelling({ title }) {
+	const isFocused = useIsFocused();
 	const { data, isLoading, error, refetch } = useQuery({
 		queryKey: ["products"],
 		queryFn: getProducts,
+		enabled: isFocused,
 	});
-	// const data = [
-	// 	{
-	// 		_id: "657b3d075c026d3bf55234bb",
-	// 		img: images.hoho,
-	// 		title: "Bell pepper Red",
-	// 		qty: "1",
-	// 		price: "4500",
-	// 		screenName: "restItemDetail",
-	// 	},
-	// 	{
-	// 		_id: "",
-	// 		img: images.lambMeat,
-	// 		title: "Lamb Meat",
-	// 		qty: "1",
-	// 		price: "4500",
-	// 		screenName: "restItemDetail",
-	// 	},
-	// ];
-
-	// console.log("best selling data", query.data);
 	if (isLoading) return <Spinner />;
 	if (error) return <Text>{error.message}</Text>;
 	return (

@@ -7,31 +7,89 @@ import {
 	View,
 } from "react-native";
 import styles from "./RestCart.style";
+import counter2Styles from "../../../components/counter/Counter2.style";
 import { Ionicons } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 import { COLORS, images } from "../../../constants";
 import { Button3, Counter2 } from "../../../components";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useSelector, useDispatch } from "react-redux";
 import Spinner from "../../../components/Spinner/spinner";
+import {
+	addItemToCart,
+	updateItemQuantity,
+	removeItemFromCart,
+} from "../../../store/reducers/cartSlice";
 import { useEffect, useState } from "react";
 
-function RestCart() {
-	// const [stateOfCart, setStateOfCart] = useState({ cart: [], loading: true });
+function RestCart({ navigation }) {
+	const [selectedItem, setSelectedItem] = useState(null);
 	const { cart, loading } = useSelector((state) => state.cart);
-	// const data = [
-	// 	{ img: images.c1, txt1: "Bell Pepper Red", txt2: "1kg, ksh4500" },
-	// 	{ img: images.c2, txt1: "Butternut Squash ", txt2: "1kg, ksh4500" },
-	// 	{ img: images.c3, txt1: "Arabic Ginger", txt2: "1kg, ksh4500" },
-	// 	{ img: images.c4, txt1: "Organic Carrots", txt2: "1kg, ksh4500" },
-	// ];
+	const dispatch = useDispatch();
+	const deliveryFee = 0;
+	const promoCodeRedeemValue = 0;
+	const totalAmount =
+		cart.items.reduce((acc, item) => acc + item.total, 0) +
+		deliveryFee -
+		promoCodeRedeemValue;
 
-	// if (loading) return <Spinner />;
+	// useEffect(() => {
+	// 	// console.log("cart", cart);
+	// 	// console.log("selectedItem", selectedItem);
+	// }, [cart, selectedItem]);
+
+	const handleAdd = (e, item) => {
+		const newQuantity = item.quantity + 1;
+		const payload = {
+			id: item.id,
+			name: item.name,
+			price: item.price,
+			quantity: newQuantity,
+			total: item.price * newQuantity,
+			image: item.image,
+		};
+
+		dispatch(addItemToCart(payload));
+	};
+
+	const handleSub = (e, item) => {
+		const newQuantity = item.quantity - 1;
+
+		if (newQuantity === 0) {
+			dispatch(removeItemFromCart(item.id));
+		} else {
+			const payload = {
+				id: item.id,
+				name: item.name,
+				price: item.price,
+				quantity: newQuantity,
+				total: item.price * newQuantity,
+				image: item.image,
+			};
+
+			dispatch(updateItemQuantity(payload));
+		}
+	};
+
+	const handleCheckout = (cart, total) => {
+		if (cart.items.length === 0) return;
+
+		navigation.navigate("studentPayment", {
+			cart,
+			total,
+		});
+	};
+
+	if (loading) return <Spinner />;
 
 	return (
 		<View style={styles.container}>
 			{/* header */}
 			<View style={styles.header}>
-				<TouchableOpacity style={styles.backBtn}>
+				<TouchableOpacity
+					style={styles.backBtn}
+					onPress={() => navigation.goBack()}
+				>
 					<Ionicons name='chevron-back' size={25} color='black' />
 				</TouchableOpacity>
 				<Text style={styles.txt1}>Cart</Text>
@@ -54,7 +112,27 @@ function RestCart() {
 							<Text style={styles.txt3}>{`qty: ${item.quantity}`}</Text>
 							<Text style={styles.txt3}>{`Price: ${item.price}`}</Text>
 						</View>
-						<Counter2 />
+						<View>
+							<View style={counter2Styles.container}>
+								<TouchableOpacity onPress={(e) => handleSub(e, item)}>
+									<Entypo
+										name='minus'
+										size={22}
+										color='black'
+										style={counter2Styles.icon}
+									/>
+								</TouchableOpacity>
+								<Text>{item.quantity}</Text>
+								<TouchableOpacity onPress={(e) => handleAdd(e, item)}>
+									<Entypo
+										name='plus'
+										size={22}
+										color={COLORS.whiteText}
+										style={counter2Styles.icon2}
+									/>
+								</TouchableOpacity>
+							</View>
+						</View>
 					</View>
 				)}
 			/>
@@ -79,17 +157,25 @@ function RestCart() {
 				</View>
 				<View style={styles.subtotalContainer}>
 					<Text style={styles.subTotal}>Subtotal</Text>
-					<Text style={styles.amount}>Ksh. 18,000</Text>
+					<Text style={styles.amount}>
+						Ksh. {cart.items.reduce((acc, item) => acc + item.total, 0)}
+					</Text>
+				</View>
+				<View style={styles.subtotalContainer}>
+					<Text style={styles.subTotal}>Promo</Text>
+					<Text style={styles.amount}>Ksh. {promoCodeRedeemValue}</Text>
 				</View>
 				<View style={styles.subtotalContainer}>
 					<Text style={styles.subTotal}>Delivery fee</Text>
-					<Text style={styles.amount}>Free</Text>
+					<Text style={styles.amount}>
+						{deliveryFee === 0 ? "Free" : `Ksh.${deliveryFee}`}
+					</Text>
 				</View>
 			</View>
 
 			<View style={styles.subtotalContainer2}>
 				<Text style={styles.Total}>Total</Text>
-				<Text style={styles.total2}>Ksh. 18,000</Text>
+				<Text style={styles.total2}>Ksh. {totalAmount}</Text>
 			</View>
 
 			{/* button */}
@@ -97,6 +183,9 @@ function RestCart() {
 				title='Checkout'
 				color={COLORS.secondary}
 				screenName='studentPayment'
+				pressHandler={() => {
+					handleCheckout(cart, totalAmount);
+				}}
 			/>
 		</View>
 	);

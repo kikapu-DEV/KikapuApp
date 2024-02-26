@@ -1,19 +1,22 @@
 {
-    "cSpell.words": [
-        "chatbox",
-        "Entypo",
-        "hoho",
-        "Ionicons",
-        "Kikapu",
-        "mpesa",
-        "pesa",
-        "Pressable",
-        "Restauraunts",
-        "Restraunts",
-        "screenheader",
-        "signup",
-        "Smenu",
-        "toprest",
-        "Topup"
-    ]
+	"cSpell.words": [
+		"chatbox",
+		"Entypo",
+		"hoho",
+		"Ionicons",
+		"Kikapu",
+		"mpesa",
+		"pesa",
+		"Pressable",
+		"Restauraunts",
+		"Restraunts",
+		"screenheader",
+		"signup",
+		"Smenu",
+		"toprest",
+		"Topup"
+	],
+	"avdmanager.sdkPath": "c:\\Users\\eliem\\AppData\\Local\\Android",
+	"avdmanager.executable": "c:\\Users\\eliem\\AppData\\Local\\Android\\Sdk\\tools\\bin\\avdmanager.bat",
+	"avdmanager.sdkManager": "c:\\Users\\eliem\\AppData\\Local\\Android\\Sdk\\cmdline-tools\\latest\\bin\\avdmanager.bat"
 }

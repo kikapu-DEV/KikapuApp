@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import {
 	ScrollView,
 	Text,
@@ -6,7 +5,7 @@ import {
 	TouchableOpacity,
 	View,
 } from "react-native";
-import styles from "./AddProduct.style.";
+import styles from "./RestAddMenu.style";
 import { useNavigation } from "@react-navigation/native";
 import { Button3, Counter } from "../../../components";
 import { Dropdown } from "react-native-element-dropdown";
@@ -15,72 +14,87 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
 import { COLORS } from "../../../constants";
 import { useMutation } from "@tanstack/react-query";
-import { createProduct } from "../../../services/Farmers/index";
+import { createMenu } from "../../../services/Restaurants/index";
 import { Spinner } from "../../../components";
 
 const data = [
-	{ label: "Fruits", value: "Fruits" },
+	{ label: "Breakfast", value: "Breakfast" },
 	{ label: "Vegetables", value: "Vegetables" },
 	{ label: "Dairy", value: "Dairy" },
 	{ label: "Meat", value: "Meat" },
 ];
-
-function AddProduct() {
+function RestAddMeal({ route }) {
 	const navigation = useNavigation();
-	const [productCategory, setProductCategory] = useState(null);
+	const { mealCategoryId, otherMealCategories } = route.params;
+	const [menuCategory, setMenuCategory] = useState(null);
 	const [quantityCount, setQuantityCount] = useState(1);
-	const [product, setProduct] = useState({
+	const [meal, setMeal] = useState({
 		title: "",
 		description: "",
 		price: "",
 		quantity: "",
-		productCategoryId: "",
+		menuCategoryId: "",
 	});
 
 	const mutation = useMutation({
-		mutationFn: (product) => createProduct(product),
+		mutationFn: (menu) => createMenu(menu),
 	});
 
 	const handleCountChange = (newCount) => {
 		setQuantityCount(newCount);
-		setProduct({ ...product, quantity: newCount });
+		setMeal({ ...meal, quantity: newCount });
 	};
 
 	const handleInputChanges = (value, name) => {
-		setProduct({ ...product, [name]: value });
+		setMeal({ ...meal, [name]: value });
 	};
 
 	const handleUploadImage = () => {
 		console.log("Upload Image");
 	};
-
 	const handleTakeImage = () => {
 		console.log("Take Image");
 	};
 
-	useEffect(() => {
-		console.log("productCategory updated:", productCategory);
-	}, [productCategory]);
-
 	const handleSubmit = () => {
-		setProduct((prevProduct) => ({
-			...prevProduct,
-			productCategoryId: productCategory,
+		setMeal((prevMeal) => ({
+			...prevMeal,
+			menuCategoryId: menuCategory,
 			quantity: quantityCount + 1,
 		}));
 
-		console.log("product", product);
-
-		// mutation.mutate(product);
-
 		// Now you can log the updated state
+		const updatedMeal = {
+			name: otherMealCategories.find((item) => item._id === meal.menuCategoryId)
+				?.name,
+			description: otherMealCategories.find(
+				(item) => item._id === meal.menuCategoryId
+			)?.description,
+			menuCategoryId: meal.menuCategoryId,
+			meal: {
+				price: meal.price,
+				quantity: meal.quantity,
+				title: meal.title,
+				description: meal.description,
+			},
+		};
 
-		// mutation?.isSuccess ? navigation.navigate("addSuccess") : null;
+		// console.log("Meal Data:", updatedMeal);
+
+		mutation.mutate(updatedMeal);
+
+		mutation?.isSuccess ? navigation.navigate("addSuccess") : null;
 	};
+
 	return (
 		<View style={styles.container}>
 			{/* header */}
-			<Text style={styles.txt1}>Add new product</Text>
+			<View style={styles.header}>
+				<TouchableOpacity onPress={() => navigation.goBack()}>
+					<Ionicons name='arrow-back-circle-outline' size={32} color='black' />
+				</TouchableOpacity>
+				<Text style={styles.txt1}>Add new Meal</Text>
+			</View>
 
 			{mutation.isError ? (
 				<View
@@ -98,6 +112,7 @@ function AddProduct() {
 
 			{/* body */}
 			<ScrollView showsVerticalScrollIndicator={false}>
+				{/* <Text style={styles.txt1}>{mealCategoryId}</Text> */}
 				<Text style={styles.txt2}>Title</Text>
 				<TextInput
 					style={styles.textInput}
@@ -130,12 +145,12 @@ function AddProduct() {
 				{/* dropdown */}
 				<Dropdown
 					style={styles.dropdown}
-					placeholder='Product category'
-					data={data}
-					value={productCategory}
-					labelField='label'
-					valueField='value'
-					onChange={(item) => setProductCategory(item.value)}
+					placeholder='Add to Menu'
+					data={otherMealCategories}
+					value={menuCategory}
+					labelField='name'
+					valueField='_id'
+					onChange={(item) => setMenuCategory(item._id)}
 				/>
 
 				{/* upload image */}
@@ -163,20 +178,16 @@ function AddProduct() {
 			{/* button */}
 			<Button3
 				title={
-					!mutation ? (
-						"Add Product"
-					) : mutation.isLoading ? (
-						<Spinner />
-					) : (
-						"Add Product"
-					)
+					!mutation ? "Add Meal" : mutation.isLoading ? <Spinner /> : "Add Meal"
 				}
 				color={COLORS.secondary}
 				screenName='addSuccess'
-				pressHandler={() => handleSubmit()}
+				pressHandler={() => {
+					handleSubmit();
+				}}
 			/>
 		</View>
 	);
 }
 
-export default AddProduct;
+export default RestAddMeal;

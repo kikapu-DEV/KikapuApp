@@ -10,23 +10,36 @@ const apiEndpoints = {
 	forgotPassword: "/forgot-password",
 	verifyResetToken: "/verify-reset-token",
 	setNewPassword: "/set-new-password",
+	getUserProfile: "/get-user-profile",
+	logout: "/logout",
+
 	// farmers product
 	getProductCategories: "/get-product-categories",
 	getProductByCategory: "/get-product-by-category/{categoryId}",
 	getProducts: "/get-products",
 	getProduct: "/get-product/{productId}",
+	createProduct: "/products",
+
 	// wallet
 	deposit: "/deposit",
 	withdraw: "/withdraw",
 	transferToAnotherWallet: "/transfer-to-wallet",
 	getWallet: "/get-user-wallet",
+
 	// orders
 	getSellerOrders: "/get-seller-orders",
 	getBuyerOrders: "/get-buyer-orders",
+	makeOrder: "/create-order",
+
 	// Students
 	getRestaurants: "/get-restaurants",
 	getMenus: "/get-menus",
 	getMenuById: "/get-menu/{menuId}",
+	getMenuCategories: "/get-menu-categories",
+
+	// Restaurants
+	createMenu: "/create-menu",
+	addMeal: "/add-meal/{menuId}",
 };
 
 export { apiBase, apiEndpoints };

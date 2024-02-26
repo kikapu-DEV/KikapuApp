@@ -1,4 +1,5 @@
 import { apiBase, apiEndpoints } from "../../constants";
+import { getToken, logout } from "../../helpers/secureStore";
 import axios from "axios";
 
 export const register = async ({
@@ -83,6 +84,41 @@ export const setNewPassword = async ({ email, password }) => {
 			password,
 		});
 		return response;
+	} catch (error) {
+		return error.response.data.message;
+	}
+};
+
+export const getUserProfile = async () => {
+	try {
+		const url = apiBase + apiEndpoints.getUserProfile;
+		const accessToken = await getToken();
+		const response = await axios.get(url, {
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${accessToken}`,
+			},
+		});
+		// console.log("requester service", response.data);
+		return response.data;
+	} catch (error) {
+		return error.response.data.message;
+	}
+};
+
+export const logoutUser = async () => {
+	const url = apiBase + apiEndpoints.logout;
+	const accessToken = await getToken();
+	try {
+		const response = await axios.get(url, {
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${accessToken}`,
+			},
+		});
+
+		await logout();
+		return response.data;
 	} catch (error) {
 		return error.response.data.message;
 	}

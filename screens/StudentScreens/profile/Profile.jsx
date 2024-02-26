@@ -16,31 +16,26 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
 import { logout } from "../../../helpers/secureStore";
 import useAuth from "../../../helpers/hooks/useAuth";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getUserProfile } from "../../../services/Auth";
+import Spinner from "../../../components/Spinner/spinner";
 
 function Profile() {
 	const navigation = useNavigation();
-	const { userInfo, setUserInfo } = useAuth();
-	const [user, setUser] = useState(null);
+	const { user, setUserInfo } = useAuth();
 
-	const checkUser = () => {
-		if (!userInfo) {
-			navigation.navigate("onBoarding");
-		} else {
-			setUser(userInfo);
-		}
-	};
-
-	useEffect(() => {
-		checkUser();
-	}, [userInfo]);
+	const { data, isLoading, error, refetch } = useQuery({
+		queryKey: ["userProfile"],
+		queryFn: getUserProfile,
+	});
 
 	const handleLogout = () => {
 		Alert.alert("Are you sure you want to logout?", "", [
 			{
 				text: "YES",
-				onPress: () => {
-					logout();
+				onPress: async () => {
+					await logout();
 					setUserInfo(null);
 				},
 			},
@@ -68,13 +63,18 @@ function Profile() {
 		);
 	};
 
+	if (isLoading) return <Spinner />;
+	if (error) return <Text>{error.message}</Text>;
+
+	const userData = data.user;
+
 	return (
 		<View style={styles.container}>
 			<View style={styles.profileContainer}>
 				<View style={styles.profileIcon}>
 					<TouchableOpacity onPress={() => {}}>
 						<Image
-							source={user && user.avatar ? user.avatar : images.avatar2}
+							source={userData?.profile.avatar ? user.avatar : images.avatar2}
 							width={400}
 							height={400}
 						/>
@@ -88,8 +88,8 @@ function Profile() {
 
 			<View style={styles.profileName}>
 				<Text style={styles.pNameTxt}>
-					{user
-						? `${user.profile.firstName} ${user.profile.lastName}`
+					{userData?.profile.firstName && userData?.profile.lastName
+						? `${userData?.profile.firstName} ${userData?.profile.lastName}`
 						: "Guest"}
 				</Text>
 				<TouchableOpacity onPress={() => {}}>

@@ -36,3 +36,20 @@ export const getOrdersReceived = async () => {
 		return error.response.data.message;
 	}
 };
+
+export const makeOrder = async (order) => {
+	try {
+		const url = apiBase + apiEndpoints.makeOrder;
+		const accessToken = await getToken();
+		const response = await axios.post(url, order, {
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${accessToken}`,
+			},
+		});
+		// console.log("requester service", response.data);
+		return response.data;
+	} catch (error) {
+		return error.response.data.message;
+	}
+};
