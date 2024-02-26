@@ -1,5 +1,5 @@
-// const apiBaseUrl = "https://kikapu-api.onrender.com";
-const apiBaseUrl = "http://10.0.2.2:3000";
+const apiBaseUrl = "https://kikapu-api.onrender.com";
+// const apiBaseUrl = "http://10.0.2.2:3000";
 const apiBasePath = "/api/v1";
 const apiBase = apiBaseUrl + apiBasePath;
 const apiEndpoints = {
