@@ -10,11 +10,14 @@ import styles from "./sProduct.style";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, images } from "../../../constants";
-import { Button3, Counter } from "../../../components";
+import { Button3, Counter, Spinner } from "../../../components";
 import { Dropdown } from "react-native-element-dropdown";
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getMenus } from "../../../services/Students";
 
-function StudentProduct() {
+function StudentProduct({ route }) {
+  const { meal } = route.params;
   const navigation = useNavigation();
   const [value, setValue] = useState(null);
 
@@ -73,8 +76,8 @@ function StudentProduct() {
       <View style={styles.moreContainer}>
         <View style={styles.moreSubContainer}>
           <View>
-            <Text style={styles.title}>Cheese burger</Text>
-            <Text style={styles.price}>ksh. 1,000</Text>
+            <Text style={styles.title}>{meal.name}</Text>
+            <Text style={styles.price}>{meal.price}</Text>
           </View>
           {/* counter btn */}
           <Counter />
@@ -97,12 +100,7 @@ function StudentProduct() {
       {/* description */}
       <ScrollView showsVerticalScrollIndicator={false}>
         <Text style={styles.desc}>Description</Text>
-        <Text>
-          Our classic cheeseburger is made with a fresh, never-frozen beef patty
-          that is cooked to perfection and topped with melted American cheese,
-          lettuce, tomato, pickles, and onions. It is served on a toasted bun
-          and is sure to satisfy your hunger.
-        </Text>
+        <Text>{meal.description}</Text>
       </ScrollView>
 
       {/* add cart button */}

@@ -18,10 +18,12 @@ export const getRestaurants = async() =>{
     }
 }
 
-export const getMenuById = async(params) =>{
-    const menuId = params.queryKey[1];
+export const getMenus = async(params) =>{
+    const restaurantId = params.queryKey[1];
     try{
-        const url =apiBase + apiEndPoints.getMenuById.replace("{menuId}", menuId);
+        const url =
+          apiBase +
+          apiEndpoints.getMenus.replace("{restaurantId}", restaurantId);
         const accessToken = await getToken();
         const response = await axios.get(url, {headers:{
             "Content-Type": "application/json",
@@ -30,23 +32,7 @@ export const getMenuById = async(params) =>{
         return response.data;
     }
     catch(error){
-        return error.response.data.message
-    }
-}
-
-export const getMenus = async()=>{
-    try{
-        const url = apiBase + apiEndpoints.getMenus;
-        const accessToken  = await getToken();
-        const response = await axios.get(url, {
-            headers: {
-                "ContentType": "application/json",
-                Authorization: `Bearer ${accessToken}`,
-            }
-        });
-        return response.data
-    }
-    catch(error){
         return error.response.data.message;
     }
 }
+

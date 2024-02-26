@@ -21,7 +21,7 @@ function AvailableCard({ handleCardPress, item }) {
 
       {/* available content */}
       <View style={styles.availableContent}>
-        <Text style={styles.availableTitle}>Mama Burger</Text>
+        <Text style={styles.availableTitle}>{item.restaurantName}</Text>
         <View style={styles.availableDetail}>
           <View style={styles.availableContentSmall}>
             <Ionicons name="star-sharp" size={20} color={COLORS.yellow} />

@@ -17,12 +17,16 @@ function AvailableNear() {
     queryFn: getRestaurants,
   });
 
-  const handleCardPress = () => {
-    navigation.navigate("menu");
+
+  const handleCardPress = (restaurantId, restaurantName) => {
+    navigation.navigate("menu", { restaurantId: restaurantId, restaurantName });
+    console.log(restaurantId);
   };
+
   if (isLoading) return <Spinner />;
   if (error) return <Text>{error.message}</Text>;
   if (!data) return null;
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -38,7 +42,12 @@ function AvailableNear() {
           data={data.data}
           ListEmptyComponent={() => <Text>No Restaurants yet</Text>}
           renderItem={({ item }) => (
-            <AvailableCard item={item} handleCardPress={handleCardPress} />
+            <AvailableCard
+              item={item}
+              handleCardPress={() =>
+                handleCardPress(item.restaurantId, item.restaurantName)
+              }
+            />
           )}
           contentContainerStyle={{ columnGap: SIZES.xLarge }}
           horizontal
