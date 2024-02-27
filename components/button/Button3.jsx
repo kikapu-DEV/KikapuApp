@@ -28,11 +28,12 @@ function Button3({ title, screenName, color, iconName, product }) {
 	return (
 		<View>
 			<TouchableOpacity
-				onPress={async () => {
-					console.log("screen name", screenName);
-					await addToCart(product);
-					// navigation.navigate(screenName);
-				}}
+				onPress={()=> navigation.navigate(screenName)}
+				// onPress={async () => {
+				// 	console.log("screen name", screenName);
+				// 	await addToCart(product);
+				// 	navigation.navigate(screenName);
+				// }}
 			>
 				<View style={styles.btn1(color)}>
 					<Ionicons name={iconName} size={24} color='white' />

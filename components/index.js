@@ -29,6 +29,7 @@ import RestIngredient from "./Cards/restIngredient/RestIngredient";
 import Button3 from "./button/Button3";
 import CreditCard from "./Cards/CreditCard/CreditCard";
 import Spinner from "./Spinner/spinner";
+import CartBtn from "./button/CartBtn";
 
 export {
 	SemiCircle,
@@ -62,4 +63,5 @@ export {
 	Button3,
 	CreditCard,
 	Spinner,
+	CartBtn,
 };

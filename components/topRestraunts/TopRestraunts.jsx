@@ -1,10 +1,22 @@
-import { FlatList, Text, TouchableOpacity, View } from "react-native"
-import styles from "./toprest.style"
-import { SIZES, images } from "../../constants"
-import RestCard from "../restCard/RestCard"
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import styles from "./toprest.style";
+import { SIZES, images } from "../../constants";
+import RestCard from "../restCard/RestCard";
+import { getRestaurants } from "../../services/Students";
+import Spinner from "../Spinner/spinner";
+import { useQuery } from "@tanstack/react-query";
 
-const popularImages = [images.food1,images.food2, images.food3];
+const popularImages = [images.food1, images.food2, images.food3];
+
 function TopRestraunts() {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["getRestaurants"],
+    queryFn: getRestaurants,
+  });
+
+  if (isLoading) return <Spinner />;
+  if (error) return <Text>{error.message}</Text>;
+  if (!data) return null;
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -16,18 +28,17 @@ function TopRestraunts() {
 
       {/* restaurants list */}
       <View style={styles.cardsContainer}>
-              <FlatList
-              data = {[1,2,3]}
-              renderItem={({item})=>(
-                <RestCard item={item}/>
-              )}
-              contentContainerStyle={{columnGap: SIZES.xSmall}}
-              horizontal
-              />
-
+        <FlatList
+          data={data.data}
+          keyExtractor={(item, index) => index.toString()}
+          ListEmptyComponent={()=> <Text>No Restaurants yet</Text>}
+          renderItem={({ item }) => <RestCard item={item} />}
+          contentContainerStyle={{ columnGap: SIZES.xSmall }}
+          horizontal
+        />
       </View>
     </View>
-  )
+  );
 }
 
-export default TopRestraunts
+export default TopRestraunts;

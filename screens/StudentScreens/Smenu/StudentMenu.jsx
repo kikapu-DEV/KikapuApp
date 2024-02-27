@@ -2,9 +2,22 @@ import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 import styles from "./sMenu.style";
 import { COLORS, images } from "../../../constants";
 import { Ionicons } from "@expo/vector-icons";
-import { MenuCard } from "../../../components";
+import { MenuCard, Spinner } from "../../../components";
+import { useQuery } from "@tanstack/react-query";
+import { getMenus } from "../../../services/Students";
 
-function StudentMenu() {
+function StudentMenu({ route }) {
+  const { restaurantId, restaurantName } = route.params;
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["getMenus", restaurantId],
+    queryFn: getMenus,
+  });
+  console.log("the rest name is:" ,restaurantName);
+
+  if (isLoading) return <Spinner />;
+  if (error) return <Text>{error.message}</Text>;
+  if (!data) return null;
+
   return (
     <View style={styles.container}>
       <View
@@ -19,7 +32,7 @@ function StudentMenu() {
         <View style={styles.titleMainContainer}>
           {/* business title and ratings */}
           <View style={styles.TitleContainer}>
-            <Text style={styles.title}>Mama Burger</Text>
+            <Text style={styles.title}>{restaurantName}</Text>
 
             <View style={styles.menuContentSmall}>
               <Ionicons name="star-sharp" size={15} color={COLORS.yellow} />
@@ -43,9 +56,10 @@ function StudentMenu() {
 
         {/* menu list */}
         <FlatList
-          data={[1, 2, 3, 4, 5, 6]}
+          data={data.data}
+          ListEmptyComponent={() => <Text>No meals yet</Text>}
           keyExtractor={(item, index) => index.toString()}
-          renderItem={() => <MenuCard />}
+          renderItem={({ item }) => <MenuCard item={item} />}
         />
       </View>
     </View>

@@ -3,7 +3,7 @@ import styles from "./availableCard.style";
 import { COLORS, images } from "../../constants";
 import { Ionicons } from "@expo/vector-icons";
 
-function AvailableCard({ handleCardPress }) {
+function AvailableCard({ handleCardPress, item }) {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.container}>
@@ -21,7 +21,7 @@ function AvailableCard({ handleCardPress }) {
 
       {/* available content */}
       <View style={styles.availableContent}>
-        <Text style={styles.availableTitle}>Mama Burger</Text>
+        <Text style={styles.availableTitle}>{item.restaurantName}</Text>
         <View style={styles.availableDetail}>
           <View style={styles.availableContentSmall}>
             <Ionicons name="star-sharp" size={20} color={COLORS.yellow} />

@@ -2,43 +2,53 @@ import { Alert, Image, Text, TextInput, View } from "react-native";
 import styles from "./studentPayment.style";
 import { COLORS, images } from "../../../constants";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import SwipeButton from 'rn-swipe-button';
+import SwipeButton from "rn-swipe-button";
 import { SwipeBtn } from "../../../components";
 import { useNavigation } from "@react-navigation/native";
+import { useSelector } from "react-redux";
+import useAuth from "../../../helpers/hooks/useAuth";
 
 function StudentPayment() {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
+  const total = useSelector((state) => state.cart.cart.total);
+	const { userInfo } = useAuth();
 
-    const handlePayment = () =>{
-        Alert.alert("Your kikapu account has insufficient balance.", "Would you like kikapu to loan you ksh. 250?",[
-            {
-                text: "NO",
-                onPress: ()=>{}
-            },
-            {
-                text: "YES",
-                onPress: ()=>{navigation.navigate('success')}
-            }
-        ])
-    }
+  const handlePayment = () => {
+    Alert.alert(
+      "Your kikapu account has insufficient balance.",
+      "Would you like kikapu to loan you ksh. 250?",
+      [
+        {
+          text: "NO",
+          onPress: () => {},
+        },
+        {
+          text: "YES",
+          onPress: () => {
+            navigation.navigate("success");
+          },
+        },
+      ]
+    );
+  };
   return (
     <View style={styles.container}>
       <View style={styles.logo}>
-        <Image  source={images.kikapuLogo} />
+        <Image source={images.kikapuLogo} />
       </View>
       <Text style={styles.text1}>Make payment</Text>
-      <Text style={styles.text2}>cheese burgers</Text>
-      <Text style={styles.text2}>Blonde roast</Text>
+      {/* <Text style={styles.text2}>cheese burgers</Text>
+      <Text style={styles.text2}>Blonde roast</Text> */}
       <View style={styles.smallAvatar}>
         <Image source={images.smallAvatar} />
       </View>
-      <Text style={styles.text4}>Paula Njoroge</Text>
+      <Text style={styles.text4}>{userInfo.profile.firstName} {userInfo.profile.lastName} </Text>
       <View style={styles.inputContainer}>
         <TextInput style={styles.inputBox} />
       </View>
 
       <View style={styles.promoTexts}>
-        <View style={{flexDirection: "row", gap: 5, alignItems: "center"}}>
+        <View style={{ flexDirection: "row", gap: 5, alignItems: "center" }}>
           <MaterialCommunityIcons
             name="bookmark-minus"
             size={24}
@@ -52,28 +62,29 @@ function StudentPayment() {
 
       <View style={styles.totalBox}>
         <Text>Total</Text>
-        <Text style={{fontSize: 16, fontWeight: '400'}}>Ksh. 1500</Text>
+        <Text style={{ fontSize: 16, fontWeight: "400" }}>Ksh. {total}</Text>
       </View>
 
       {/* swipe button */}
       <View style={styles.swipeBtn}>
-      <SwipeButton 
-      thumbIconComponent={SwipeBtn} railBackgroundColor={COLORS.secondary}
-      title="Swipe to pay"
-      thumbIconBackgroundColor="#FFFFFF"
-      railStyles={{
-        backgroundColor: COLORS.lightGreen,
-        borderColor: COLORS.lightGreen,
-      }}
-      titleStyles={{
-        color: COLORS.whiteText,
-        fontSize: 18
-      }}
-      thumbIconBorderColor={COLORS.whiteText}
-      railBorderColor={COLORS.secondary}
-      onSwipeSuccess={()=> handlePayment()}
-      />
-    </View>
+        <SwipeButton
+          thumbIconComponent={SwipeBtn}
+          railBackgroundColor={COLORS.secondary}
+          title="Swipe to pay"
+          thumbIconBackgroundColor="#FFFFFF"
+          railStyles={{
+            backgroundColor: COLORS.lightGreen,
+            borderColor: COLORS.lightGreen,
+          }}
+          titleStyles={{
+            color: COLORS.whiteText,
+            fontSize: 18,
+          }}
+          thumbIconBorderColor={COLORS.whiteText}
+          railBorderColor={COLORS.secondary}
+          onSwipeSuccess={() => handlePayment()}
+        />
+      </View>
     </View>
   );
 }
