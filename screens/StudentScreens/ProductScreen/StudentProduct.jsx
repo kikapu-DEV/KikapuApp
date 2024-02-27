@@ -10,7 +10,7 @@ import styles from "./sProduct.style";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, images } from "../../../constants";
-import { Button3, Counter, Spinner } from "../../../components";
+import { Button3, CartBtn, Counter, Spinner } from "../../../components";
 import { Dropdown } from "react-native-element-dropdown";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
@@ -104,11 +104,13 @@ function StudentProduct({ route }) {
       </ScrollView>
 
       {/* add cart button */}
-      <Button3
+      <CartBtn
         title="Add to cart"
         color={COLORS.secondary}
         screenName="checkout"
         iconName="ios-cart-outline"
+        product={meal}
+        quantity={<Counter/>}
       />
     </View>
   );

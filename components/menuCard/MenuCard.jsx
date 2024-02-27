@@ -20,11 +20,7 @@ function MenuCard({ item }) {
             <Text style={styles.menuTitle}>{meal.name}</Text>
             <Text style={styles.menuSubTitle}>Buy one get 1 free</Text>
             <Text style={styles.foodContent}>{meal.description}</Text>
-            <TouchableOpacity
-              onPress={() =>
-                navigation.navigate("studentProduct", { menuId: data.data._id })
-              }
-            >
+            <TouchableOpacity onPress={() => navigateToStudentProduct(meal)}>
               <View style={styles.menuBtn}>
                 <Text style={styles.menuBtnText}>ksh. {meal.price}</Text>
               </View>
