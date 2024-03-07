@@ -105,7 +105,7 @@ function StudentProduct({ route }) {
 
       {/* add cart button */}
       <CartBtn
-        title="Add to cart"
+        title="Add to kikapu"
         color={COLORS.secondary}
         screenName="checkout"
         iconName="ios-cart-outline"

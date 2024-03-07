@@ -21,23 +21,18 @@ const styles = StyleSheet.create({
     fontSize: SIZES.large,
     width: 250,
   },
-  homeDisplay: {
-    position: "relative",
-    height: "100%",
-    marginTop: 20,
-    backgroundColor: COLORS.whiteText,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    paddingTop: 5,
-    paddingBottom: 5,
-    paddingLeft: 30,
-    paddingRight: 30,
+
+  mainSearchContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
   },
   searchContainer: {
-    // position: "absolute",
-    // top: '-30%',
+    width: 320,
+    marginHorizontal: "auto",
     borderWidth: 1,
     borderRadius: 40,
+    borderColor: COLORS.whiteText,
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",
@@ -58,6 +53,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     paddingHorizontal: SIZES.xxLarge,
+    color: COLORS.whiteText,
   },
   searchBtn: {
     width: 50,
@@ -66,6 +62,28 @@ const styles = StyleSheet.create({
     borderRadius: SIZES.medium,
     justifyContent: "center",
     alignItems: "center",
+  },
+  homeDisplay: {
+    position: "relative",
+    height: "100%",
+    marginTop: 20,
+    backgroundColor: COLORS.whiteText,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 30,
+    paddingRight: 30,
+  },
+  allRestaurants: {
+    marginTop: 10,
+  },
+
+  headerTitle: {
+    fontSize: SIZES.medium,
+    color: COLORS.primary,
+    marginTop: 50,
+    fontWeight: "bold",
   },
 });
 
