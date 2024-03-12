@@ -5,12 +5,10 @@ const styles = StyleSheet.create({
   container: {
     height: "100%",
     flex: 1,
-    // marginBottom: 20,
     backgroundColor: COLORS.primary,
   },
   welcome: {
-    margin: 5,
-    padding: 20,
+    paddingHorizontal: 20,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",

@@ -8,16 +8,11 @@ import { getMenus } from "../../services/Students";
 import MealCard from "../mealCard";
 
 function RestaurantListRow({ restaurant }) {
-  const navigation = useNavigation();
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["getMenus", restaurant.restaurantId],
     queryFn: getMenus,
   });
-
-  const handleCardPress = (meal) => {
-    navigation.navigate("studentProduct", { meal });
-  };
 
   if (isLoading) return <Spinner />;
   if (error) return <Text>{error.message}</Text>;
@@ -40,9 +35,6 @@ function RestaurantListRow({ restaurant }) {
           renderItem={({ item }) => (
             <MealCard
               item={item}
-              handleCardPress={() =>
-                handleCardPress(item)
-              }
             />
           )}
           contentContainerStyle={{ columnGap: SIZES.xLarge }}
