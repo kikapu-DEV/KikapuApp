@@ -15,18 +15,23 @@ import { useState } from "react";
 import { COLORS } from "../../../constants";
 
 const data = [
-  { label: "Fruits", value: "Fruits" },
+  { label: "Breakfast", value: "Breakfast" },
   { label: "Vegetables", value: "Vegetables" },
   { label: "Dairy", value: "Dairy" },
   { label: "Meat", value: "Meat" },
 ];
-function RestAddMenu() {
+function RestAddMeal() {
   const navigation = useNavigation();
   const [value, setValue] = useState(null);
   return (
     <View style={styles.container}>
       {/* header */}
-      <Text style={styles.txt1}>Add new Menu</Text>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Ionicons name="arrow-back-circle-outline" size={32} color="black" />
+        </TouchableOpacity>
+        <Text style={styles.txt1}>Add new Meal</Text>
+      </View>
 
       {/* body */}
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -51,7 +56,7 @@ function RestAddMenu() {
         {/* dropdown */}
         <Dropdown
           style={styles.dropdown}
-          placeholder="Product category"
+          placeholder="Add to Menu"
           data={data}
           value={value}
           labelField="label"
@@ -61,14 +66,14 @@ function RestAddMenu() {
 
         {/* upload image */}
         <View style={styles.row2}>
-          <TouchableOpacity onPress={()=>{}}>
+          <TouchableOpacity onPress={() => {}}>
             <View style={styles.left2}>
               <Ionicons name="image-outline" size={50} color={COLORS.grey} />
               <Text>Upload image</Text>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>{}}>
+          <TouchableOpacity onPress={() => {}}>
             <View style={styles.left2}>
               <MaterialCommunityIcons
                 name="camera-outline"
@@ -91,4 +96,4 @@ function RestAddMenu() {
   );
 }
 
-export default RestAddMenu;
+export default RestAddMeal;
