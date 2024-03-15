@@ -41,22 +41,14 @@ function TopUp() {
         </TouchableOpacity>
 
         {/* credit card */}
-        <Text style={styles.txt2}>Credit Card</Text>
+        {/* <Text style={styles.txt2}>Credit Card</Text>
         <TouchableOpacity onPress={()=> navigation.navigate('addCard')}>
           <View style={styles.mpesa}>
             <Image source={images.creditCard} />
             <MaterialIcons name="navigate-next" size={24} color="black" />
           </View>
-        </TouchableOpacity>
-
-        {/* Kikapu */}
-        <Text style={styles.txt2}>Kikapu Wallet</Text>
-        <TouchableOpacity onPress={()=> navigation.navigate('addCard')}>
-          <View style={styles.mpesa}>
-            <Image source={images.kikapuLogoSmall}/>
-            <MaterialIcons name="navigate-next" size={24} color="black" />
-          </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+        
       </View>
     </View>
   );
