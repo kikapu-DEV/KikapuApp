@@ -24,6 +24,8 @@ import {
 	TopUp,
 	Transfer,
 	Verify,
+	PasswordReset,
+	OTP,
 	// RestAddProduct,
 } from "../screens";
 import { COLORS } from "../constants";
@@ -78,6 +80,20 @@ export default function AppRoutes() {
 				<Stack.Screen
 					name='verify'
 					component={Verify}
+					options={{
+						headerShown: false,
+					}}
+				/>
+				<Stack.Screen
+					name='otp'
+					component={OTP}
+					options={{
+						headerShown: false,
+					}}
+				/>
+				<Stack.Screen
+					name='password_reset'
+					component={PasswordReset}
 					options={{
 						headerShown: false,
 					}}

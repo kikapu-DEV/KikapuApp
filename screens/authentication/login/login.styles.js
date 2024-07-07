@@ -27,6 +27,12 @@ const styles = StyleSheet.create({
     width: "100",
     marginBottom: 50,
   },
+  forgotPasswordText: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "flex-end",
+    flexDirection: "row",
+  },
   pressableText: {
     width: "100%",
     display: "flex",

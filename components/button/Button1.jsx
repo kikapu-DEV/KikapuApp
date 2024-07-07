@@ -121,6 +121,19 @@ function Button1({
 						setLoading(false);
 					});
 				}
+			} else {
+				setLoading(true);
+
+				if (await onSubmit()) {
+					showToast("success", "Success", () => {
+						setLoading(false);
+						navigation.navigate(screenName);
+					});
+				} else {
+					showToast("error", "Fail", () => {
+						setLoading(false);
+					});
+				}
 			}
 		} catch (err) {
 			showToast("error", err.message, () => {

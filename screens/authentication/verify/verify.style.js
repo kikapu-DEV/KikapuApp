@@ -15,6 +15,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 5,
   },
+  verifyText3: {
+    textAlign: "center",
+    marginTop: 20,
+    marginBottom: 50
+  },
   verifyRow: {
     display: "flex",
     justifyContent: "center",
@@ -30,6 +35,16 @@ const styles = StyleSheet.create({
     padding: 6,
     textAlign: 'center'
   },
+  dropdownContainer: {
+    marginBottom: 20,
+    width: '45%',
+  },
+  dropdown: {
+    backgroundColor: COLORS.grey3,
+    borderRadius: 8,
+    padding: 5,
+    marginTop: 8,
+  },
   signUpText: {
     width: "100",
     marginBottom: 30,
@@ -39,6 +54,13 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     flexDirection: "row",
+  },
+  textInput: {
+    borderWidth: 2,
+    borderColor: COLORS.primary,
+    borderRadius: 10,
+    marginBottom: 30,
+    padding: 10,
   },
 });
 

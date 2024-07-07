@@ -3,6 +3,8 @@ import Onboarding from "./authentication/onboarding/Onboarding";
 import Login from "./authentication/login/Login";
 import Signup from "./authentication/signup/Signup";
 import Verify from "./authentication/verify/Verify";
+import OTP from "./authentication/otp/OTP";
+import PasswordReset from "./authentication/reset/PasswordReset";
 
 // student screens
 import Main from "./StudentScreens/mainScreen/Main";
@@ -41,6 +43,8 @@ export {
     Login, 
     Signup, 
     Verify,
+    PasswordReset,
+    OTP,
     Main, 
     StudentHome, 
     Wallet,

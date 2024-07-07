@@ -13,6 +13,7 @@ import { useState } from "react";
 import { COLORS, images } from "../../../constants";
 import { Button1, SemiCircle } from "../../../components";
 import Toast from "react-native-toast-message";
+import { emailRegex, passwordMinLengthRegex } from "../../../constants/rejex";
 
 const data = [
   { label: "Customer", value: "customer" },
@@ -46,7 +47,7 @@ function Signup() {
     //   validate email
     if (!signupFormData.email) {
       errors.email = "Email name is required";
-    } else if (!/\S+@\S+\.\S+/.test(signupFormData.email)) {
+    } else if (!emailRegex.test(signupFormData.email)) {
       errors.email = "Email is invalid";
     }
     //   validate role
@@ -64,31 +65,31 @@ function Signup() {
     // validate password
     if (!signupFormData.password) {
       errors.password = "Password is required";
-    } else if (signupFormData.password < 6) {
-      errors.password = "Password must be at least 6 characters.";
+    } else if (!passwordMinLengthRegex.test(signupFormData.password)) {
+      errors.password = "Password must be at least 8 characters.";
     }
 
-	setError(errors);
-	return Object.keys(errors).length === 0
+    setError(errors);
+    return Object.keys(errors).length === 0
   };
 
-  const handleSubmit =()=>{
-	const isFormValid = validateForm();
-	
-	if (isFormValid){
-		console.log("form submitted successfully");
-		setSignupFormData({
-			firstName: "",
-			lastName: "",
-			email: "",
-			role: "",
-			phone: "",
-			password: "",
-		})
-	}
-	else{
-		console.log("Form has errors. Please correct them before submission")
-	}
+  const handleSubmit = () => {
+    const isFormValid = validateForm();
+
+    if (isFormValid) {
+      console.log("form submitted successfully");
+      setSignupFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        role: "",
+        phone: "",
+        password: "",
+      })
+    }
+    else {
+      console.log("Form has errors. Please correct them before submission")
+    }
 
   }
 
@@ -116,7 +117,7 @@ function Signup() {
         <View style={styles.nameInputRow}>
           <View style={styles.nameSection}>
 
-			{/* first name */}
+            {/* first name */}
             <Text>First Name</Text>
             <TextInput
               value={signupFormData.firstName}
@@ -132,7 +133,7 @@ function Signup() {
             )}
           </View>
 
-		  {/* last name */}
+          {/* last name */}
           <View style={styles.nameSection}>
             <Text>Last Name</Text>
             <TextInput
@@ -189,24 +190,29 @@ function Signup() {
         </View>
 
         {/* phone number */}
-        <View style={styles.contactContainer}>
-          <View style={styles.contactPreview}>
-            <Image source={images.kenyanFlag} />
-            <Text>+254</Text>
+        <View >
+          <Text style={{textAlign: "center", right: 50, marginBottom: 5}}>Phone</Text>
+
+          <View style={styles.contactContainer}>
+            <View style={styles.contactPreview}>
+              <Image source={images.kenyanFlag} />
+              <Text>+254</Text>
+            </View>
+            <TextInput
+              maxLength={9}
+              value={signupFormData.phone}
+              onChangeText={(text) =>
+                setSignupFormData({ ...signupFormData, phone: text })
+              }
+              style={styles.contactInput}
+            />
+            {error && (
+              <Text style={{ color: COLORS.red, textAlign: "center" }}>
+                {error.phone}
+              </Text>
+            )}
           </View>
-          <TextInput
-            maxLength={9}
-            value={signupFormData.phone}
-            onChangeText={(text) =>
-              setSignupFormData({ ...signupFormData, phone: text })
-            }
-            style={styles.contactInput}
-          />
-          {error && (
-            <Text style={{ color: COLORS.red, textAlign: "center" }}>
-              {error.phone}
-            </Text>
-          )}
+
         </View>
 
         {/* PASSWORD */}
@@ -250,8 +256,8 @@ function Signup() {
           color={COLORS.primary}
           formData={signupFormData}
           showToast={showToast}
-		  onSubmit={handleSubmit}
-		  isFormValid={isFormValid}
+          onSubmit={handleSubmit}
+          isFormValid={isFormValid}
         />
         {/* <Toast/> */}
       </ScrollView>

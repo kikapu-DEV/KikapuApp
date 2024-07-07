@@ -1,41 +1,49 @@
-import { useState, useRef, useEffect } from "react";
-import { Pressable, Text, TextInput, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
+import { Text, TextInput, View } from "react-native";
+import { Dropdown } from 'react-native-element-dropdown';
 import styles from "./verify.style";
 import { Button1, SemiCircle2 } from "../../../components";
 import { COLORS } from "../../../constants";
 import Toast from "react-native-toast-message";
+import { emailRegex, phoneRegex } from "../../../constants/rejex";
 
-function Verify({ route }) {
-	const { email, otp } = route.params;
+const data = [
+	{ label: 'Email', value: 'email' },
+	{ label: 'Phone Number', value: 'phone' }
+];
 
-	const refs = Array.from({ length: 6 }, () => useRef());
-	const navigation = useNavigation();
-	const [verifyFormData, setVerifyFormData] = useState({});
+function Verify() {
+	const [selectedOption, setSelectedOption] = useState('email');
+	const [emailOrPhone, setEmailOrPhone] = useState('');
+	const [errors, setErrors] = useState({});
 
-	const focusInput = (index) => {
-		if (index < refs.length - 1) {
-			refs[index + 1].current.focus();
+	const validateForm = () => {
+		let errors = {};
+
+		if (!emailOrPhone.trim()) {
+			errors.emailOrPhone = 'This field is required';
+		} else if (selectedOption === 'email' && !emailRegex.test(emailOrPhone)) {
+			errors.emailOrPhone = 'Please enter a valid email.';
+		} else if (selectedOption === 'phone' && !phoneRegex.test(emailOrPhone)) {
+			errors.emailOrPhone = 'Please enter a valid phone number.';
 		}
+
+		setErrors(errors);
+		return Object.keys(errors).length === 0;
 	};
 
-	const handleKeyPress = (index, key) => {
-		if (key === "Backspace" && index > 0) {
-			// Move focus to the previous input when Backspace is pressed
-			refs[index - 1].current.focus();
+	const handleSubmit = () => {
+		const isFormValid = validateForm();
+
+		if (isFormValid) {
+			console.log('Form submitted successfully');
+			return true;
+			
+		} else {
+			console.log('Form has errors. Correct them');
+			return false;
 		}
 	};
-
-	useEffect(() => {
-		setVerifyFormData({
-			digit1: otp[0],
-			digit2: otp[1],
-			digit3: otp[2],
-			digit4: otp[3],
-			digit5: otp[4],
-			digit6: otp[5],
-		});
-	}, []);
 
 	const showToast = (type, msg2, onHide) => {
 		Toast.show({
@@ -47,67 +55,46 @@ function Verify({ route }) {
 			onHide: onHide,
 		});
 	};
+
 	return (
 		<View style={styles.container}>
 			<SemiCircle2 />
 			<Toast />
-			<Text style={styles.verifyText}>Verify your account</Text>
-			<Text style={styles.verifyText2}>
-				Enter the 6-digit code sent to your email address
-			</Text>
-			<View style={styles.verifyRow}>
-				{Array.from({ length: 6 }, (_, index) => (
-					<TextInput
-						key={index}
-						ref={refs[index]}
-						maxLength={1}
-						value={verifyFormData[`digit${index + 1}`]}
-						onChangeText={(text) => {
-							setVerifyFormData({
-								...verifyFormData,
-								[`digit${index + 1}`]: text,
-							});
-
-							if (text.length > 0) {
-								focusInput(index);
-							}
-						}}
-						onKeyPress={({ nativeEvent: { key } }) =>
-							handleKeyPress(index, key)
-						}
-						style={styles.verifyBoxes}
-					/>
-				))}
+			<Text style={styles.verifyText}>Reset Password</Text>
+			<Text style={styles.verifyText3}>Forgot your password? No problem! Just enter your email or phone number to get verification code.</Text>
+			<View style={styles.dropdownContainer}>
+				<Text>Select Method to Verify Account</Text>
+				<Dropdown
+					style={styles.dropdown}
+					placeholder="Select Contact Method"
+					data={data}
+					value={selectedOption}
+					labelField="label"
+					valueField="value"
+					onChange={(item) => setSelectedOption(item.value)}
+				/>
 			</View>
+			<Text style={{ marginBottom: 20 }}>
+				{selectedOption === 'email' ? 'Email Address' : 'Phone Number'}
+			</Text>
+			<TextInput
+				value={emailOrPhone}
+				onChangeText={(text) => setEmailOrPhone(text)}
+				style={styles.textInput}
+				keyboardType={selectedOption === 'email' ? 'email-address' : 'phone-pad'}
+			/>
+			{errors.emailOrPhone && (
+				<Text style={{ color: COLORS.red, textAlign: "left" }}>
+					{errors.emailOrPhone}
+				</Text>
+			)}
 			<Button1
-				title='Verify'
-				screenName='login'
+				title="Verify"
+				screenName="otp"
 				color={COLORS.primary}
-				formData={{
-					email,
-					otpString: `${verifyFormData.digit1}${verifyFormData.digit2}${verifyFormData.digit3}${verifyFormData.digit4}${verifyFormData.digit5}${verifyFormData.digit6}`,
-				}}
+				onSubmit={handleSubmit}
 				showToast={showToast}
 			/>
-			<View style={styles.signUpText}>
-				<Pressable
-					onPress={() => {
-						navigation.navigate("verify");
-					}}
-					style={styles.pressableText}
-				>
-					<Text>Didn’t receive OTP?</Text>
-					<Text
-						style={{
-							marginLeft: 5,
-							borderBottomWidth: 1,
-							borderStyle: "dotted",
-						}}
-					>
-						Resend in 30 seconds
-					</Text>
-				</Pressable>
-			</View>
 		</View>
 	);
 }

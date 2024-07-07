@@ -4,6 +4,7 @@ import styles from "./login.styles";
 import { Button1, SemiCircle } from "../../../components";
 import { COLORS } from "../../../constants";
 import Toast from "react-native-toast-message";
+import { emailRegex } from "../../../constants/rejex";
 
 function Login({ navigation }) {
   const [loginFormData, setLoginForm] = useState({});
@@ -13,11 +14,15 @@ function Login({ navigation }) {
 
   const validateForm = () => {
     let errors = {};
+
     if (!loginFormData.email) {
-      errors.email = "email is required";
-    } else if (!loginFormData.password) {
+			errors.email = 'Email is required';
+		} else if (!emailRegex.test(loginFormData.email)) {
+			errors.email = 'Please enter a valid email.';
+		} else if (!loginFormData.password) {
       errors.password = "password is required";
     }
+
     setError(errors);
     setIsFormValid(Object.keys(errors).length === 0);
   };
@@ -45,7 +50,7 @@ function Login({ navigation }) {
       <ScrollView
         style={styles.loginFormContainer}
         showsVerticalScrollIndicator={false}
-		contentContainerStyle={{paddingBottom: 40}}
+        contentContainerStyle={{ paddingBottom: 40 }}
       >
         <Text style={styles.welcomeText}>Welcome Back!</Text>
         <Text style={{ marginBottom: 20 }}>Email Address</Text>
@@ -57,7 +62,7 @@ function Login({ navigation }) {
           style={styles.textInput}
         />
         {error && (
-          <Text style={{ color: COLORS.red, textAlign: "center" }}>
+          <Text style={{ color: COLORS.red, textAlign: "center"}}>
             {error.email}
           </Text>
         )}
@@ -72,10 +77,27 @@ function Login({ navigation }) {
           style={styles.textInput}
         />
         {error && (
-          <Text style={{ color: COLORS.red, textAlign: "center" }}>
+          <Text style={{ color: COLORS.red, textAlign: "center", marginBottom: 5 }}>
             {error.password}
           </Text>
         )}
+
+        <View style={styles.signUpText}>
+          <Pressable
+            onPress={() => navigation.navigate("verify")}
+            style={styles.forgotPasswordText}
+          >
+            <Text
+              style={{
+                marginLeft: 5,
+                borderBottomWidth: 1,
+                borderStyle: "dotted",
+              }}
+            >
+              Forgot Password?
+            </Text>
+          </Pressable>
+        </View>
 
         <View style={styles.signUpText}>
           <Pressable
