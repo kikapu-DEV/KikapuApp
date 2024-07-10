@@ -27,7 +27,7 @@ import RestHome from "./RestaurantScreens/RestaurantHome/RestHome";
 import CategoryItems from "./RestaurantScreens/categoryItems/CategoryItems";
 import RID from "./RestaurantScreens/restItemDetail/RID";
 import RestCart from "./RestaurantScreens/restCart/RestCart";
-import RestAddMenu from './RestaurantScreens/RestAddMenu/RestAddMenu';
+import RestAddMeal from "./RestaurantScreens/RestAddMenu/RestAddMeal";
 
 
 // Farmer screens
@@ -36,34 +36,34 @@ import FarmerHome from "./FarmerScreens/FarmerHome/FarmerHome";
 import AddProduct from "./FarmerScreens/addProduct/AddProduct";
 import AddSuccess from "./FarmerScreens/addSuccess/AddSuccess";
 
-export { 
-    Onboarding, 
-    Login, 
-    Signup, 
-    Verify,
-    Main, 
-    StudentHome, 
-    Wallet,
-    Order,
-    Profile,
-    StudentMenu,
-    StudentPayment,
-    Success,
-    StudentProduct,
-    StudentCheckout,
-    RestMain,
-    RestHome,
-    CategoryItems,
-    RID,
-    FarmerMainApp,
-    FarmerHome,
-    TopUp,
-    Transfer,
-    AddCard,
-    CreditCardDetail,
-    RestCart,
-    AddProduct,
-    AddSuccess,
-    RestAddMenu,
-    OrderDetail,
+export {
+  Onboarding,
+  Login,
+  Signup,
+  Verify,
+  Main,
+  StudentHome,
+  Wallet,
+  Order,
+  Profile,
+  StudentMenu,
+  StudentPayment,
+  Success,
+  StudentProduct,
+  StudentCheckout,
+  RestMain,
+  RestHome,
+  CategoryItems,
+  RID,
+  FarmerMainApp,
+  FarmerHome,
+  TopUp,
+  Transfer,
+  AddCard,
+  CreditCardDetail,
+  RestCart,
+  AddProduct,
+  AddSuccess,
+  RestAddMeal,
+  OrderDetail,
 };
